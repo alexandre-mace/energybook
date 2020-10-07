@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/energybook/static/css/main.b44aa44d.chunk.css",
+    "main.js": "/energybook/static/js/main.01344b2e.chunk.js",
+    "main.js.map": "/energybook/static/js/main.01344b2e.chunk.js.map",
+    "runtime-main.js": "/energybook/static/js/runtime-main.7279f93b.js",
+    "runtime-main.js.map": "/energybook/static/js/runtime-main.7279f93b.js.map",
+    "static/js/2.f1584834.chunk.js": "/energybook/static/js/2.f1584834.chunk.js",
+    "static/js/2.f1584834.chunk.js.map": "/energybook/static/js/2.f1584834.chunk.js.map",
+    "index.html": "/energybook/index.html",
+    "precache-manifest.4f0eded178a383189be90d815ccc0e5f.js": "/energybook/precache-manifest.4f0eded178a383189be90d815ccc0e5f.js",
+    "service-worker.js": "/energybook/service-worker.js",
+    "static/css/main.b44aa44d.chunk.css.map": "/energybook/static/css/main.b44aa44d.chunk.css.map",
+    "static/js/2.f1584834.chunk.js.LICENSE.txt": "/energybook/static/js/2.f1584834.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7279f93b.js",
+    "static/js/2.f1584834.chunk.js",
+    "static/css/main.b44aa44d.chunk.css",
+    "static/js/main.01344b2e.chunk.js"
+  ]
+}
