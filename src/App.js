@@ -143,7 +143,7 @@ function App() {
               <div className="row">
                   <div className="col">
                       <p>Hello :), i will talk to you about <strong>Energy</strong></p>
-                      <p>We is consuming a lot of it, and it is growing fast..</p>
+                      <p>We are consuming a lot of it, and it is growing fast..</p>
                   </div>
               </div>
           </div>
