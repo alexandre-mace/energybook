@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/energybook/static/css/main.b44aa44d.chunk.css",
-    "main.js": "/energybook/static/js/main.2168c5a2.chunk.js",
-    "main.js.map": "/energybook/static/js/main.2168c5a2.chunk.js.map",
+    "main.css": "/energybook/static/css/main.cdb047e7.chunk.css",
+    "main.js": "/energybook/static/js/main.dd9e2fdf.chunk.js",
+    "main.js.map": "/energybook/static/js/main.dd9e2fdf.chunk.js.map",
     "runtime-main.js": "/energybook/static/js/runtime-main.7279f93b.js",
     "runtime-main.js.map": "/energybook/static/js/runtime-main.7279f93b.js.map",
-    "static/js/2.1dafaf61.chunk.js": "/energybook/static/js/2.1dafaf61.chunk.js",
-    "static/js/2.1dafaf61.chunk.js.map": "/energybook/static/js/2.1dafaf61.chunk.js.map",
+    "static/js/2.2a56d565.chunk.js": "/energybook/static/js/2.2a56d565.chunk.js",
+    "static/js/2.2a56d565.chunk.js.map": "/energybook/static/js/2.2a56d565.chunk.js.map",
     "index.html": "/energybook/index.html",
-    "precache-manifest.b81ac2e8c9b1b93de61885de5059242c.js": "/energybook/precache-manifest.b81ac2e8c9b1b93de61885de5059242c.js",
+    "precache-manifest.ea608c3168d657c7cffbd5b5a185b72e.js": "/energybook/precache-manifest.ea608c3168d657c7cffbd5b5a185b72e.js",
     "service-worker.js": "/energybook/service-worker.js",
-    "static/css/main.b44aa44d.chunk.css.map": "/energybook/static/css/main.b44aa44d.chunk.css.map",
-    "static/js/2.1dafaf61.chunk.js.LICENSE.txt": "/energybook/static/js/2.1dafaf61.chunk.js.LICENSE.txt",
+    "static/css/main.cdb047e7.chunk.css.map": "/energybook/static/css/main.cdb047e7.chunk.css.map",
+    "static/js/2.2a56d565.chunk.js.LICENSE.txt": "/energybook/static/js/2.2a56d565.chunk.js.LICENSE.txt",
     "static/media/renewables_share.csv": "/energybook/static/media/renewables_share.9ef3a7c8.csv",
     "static/media/total_co2_emissions.csv": "/energybook/static/media/total_co2_emissions.ae35b90c.csv",
     "static/media/total_electricity_consumption.csv": "/energybook/static/media/total_electricity_consumption.c23a0dbf.csv",
@@ -19,8 +19,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7279f93b.js",
-    "static/js/2.1dafaf61.chunk.js",
-    "static/css/main.b44aa44d.chunk.css",
-    "static/js/main.2168c5a2.chunk.js"
+    "static/js/2.2a56d565.chunk.js",
+    "static/css/main.cdb047e7.chunk.css",
+    "static/js/main.dd9e2fdf.chunk.js"
   ]
 }
