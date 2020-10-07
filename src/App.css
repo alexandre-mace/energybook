@@ -1,12 +1,24 @@
 .App {
   text-align: center;
 }
-
+.width-auto {
+  width: auto !important;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
+.widthTranslate {
+  -webkit-transition-property: width;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+}
+.MuiInput-underline:after {
+  border-bottom-color: rgba(75,192,192,0.4) !important;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
