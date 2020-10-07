@@ -1,22 +1,26 @@
 {
   "files": {
     "main.css": "/energybook/static/css/main.b44aa44d.chunk.css",
-    "main.js": "/energybook/static/js/main.01344b2e.chunk.js",
-    "main.js.map": "/energybook/static/js/main.01344b2e.chunk.js.map",
+    "main.js": "/energybook/static/js/main.2168c5a2.chunk.js",
+    "main.js.map": "/energybook/static/js/main.2168c5a2.chunk.js.map",
     "runtime-main.js": "/energybook/static/js/runtime-main.7279f93b.js",
     "runtime-main.js.map": "/energybook/static/js/runtime-main.7279f93b.js.map",
-    "static/js/2.f1584834.chunk.js": "/energybook/static/js/2.f1584834.chunk.js",
-    "static/js/2.f1584834.chunk.js.map": "/energybook/static/js/2.f1584834.chunk.js.map",
+    "static/js/2.1dafaf61.chunk.js": "/energybook/static/js/2.1dafaf61.chunk.js",
+    "static/js/2.1dafaf61.chunk.js.map": "/energybook/static/js/2.1dafaf61.chunk.js.map",
     "index.html": "/energybook/index.html",
-    "precache-manifest.4f0eded178a383189be90d815ccc0e5f.js": "/energybook/precache-manifest.4f0eded178a383189be90d815ccc0e5f.js",
+    "precache-manifest.b81ac2e8c9b1b93de61885de5059242c.js": "/energybook/precache-manifest.b81ac2e8c9b1b93de61885de5059242c.js",
     "service-worker.js": "/energybook/service-worker.js",
     "static/css/main.b44aa44d.chunk.css.map": "/energybook/static/css/main.b44aa44d.chunk.css.map",
-    "static/js/2.f1584834.chunk.js.LICENSE.txt": "/energybook/static/js/2.f1584834.chunk.js.LICENSE.txt"
+    "static/js/2.1dafaf61.chunk.js.LICENSE.txt": "/energybook/static/js/2.1dafaf61.chunk.js.LICENSE.txt",
+    "static/media/renewables_share.csv": "/energybook/static/media/renewables_share.9ef3a7c8.csv",
+    "static/media/total_co2_emissions.csv": "/energybook/static/media/total_co2_emissions.ae35b90c.csv",
+    "static/media/total_electricity_consumption.csv": "/energybook/static/media/total_electricity_consumption.c23a0dbf.csv",
+    "static/media/total_energy_consumption.csv": "/energybook/static/media/total_energy_consumption.910e7983.csv"
   },
   "entrypoints": [
     "static/js/runtime-main.7279f93b.js",
-    "static/js/2.f1584834.chunk.js",
+    "static/js/2.1dafaf61.chunk.js",
     "static/css/main.b44aa44d.chunk.css",
-    "static/js/main.01344b2e.chunk.js"
+    "static/js/main.2168c5a2.chunk.js"
   ]
 }
