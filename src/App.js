@@ -5,6 +5,11 @@ import Papa from 'papaparse'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 
+import totalEnergyConsumptionData from './Dataset/total_energy_consumption.csv';
+import totalco2EmissionsData from './Dataset/total_co2_emissions.csv';
+import totalElectricityConsumptionData from './Dataset/total_electricity_consumption.csv';
+import renewablesShareData from './Dataset/renewables_share.csv';
+
 async function getEnerdataCsv(file, setter, countrySetter, index) {
   const response = await fetch(file)
   const reader = response.body.getReader()
@@ -44,27 +49,39 @@ function App() {
     const [renewablesShare, setRenewablesShare] = React.useState({keys: [], values: []})
     const [renewablesShareCountries, setRenewablesShareCountries] = React.useState([])
 
+    const getEnergyConsumption = () => {
+        getEnerdataCsv(totalEnergyConsumptionData, setTotalEnergyConsumption, setTotalEnergyConsumptionCountries, totalEnergyConsumptionIndex)
+    }
+    const getCo2Emissions = () => {
+        getEnerdataCsv(totalco2EmissionsData, setTotalCo2Emmisions, setTotalCo2EmmisionsCountries, totalCo2EmmisionsIndex)
+    }
+    const getElectricityConsumption = () => {
+        getEnerdataCsv(totalElectricityConsumptionData, setTotalElectricityConsumption, setTotalElectricityConsumptionCountries, totalElectricityConsumptionIndex)
+    }
+    const getRenewablesShare = () => {
+        getEnerdataCsv(renewablesShareData, setRenewablesShare, setRenewablesShareCountries, renewablesShareIndex)
+    }
   React.useEffect(() => {
-    getEnerdataCsv('/Dataset/total_energy_consumption.csv', setTotalEnergyConsumption, setTotalEnergyConsumptionCountries, totalEnergyConsumptionIndex)
-    getEnerdataCsv('/Dataset/total_co2_emissions.csv', setTotalCo2Emmisions, setTotalCo2EmmisionsCountries, totalCo2EmmisionsIndex)
-    getEnerdataCsv('/Dataset/total_electricity_consumption.csv', setTotalElectricityConsumption, setTotalElectricityConsumptionCountries, totalElectricityConsumptionIndex)
-    getEnerdataCsv('/Dataset/renewables_share.csv', setRenewablesShare, setRenewablesShareCountries, renewablesShareIndex)
+      getEnergyConsumption()
+      getCo2Emissions()
+      getElectricityConsumption()
+      getRenewablesShare()
   }, [])
 
   React.useEffect(() => {
-    getEnerdataCsv('/Dataset/total_energy_consumption.csv', setTotalEnergyConsumption, setTotalEnergyConsumptionCountries, totalEnergyConsumptionIndex)
+      getEnergyConsumption()
   }, [totalEnergyConsumptionIndex]) // []
 
   React.useEffect(() => {
-    getEnerdataCsv('/Dataset/total_co2_emissions.csv', setTotalCo2Emmisions, setTotalCo2EmmisionsCountries, totalCo2EmmisionsIndex)
+      getCo2Emissions()
   }, [totalCo2EmmisionsIndex]) // []
 
     React.useEffect(() => {
-        getEnerdataCsv('/Dataset/total_electricity_consumption.csv', setTotalElectricityConsumption, setTotalElectricityConsumptionCountries, totalElectricityConsumptionIndex)
+        getElectricityConsumption()
     }, [totalElectricityConsumptionIndex]) // []
 
     React.useEffect(() => {
-        getEnerdataCsv('/Dataset/renewables_share.csv', setRenewablesShare, setRenewablesShareCountries, renewablesShareIndex)
+        getRenewablesShare()
     }, [renewablesShareIndex]) // []
 
   const autoComplete = (options, setIndex, index) => {
