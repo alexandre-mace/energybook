@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import {Line} from "react-chartjs-2";
 import Papa from 'papaparse'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
@@ -9,6 +8,7 @@ import totalEnergyConsumptionData from './Dataset/total_energy_consumption.csv';
 import totalco2EmissionsData from './Dataset/total_co2_emissions.csv';
 import totalElectricityConsumptionData from './Dataset/total_electricity_consumption.csv';
 import renewablesShareData from './Dataset/renewables_share.csv';
+import Line from "./UI/components/Line";
 
 async function getEnerdataCsv(file, setter, countrySetter, index) {
   const response = await fetch(file)
@@ -31,9 +31,35 @@ async function getEnerdataCsv(file, setter, countrySetter, index) {
         .map(value => parseFloat(value))
   })
 }
+const autoComplete = (options, setIndex, index) => {
+    return (
+        <Autocomplete
+            size="small"
+            options={options}
+            getOptionLabel={(option) => option}
+            defaultValue={'World'}
+            fullWidth={false}
+            onChange={
+                (event, value) => setIndex(value)
+            }
+            renderInput={(params) => (
+                <TextField
+                    {...params}
+                    fullWidth={false}
+                    className={"widthTranslate"}
+                    style={{width: (100 + index.length ** 1.7)}}
+                    label={options[index]}
+                    placeholder={options[index]}
+                />
+            )}
+        />
+    )
+}
 
 function App() {
-  const [totalCo2EmmisionsIndex, setTotalCo2EmmisionsIndex] = React.useState('World')
+    const [loading, setLoading] = React.useState(true)
+
+    const [totalCo2EmmisionsIndex, setTotalCo2EmmisionsIndex] = React.useState('World')
   const [totalCo2Emmisions, setTotalCo2Emmisions] = React.useState({keys: [], values: []})
   const [totalCo2EmmisionsCountries, setTotalCo2EmmisionsCountries] = React.useState([])
 
@@ -66,6 +92,7 @@ function App() {
       getCo2Emissions()
       getElectricityConsumption()
       getRenewablesShare()
+      delayedCloseLoader();
   }, [])
 
   React.useEffect(() => {
@@ -84,238 +111,211 @@ function App() {
         getRenewablesShare()
     }, [renewablesShareIndex]) // []
 
-  const autoComplete = (options, setIndex, index) => {
-    return (
-        <Autocomplete
-            size="small"
-            options={options}
-            getOptionLabel={(option) => option}
-            defaultValue={'World'}
-            fullWidth={false}
-            onChange={
-              (event, value) => setIndex(value)
-            }
-            renderInput={(params) => (
-                <TextField
-                    {...params}
-                    fullWidth={false}
-                    className={"widthTranslate"}
-                    style={{width: (100 + index.length ** 1.7)}}
-                    label={options[index]}
-                    placeholder={options[index]}
-                />
-            )}
-        />
-    )
-  }
+    const delayedCloseLoader = () => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 1300);
+    }
 
-  const defaultColor = '75,192,192';
-
-  const line = (name, keys, values, options = {}, color = defaultColor) => (
-    <Line
-        options={options}
-        data={{
-          labels: keys,
-          datasets: [
-            {
-              label: name,
-              // fill: false,
-              lineTension: 0.1,
-              displayColors: false,
-              backgroundColor: `rgba(${color},0.6)`,
-              borderColor: `rgba(${color},1)`,
-              borderCapStyle: 'butt',
-              borderDash: [],
-              borderDashOffset: 0.0,
-              borderJoinStyle: 'miter',
-              pointBorderColor: `rgba(${color},1)`,
-              pointBackgroundColor: '#fff',
-              pointBorderWidth: 1,
-              pointHoverRadius: 5,
-              pointHoverBackgroundColor: `rgba(${color},1)`,
-              pointHoverBorderColor: 'rgba(220,220,220,1)',
-              pointHoverBorderWidth: 2,
-              pointRadius: 1,
-              pointHitRadius: 10,
-              data: values
-            }
-          ]
-        }} />
-  )
+    const dataComputed = () => {
+      let computed = true;
+      const mandatoryData = [totalElectricityConsumption, totalEnergyConsumption, totalCo2Emmisions, renewablesShare]
+      mandatoryData.forEach(data => {
+          if (data.values.length === 0) {
+              computed = false;
+          }
+      })
+        return computed;
+    }
   return (
-    <>
-      <div className="container my-5">
-        <div className="row">
-          <div className="col">
-            <p>Hello :), i will talk to you about <strong>Energy</strong></p>
-            <p>We is consuming a lot of it, and it is growing fast..</p>
+      <>
+      {(!dataComputed() || loading) &&
+      <div className="box-loader">
+          <div className={'d-flex flex-column'}>
+              <span className={"mb-3"}>Heavy math computing...</span>
+              <div className="loader-07"></div>
           </div>
-        </div>
       </div>
-      <div className="container mt-5">
-        <div className="row">
-          <div className="col d-flex justify-content-center">
+      }
+      {(dataComputed() && !loading) &&
+        <>
+          <div className="container my-5">
+              <div className="row">
+                  <div className="col">
+                      <p>Hello :), i will talk to you about <strong>Energy</strong></p>
+                      <p>We is consuming a lot of it, and it is growing fast..</p>
+                  </div>
+              </div>
+          </div>
+          <div className="container mt-5">
+              <div className="row">
+                  <div className="col d-flex justify-content-center">
               <span className={"mr-3"}>
                 Let's take a look of how much <strong>energy</strong> the
               </span>
-            {autoComplete(totalEnergyConsumptionCountries, setTotalEnergyConsumptionIndex, totalEnergyConsumptionIndex)}
-            <span className={"mx-3"}>
+                      {autoComplete(totalEnergyConsumptionCountries, setTotalEnergyConsumptionIndex, totalEnergyConsumptionIndex)}
+                      <span className={"mx-3"}>
               is consuming
             </span>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-        <div className="container my-5 pb-5">
-            <div className="row">
-                <div className="col">
-                    {line(
-                        'Total energy consumption',
-                        totalEnergyConsumption.keys,
-                        totalEnergyConsumption.values,
-                        {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true,
-                                        suggestedMax: 2000
-                                    }
-                                }]
-                            },
-                            legend: {
-                                display: false
-                            }
-                        }
-                    )}
-                </div>
-            </div>
-        </div>
-        <div className="container my-5">
-            <div className="row">
-                <div className="col">
-                    <p>Thanks to energy we can produce the amazing thing that is <strong>electricity</strong>.</p>
-                    <p>The power of the vast majority of tools used in our world.</p>
-                </div>
-            </div>
-        </div>
-        <div className="container mt-5">
-            <div className="row">
-                <div className="col d-flex justify-content-center">
+          <div className="container my-5 pb-5">
+              <div className="row">
+                  <div className="col">
+                      <Line
+                          name='Total energy consumption'
+                          keys={totalEnergyConsumption.keys}
+                          values={totalEnergyConsumption.values}
+                          options={{
+                              scales: {
+                                  yAxes: [{
+                                      ticks: {
+                                          beginAtZero: true,
+                                          suggestedMax: 2000
+                                      }
+                                  }]
+                              },
+                              legend: {
+                                  display: false
+                              }
+                          }}
+                          >
+                      </Line>
+                  </div>
+              </div>
+          </div>
+          <div className="container my-5">
+              <div className="row">
+                  <div className="col">
+                      <p>Thanks to energy we can produce the amazing thing that is <strong>electricity</strong>.</p>
+                      <p>The power of the vast majority of tools used in our world.</p>
+                  </div>
+              </div>
+          </div>
+          <div className="container mt-5">
+              <div className="row">
+                  <div className="col d-flex justify-content-center">
               <span className={"mr-3"}>
                 Here is the total electricity consumption of the
               </span>
-                    {autoComplete(totalElectricityConsumptionCountries, setTotalElectricityConsumptionIndex, totalElectricityConsumptionIndex)}
-                </div>
-            </div>
-        </div>
-      <div className="container my-5 pb-5">
-        <div className="row">
-          <div className="col">
-            {line(
-                'Total electricity consumption',
-                totalElectricityConsumption.keys,
-                totalElectricityConsumption.values,
-                {
-                  scales: {
-                    yAxes: [{
-                      ticks: {
-                        beginAtZero: true
-                      }
-                    }]
-                  },
-                  legend: {
-                    display: false
-                  }
-                },
-                '255, 255, 3'
-            )}
+                      {autoComplete(totalElectricityConsumptionCountries, setTotalElectricityConsumptionIndex, totalElectricityConsumptionIndex)}
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-      <div className="container my-5">
-        <div className="row">
-          <div className="col">
-            <p>So yes, <strong>energy</strong> is cool</p>
-            <p>But there is a big issue currently highly coupled with energy consumption, co2 emissions.</p>
+          <div className="container my-5 pb-5">
+              <div className="row">
+                  <div className="col">
+                  <Line
+                      name='Total electricity consumption'
+                      keys={totalElectricityConsumption.keys}
+                      values={totalElectricityConsumption.values}
+                      options={{
+                          scales: {
+                              yAxes: [{
+                                  ticks: {
+                                      beginAtZero: true
+                                  }
+                              }]
+                          },
+                          legend: {
+                              display: false
+                          }
+                      }}
+                      color='255, 255, 3'>
+                  </Line>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-      <div className="container mt-5">
-        <div className="row">
-          <div className="col d-flex justify-content-center">
+          <div className="container my-5">
+              <div className="row">
+                  <div className="col">
+                      <p>So yes, <strong>energy</strong> is cool</p>
+                      <p>But there is a big issue currently highly coupled with energy consumption, co2 emissions.</p>
+                  </div>
+              </div>
+          </div>
+          <div className="container mt-5">
+              <div className="row">
+                  <div className="col d-flex justify-content-center">
               <span className={"mr-3"}>
                 Here is the co2 emissions of the
               </span>
-            {autoComplete(totalCo2EmmisionsCountries, setTotalCo2EmmisionsIndex, totalCo2EmmisionsIndex)}
+                      {autoComplete(totalCo2EmmisionsCountries, setTotalCo2EmmisionsIndex, totalCo2EmmisionsIndex)}
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-      <div className="container my-5 pb-5">
-        <div className="row">
-          <div className="col">
-            {line(
-                'Total co2 emissions',
-                totalCo2Emmisions.keys,
-                totalCo2Emmisions.values,
-                {
-                  scales: {
-                    yAxes: [{
-                      ticks: {
-                        beginAtZero: true
-                      }
-                    }]
-                  },
-                  legend: {
-                    display: false
-                  }
-                },
-                '255,0,0'
-            )}
+          <div className="container my-5 pb-5">
+              <div className="row">
+                  <div className="col">
+                      <Line
+                          name='Total co2 emissions'
+                          keys={totalCo2Emmisions.keys}
+                          values={totalCo2Emmisions.values}
+                          options={{
+                              scales: {
+                                  yAxes: [{
+                                      ticks: {
+                                          beginAtZero: true,
+                                      }
+                                  }]
+                              },
+                              legend: {
+                                  display: false
+                              }
+                          }}
+                          color={'255,0,0'}
+                      >
+                      </Line>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-        <div className="container my-5">
-            <div className="row">
-                <div className="col">
-                    <p>How can we partly <strong>solve</strong> it ?</p>
-                    <p>By using renewable energy.</p>
-                </div>
-            </div>
-        </div>
-        <div className="container mt-5">
-            <div className="row">
-                <div className="col d-flex justify-content-center">
+          <div className="container my-5">
+              <div className="row">
+                  <div className="col">
+                      <p>How can we partly <strong>solve</strong> it ?</p>
+                      <p>By using renewable energy.</p>
+                  </div>
+              </div>
+          </div>
+          <div className="container mt-5">
+              <div className="row">
+                  <div className="col d-flex justify-content-center">
               <span className={"mr-3"}>
                 Here is the renewables share of the
               </span>
-                    {autoComplete(renewablesShareCountries, setRenewablesShareIndex, renewablesShareIndex)}
-                </div>
-            </div>
-        </div>
-        <div className="container my-5 pb-5">
-            <div className="row">
-                <div className="col">
-                    {line(
-                        'Renewables share',
-                        renewablesShare.keys,
-                        renewablesShare.values,
-                        {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true,
-                                        suggestedMax: 100
-                                    }
-                                }]
-                            },
-                            legend: {
-                                display: false
-                            }
-                        },
-                        '0,255,0'
-                    )}
-                </div>
-            </div>
-        </div>
+                      {autoComplete(renewablesShareCountries, setRenewablesShareIndex, renewablesShareIndex)}
+                  </div>
+              </div>
+          </div>
+          <div className="container my-5 pb-5">
+              <div className="row">
+                  <div className="col">
+                      <Line
+                          name='Renewables share'
+                          keys={renewablesShare.keys}
+                          values={renewablesShare.values}
+                          options={{
+                              scales: {
+                                  yAxes: [{
+                                      ticks: {
+                                          beginAtZero: true,
+                                          suggestedMax: 100
+                                      }
+                                  }]
+                              },
+                              legend: {
+                                  display: false
+                              }
+                          }}
+                          color={'0,255,0'}
+                      >
+                      </Line>
+                  </div>
+              </div>
+          </div>
+      </>
+      }
     </>
   );
 }

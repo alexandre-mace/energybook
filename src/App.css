@@ -48,3 +48,78 @@
     transform: rotate(360deg);
   }
 }
+
+.box-loader {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[class*="loader-"] {
+  display: inline-block;
+  width: 12em;
+  height: 12em;
+  color: inherit;
+  vertical-align: middle;
+  pointer-events: none;
+}
+
+.loader-07 {
+  border: 0 solid transparent;
+  border-radius: 50%;
+  position: relative;
+}
+.loader-07:before, .loader-07:after {
+  content: '';
+  border: .9em solid rgba(0,0,0,0.5);
+  border-radius: 50%;
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: loader-07 1.3s linear infinite;
+  animation: loader-07 1.3s linear infinite;
+  opacity: 0;
+}
+.loader-07:before {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.loader-07:after {
+  -webkit-animation-delay: .7s;
+  animation-delay: .7s;
+}
+
+@-webkit-keyframes loader-07 {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes loader-07 {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
