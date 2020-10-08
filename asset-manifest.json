@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/energybook/static/css/main.5ab1ed46.chunk.css",
-    "main.js": "/energybook/static/js/main.b6ebd06e.chunk.js",
-    "main.js.map": "/energybook/static/js/main.b6ebd06e.chunk.js.map",
+    "main.css": "/energybook/static/css/main.aaa9c2e8.chunk.css",
+    "main.js": "/energybook/static/js/main.d95f4059.chunk.js",
+    "main.js.map": "/energybook/static/js/main.d95f4059.chunk.js.map",
     "runtime-main.js": "/energybook/static/js/runtime-main.7279f93b.js",
     "runtime-main.js.map": "/energybook/static/js/runtime-main.7279f93b.js.map",
     "static/js/2.9071ca02.chunk.js": "/energybook/static/js/2.9071ca02.chunk.js",
     "static/js/2.9071ca02.chunk.js.map": "/energybook/static/js/2.9071ca02.chunk.js.map",
     "index.html": "/energybook/index.html",
-    "precache-manifest.18f797164325136b5136ba7765abff7d.js": "/energybook/precache-manifest.18f797164325136b5136ba7765abff7d.js",
+    "precache-manifest.8acee0a1ed7b459b8784265bed2e2f67.js": "/energybook/precache-manifest.8acee0a1ed7b459b8784265bed2e2f67.js",
     "service-worker.js": "/energybook/service-worker.js",
-    "static/css/main.5ab1ed46.chunk.css.map": "/energybook/static/css/main.5ab1ed46.chunk.css.map",
+    "static/css/main.aaa9c2e8.chunk.css.map": "/energybook/static/css/main.aaa9c2e8.chunk.css.map",
     "static/js/2.9071ca02.chunk.js.LICENSE.txt": "/energybook/static/js/2.9071ca02.chunk.js.LICENSE.txt",
     "static/media/renewables_share.csv": "/energybook/static/media/renewables_share.9ef3a7c8.csv",
     "static/media/total_co2_emissions.csv": "/energybook/static/media/total_co2_emissions.ae35b90c.csv",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.7279f93b.js",
     "static/js/2.9071ca02.chunk.js",
-    "static/css/main.5ab1ed46.chunk.css",
-    "static/js/main.b6ebd06e.chunk.js"
+    "static/css/main.aaa9c2e8.chunk.css",
+    "static/js/main.d95f4059.chunk.js"
   ]
 }
