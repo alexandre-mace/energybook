@@ -278,10 +278,10 @@ function App() {
             <div className="container my-3 my-md-5 pb-5">
                 <div className="row justify-content-center header">
                     <div className="col-auto">
-                        <span><strong>Book</strong></span>
+                        <span className={"clickable"} onClick={() => window.location.reload(false)}><strong>Book</strong></span>
                     </div>
                     <div className={"col-auto"}>
-                        <span>Playground (WIP)</span>
+                        <span className={"disabled"}>Playground (WIP)</span>
                     </div>
                 </div>
             </div>

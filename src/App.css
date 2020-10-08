@@ -149,6 +149,12 @@ body {
   background: linear-gradient(135deg, rgba(232,229,255,1) 0%, rgba(232,229,255,1) 8%, rgba(221,230,255,1) 17%, rgba(221,230,255,1) 32%, rgba(221,230,255,1) 39%, rgba(221,230,255,1) 56%, rgba(221,230,255,1) 62%, rgba(234,247,255,1) 98%, rgba(234,247,255,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e5ff', endColorstr='#eaf7ff', GradientType=1 );
 }
+.clickable:hover {
+  cursor: pointer;
+}
+.disabled:hover {
+  cursor: not-allowed;
+}
 body {
   font-size: calc(1rem + 0.5vw) !important;
 }
