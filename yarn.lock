@@ -2968,6 +2968,11 @@ chartjs-color@^2.1.0:
     chartjs-color-string "^0.6.0"
     color-convert "^1.9.3"
 
+chartjs-plugin-labels@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/chartjs-plugin-labels/-/chartjs-plugin-labels-1.1.0.tgz#3a040fa78994e8c482ca4d47426d1e894fe679f5"
+  integrity sha512-ab1oiQT7oMnpYDn6h8biL7VZM0qIxtwfhQw1+qH7xe7Ia6lBKX/ks5rEhgI6CZ4PlRRgDFGK9Mf/T2SO9l+NCA==
+
 chokidar@^2.0.2, chokidar@^2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"
@@ -6454,6 +6459,11 @@ jsesc@~0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
+
+json-loader@^0.5.7:
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/json-loader/-/json-loader-0.5.7.tgz#dca14a70235ff82f0ac9a3abeb60d337a365185d"
+  integrity sha512-QLPs8Dj7lnf3e3QYS1zkCo+4ZwqOiF9d/nZnYozTISxXWCfNs9yuky5rJw4/W34s7POaNlbZmQGaB5NiXCbP4w==
 
 json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
   version "1.0.2"
