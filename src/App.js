@@ -285,16 +285,18 @@ function App() {
                     </div>
                 </div>
             </div>
-          <div className="container my-3 my-md-5">
+            <div className="py-2"></div>
+          <div className="container my-3 my-md-5 pt-5">
               <div className="row">
                   <div className="col">
-                      <h1 className={"mb-5 text-center pb-5"}>Welcome to the <strong>Energy Book</strong> &#128522;</h1>
+                      <h1 className={"mb-3 pb-5 app-title color-primary"}>Energy Book</h1>
                       <h4>This book will teach you the basis about energy.</h4>
                       <p>We are consuming a lot of it, and it is growing fast..</p>
                   </div>
               </div>
           </div>
-          <div className="container mt-5">
+            <div className="pt-5"></div>
+          <div className="container mt-5 pt-5">
               <div className="row">
                   <div className="col d-flex justify-content-center">
               <span className={"mr-3"}>
@@ -384,7 +386,7 @@ function App() {
               <div className="row">
                   <div className="col">
                       <p>So yes, <strong>energy</strong> is cool</p>
-                      <p>But there is a big issue currently highly coupled with energy consumption, co2 emissions. 🏭</p>
+                      <p>But there is a big issue currently highly coupled with energy consumption, <strong>co2 emissions</strong>. 🏭</p>
                   </div>
               </div>
           </div>
@@ -431,7 +433,7 @@ function App() {
               <div className="row">
                   <div className="col">
                       <p>How can we <i>partly</i> solve it ?</p>
-                      <p>By using renewable energy.</p>
+                      <p>By using <strong>renewable energy</strong>.</p>
                   </div>
               </div>
           </div>
