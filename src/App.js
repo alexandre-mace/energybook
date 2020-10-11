@@ -9,6 +9,8 @@ import totalco2EmissionsData from './Dataset/total_co2_emissions.csv';
 import totalElectricityConsumptionData from './Dataset/total_electricity_consumption.csv';
 import renewablesShareData from './Dataset/renewables_share.csv';
 import energySupplySource from './Dataset/energy_supply_source.json';
+import renewableEnergyInvestment from './Dataset/renewable_energy_investment.json';
+import renewableEnergyInvestmentPercentage from './Dataset/renewable_energy_investment_percentage.json';
 import Line from "./UI/components/Line";
 import MultipleLines from "./UI/components/MultipleLines";
 import Doughnut from "./UI/components/Doughnut";
@@ -41,31 +43,40 @@ async function getEnerdataCsv(file, setter, countrySetter, index) {
         .map(value => parseFloat(value))
   })
 }
-async function getIeaCsv(file, setter, countrySetter, index) {
-    const response = await fetch(file)
-    const reader = response.body.getReader()
-    const result = await reader.read() // raw array
-    const decoder = new TextDecoder('utf-8')
-    const csv = decoder.decode(result.value) // the csv text
-    const results = Papa.parse(csv, { header: true }) // object with { data, errors, meta }
-    const rows = results.data // array of objects
+// async function getIeaCsv(file, setter, countrySetter, index) {
+//     const response = await fetch(file)
+//     const reader = response.body.getReader()
+//     const result = await reader.read() // raw array
+//     const decoder = new TextDecoder('utf-8')
+//     const csv = decoder.decode(result.value) // the csv text
+//     const results = Papa.parse(csv, { header: true }) // object with { data, errors, meta }
+//     const rows = results.data // array of objects
+//
+//     countrySetter(Array.from(new Set(rows.map(row => row.Country))).filter(country => country !== ''));
+//     setter(rows.filter(row => row.Country === index).filter(row => row.Product !== 'Total').map(row => ({
+//         keys: Object.keys(row)
+//             .filter(number => (!isNaN(parseFloat(number)) && isFinite(number)))
+//             .map(value => parseFloat(value))
+//         ,
+//         values: Object.values(row)
+//             .filter(number => (!isNaN(parseFloat(number)) && isFinite(number)))
+//             .map(value => parseFloat(value))
+//         ,
+//         name: row.Product
+//     })))
+// }
 
-    countrySetter(Array.from(new Set(rows.map(row => row.Country))).filter(country => country !== ''));
-    setter(rows.filter(row => row.Country === index).filter(row => row.Product !== 'Total').map(row => ({
-        keys: Object.keys(row)
-            .filter(number => (!isNaN(parseFloat(number)) && isFinite(number)))
-            .map(value => parseFloat(value))
-        ,
-        values: Object.values(row)
-            .filter(number => (!isNaN(parseFloat(number)) && isFinite(number)))
-            .map(value => parseFloat(value))
-        ,
-        name: row.Product
-    })))
-}
-
-async function getOwidJson(file, setter, countrySetter, index, showRenewableCategory) {
+async function getOwidJson(
+    file,
+    setter,
+    countrySetter,
+    index,
+    showRenewableCategory = false,
+    showOnlyRenewableCategories = false ,
+    showOnlyNonRenewableCategories = false
+) {
     countrySetter(Object.values(file.entityKey).map(entity => entity.name))
+    const renewableCategories = ['Other renewables', 'Hydropower', 'Solar', 'Wind', 'Biofuels'];
     const data = Object.values(file.variables).map((variable) => {
         let datasets = [];
         for (let i = 0; i < variable.entities.length; i++) {
@@ -92,9 +103,8 @@ async function getOwidJson(file, setter, countrySetter, index, showRenewableCate
             }
         }
 
-        const renewables = ['Other renewables', 'Hydropower', 'Solar', 'Wind', 'Biofuels'];
         return {
-            name: renewables.includes(variable.display.name ?? variable.name.split(' ')[0]) ? 'Renewable' : 'Non renewable',
+            name: renewableCategories.includes(variable.display.name ?? variable.name.split(' ')[0]) ? 'Renewable' : 'Non renewable',
             keys: datasets.map(dataset => dataset.year),
             values: datasets.map(dataset => dataset.value)
                 .map(value => value * (
@@ -105,8 +115,15 @@ async function getOwidJson(file, setter, countrySetter, index, showRenewableCate
         }
     })
 
-
     if (!showRenewableCategory) {
+        if (showOnlyRenewableCategories) {
+            setter(data.filter(data => renewableCategories.includes(data.name)))
+            return;
+        }
+        if (showOnlyNonRenewableCategories) {
+            setter(data.filter(data => !renewableCategories.includes(data.name)))
+            return;
+        }
         setter(data)
         return;
     }
@@ -149,6 +166,56 @@ async function getOwidJson(file, setter, countrySetter, index, showRenewableCate
             values: nonRenewableValues
         }
     ])
+}
+
+async function getOwidJson2(
+    file,
+    setter,
+    countrySetter,
+    index
+) {
+    countrySetter(Object.values(file.entityKey).map(entity => entity.name))
+    let data = Object.values(file.variables).map((variable) => {
+        let datasets = [];
+        for (let i = 0; i < variable.entities.length; i++) {
+            let countryEntityKey = variable.entities[i]
+            datasets.push({
+                year: variable.years[i],
+                value: variable.values[i],
+                zone: file.entityKey[countryEntityKey].name
+            })
+        }
+
+        return {
+            name: datasets.map(dataset => dataset.zone),
+            keys: datasets.map(dataset => dataset.year),
+            values: datasets.map(dataset => dataset.value)
+        }
+    })
+
+    data = data[0].name.map((key, index) => ({
+        name: data[0].name[index],
+        keys: data[0].keys[index],
+        value: data[0].values[index]
+    }))
+    data = Object.values(file.entityKey).map(entity => data.filter(dataset => dataset.name === entity.name))
+
+    setter(data.map(dataset => {
+        let name = dataset[0].name
+        let keys = []
+        let values = []
+
+        dataset.forEach((value, index) => {
+            keys.push(value.keys)
+            values.push(value.value)
+        })
+
+        return {
+            name: name,
+            keys: keys,
+            values: values
+        }
+    }))
 }
 
 const autoComplete = (options, setIndex, index) => {
@@ -201,6 +268,16 @@ function App() {
     const [energySupplySourceYear, setEnergySupplySourceYear] = React.useState(2018)
     const [showRenewableCategories, setShowRenewableCategories] = React.useState(false)
     const [energySupplySourceDoughnutMode, setEnergySupplySourceDoughnutMode] = React.useState(false)
+    const [energySupplySourceOnlyRenewables, setEnergySupplySourceOnlyRenewables] = React.useState(false)
+    const [energySupplySourceOnlyNonRenewables, setEnergySupplySourceOnlyNonRenewables] = React.useState(false)
+
+    const [renewableEnergyInvestmentIndex, setRenewableEnergyInvestmentIndex] = React.useState('World')
+    const [renewableEnergyInvestmentDatasets, setRenewableEnergyInvestmentDatasets] = React.useState([])
+    const [renewableEnergyInvestmentCountries, setRenewableEnergyInvestmentCountries] = React.useState([])
+
+    const [renewableEnergyInvestmentPercentageIndex, setRenewableEnergyInvestmentPercentageIndex] = React.useState('World')
+    const [renewableEnergyInvestmentPercentageDatasets, setRenewableEnergyInvestmentPercentageDatasets] = React.useState([])
+    const [renewableEnergyInvestmentPercentageCountries, setRenewableEnergyInvestmentPercentageCountries] = React.useState([])
 
     const getEnergyConsumption = () => {
         getEnerdataCsv(totalEnergyConsumptionData, setTotalEnergyConsumption, setTotalEnergyConsumptionCountries, totalEnergyConsumptionIndex)
@@ -214,15 +291,45 @@ function App() {
     const getRenewablesShare = () => {
         getEnerdataCsv(renewablesShareData, setRenewablesShare, setRenewablesShareCountries, renewablesShareIndex)
     }
+
     const getEnergySupplySource = () => {
-        getOwidJson(energySupplySource, setEnergySupplySourceDatasets, setEnergySupplySourceCountries, energySupplySourceIndex, showRenewableCategories)
+        getOwidJson(
+            energySupplySource,
+            setEnergySupplySourceDatasets,
+            setEnergySupplySourceCountries,
+            energySupplySourceIndex,
+            showRenewableCategories,
+            energySupplySourceOnlyRenewables,
+            energySupplySourceOnlyNonRenewables
+        )
     }
+
+    const getRenewableEnergyInvestment = () => {
+        getOwidJson2(
+            renewableEnergyInvestment,
+            setRenewableEnergyInvestmentDatasets,
+            setRenewableEnergyInvestmentCountries,
+            renewableEnergyInvestmentIndex
+        )
+    }
+
+    const getRenewableEnergyInvestmentPercentage = () => {
+        getOwidJson2(
+            renewableEnergyInvestmentPercentage,
+            setRenewableEnergyInvestmentPercentageDatasets,
+            setRenewableEnergyInvestmentPercentageCountries,
+            renewableEnergyInvestmentPercentageIndex
+        )
+    }
+
   React.useEffect(() => {
       getEnergyConsumption()
       getCo2Emissions()
       getElectricityConsumption()
       getRenewablesShare()
       getEnergySupplySource()
+      getRenewableEnergyInvestment()
+      getRenewableEnergyInvestmentPercentage()
       delayedCloseLoader();
   }, [])
 
@@ -244,7 +351,7 @@ function App() {
 
     React.useEffect(() => {
         getEnergySupplySource()
-    }, [energySupplySourceIndex, showRenewableCategories]) // []
+    }, [energySupplySourceIndex, showRenewableCategories, energySupplySourceOnlyRenewables, energySupplySourceOnlyNonRenewables]) // []
 
     const delayedCloseLoader = () => {
         setTimeout(() => {
@@ -291,7 +398,7 @@ function App() {
                   <div className="col">
                       <h1 className={"mb-3 pb-5 app-title color-primary"}>Energy Book</h1>
                       <h4>This book will teach you the basis about energy.</h4>
-                      <p>We are consuming a lot of it, and it is growing fast..</p>
+                      <p>We are consuming a lot of it, and it is increasing every day.</p>
                   </div>
               </div>
           </div>
@@ -472,7 +579,9 @@ function App() {
                 color={'0,255,0'}
             >
                         </Line></div>
-                    </div></div></div>
+                    </div>
+                </div>
+            </div>
             <div className="container my-3 my-md-5">
                 <div className="row">
                     <div className="col">
@@ -492,11 +601,6 @@ function App() {
             </div>
           <div className="container my-3 my-md-5 pb-5">
               <div className="row">
-                  <div className="col">
-
-                  </div>
-              </div>
-              <div className="row">
                   <div className="col min-chart-height">
                       <div className="white-wrapper">
 
@@ -505,12 +609,46 @@ function App() {
                               control={
                                   <Switch
                                       checked={showRenewableCategories}
-                                      onChange={() => setShowRenewableCategories(!(showRenewableCategories))}
+                                      onChange={() => {
+                                          setShowRenewableCategories(!(showRenewableCategories))
+                                          setEnergySupplySourceOnlyNonRenewables(false)
+                                          setEnergySupplySourceOnlyRenewables(false)
+                                      }}
                                       name="showRenewableCategories"
                                       color="primary"
                                   />
                               }
                               label="Only renewable / non renewables"
+                          />
+                          <FormControlLabel
+                              control={
+                                  <Switch
+                                      checked={energySupplySourceOnlyRenewables}
+                                      onChange={() => {
+                                          setEnergySupplySourceOnlyRenewables(!(energySupplySourceOnlyRenewables))
+                                          setEnergySupplySourceOnlyNonRenewables(false)
+                                          setShowRenewableCategories(false)
+                                      }}
+                                      name="showOnlyRenewableCategories"
+                                      color="primary"
+                                  />
+                              }
+                              label="Only renewables"
+                          />
+                          <FormControlLabel
+                              control={
+                                  <Switch
+                                      checked={energySupplySourceOnlyNonRenewables}
+                                      onChange={() => {
+                                          setEnergySupplySourceOnlyNonRenewables(!(energySupplySourceOnlyNonRenewables))
+                                          setEnergySupplySourceOnlyRenewables(false)
+                                          setShowRenewableCategories(false)
+                                      }}
+                                      name="showOnlyNonRenewableCategories"
+                                      color="primary"
+                                  />
+                              }
+                              label="Only non renewables"
                           />
                           <FormControlLabel
                               control={
@@ -578,6 +716,98 @@ function App() {
                   </div>
               </div>
           </div>
+            <div className="container my-3 my-md-5">
+                <div className="row">
+                    <div className="col">
+                        <p>What are we currently doing ?</p>
+                        <p>Let's see the actual <strong>investment</strong>.</p>
+                    </div>
+                </div>
+            </div>
+            <div className="container mt-5">
+                <div className="row">
+                    <div className="col d-flex justify-content-center">
+              <span className={"mr-3"}>
+                Here is the renewable energy investment of the continents
+              </span>
+                    </div>
+                </div>
+            </div>
+            <div className="container my-3 my-md-5 pb-5">
+                <div className="row">
+                    <div className="col">
+                        <div className="white-wrapper">
+                            <MultipleLines
+                                name='Renewables share'
+                                datasets={renewableEnergyInvestmentDatasets}
+                                options={{
+                                    scales: {
+                                        yAxes: [{
+                                            stacked: true,
+                                            ticks: {
+                                            }
+                                        }]
+                                    },
+                                    legend: {
+                                        position: 'right',
+                                        reverse: true
+                                    }
+                                }}
+                            >
+                            </MultipleLines>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container my-3 my-md-5">
+                <div className="row">
+                    <div className="col">
+                        <p>Of course, every continents do not have the same GDP per capita</p>
+                        <p>So with a more accurate representation of <strong>proportions</strong>...</p>
+                    </div>
+                </div>
+            </div>
+            <div className="container mt-5">
+                <div className="row">
+                    <div className="col d-flex justify-content-center">
+              <span className={"mr-3"}>
+                Here is the renewable energy investment of the continents by percentage of GDP
+              </span>
+                    </div>
+                </div>
+            </div>
+            <div className="container my-3 my-md-5 pb-5">
+                <div className="row">
+                    <div className="col">
+                        <div className="white-wrapper">
+                            <Doughnut
+                                name='Renewables share'
+                                datasets={renewableEnergyInvestmentPercentageDatasets.map(dataset => {
+                                    return {
+                                        name: dataset.name,
+                                        key: dataset.keys[0],
+                                        value: dataset.values[0]
+                                    }
+                                })}
+                                options={{
+                                    scales: {
+                                        yAxes: [{
+                                            stacked: true,
+                                            ticks: {
+                                            }
+                                        }]
+                                    },
+                                    legend: {
+                                        position: 'right',
+                                        reverse: true
+                                    }
+                                }}
+                            >
+                            </Doughnut>
+                        </div>
+                    </div>
+                </div>
+            </div>
       </>
       }
     </>
