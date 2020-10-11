@@ -144,7 +144,7 @@
   color: #eb5c5c;
 }
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
 }
 body {
   background-color: #b3bbfa;
