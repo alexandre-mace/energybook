@@ -425,7 +425,6 @@ function App() {
         return computed;
     }
 
-    console.log(energyUsePerCapitaVsPovertyDatasets)
   return (
       <>
       {(!dataComputed() || loading) &&
