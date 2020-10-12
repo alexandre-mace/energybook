@@ -1,27 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "abaa9abaffe0a703553f57ec54438c1b",
+    "revision": "4a7355959a4620e728ce5e1a112cace4",
     "url": "/energybook/index.html"
   },
   {
-    "revision": "89ab02e374a2ba999001",
+    "revision": "f63981cfa444159d740b",
     "url": "/energybook/static/css/main.51da8209.chunk.css"
   },
   {
-    "revision": "c1d69eed65a9bea331b8",
-    "url": "/energybook/static/js/2.66cf471d.chunk.js"
+    "revision": "2dc68fe8b11e5a139db7",
+    "url": "/energybook/static/js/2.89a02d11.chunk.js"
   },
   {
-    "revision": "a0805c1fbe1573fbdafe338593514d98",
-    "url": "/energybook/static/js/2.66cf471d.chunk.js.LICENSE.txt"
+    "revision": "e1ef5787b5880b241fd938918bbdc5b8",
+    "url": "/energybook/static/js/2.89a02d11.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "89ab02e374a2ba999001",
-    "url": "/energybook/static/js/main.733dc13f.chunk.js"
+    "revision": "f63981cfa444159d740b",
+    "url": "/energybook/static/js/main.e4021aed.chunk.js"
   },
   {
     "revision": "4748ca5942796f2f8742",
     "url": "/energybook/static/js/runtime-main.7279f93b.js"
+  },
+  {
+    "revision": "95d591bfedc72f37b57f652327636e89",
+    "url": "/energybook/static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.95d591bf.csv"
+  },
+  {
+    "revision": "72070554677a1c0a3f71e4b68054b2da",
+    "url": "/energybook/static/media/investment-in-renewable-energy-by-technology.72070554.csv"
   },
   {
     "revision": "9ef3a7c867980bf3ca0f020eccfaba74",
