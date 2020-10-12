@@ -12,6 +12,7 @@ const Doughnut = ({datasets, options = {}}) => (
     <ChartDoughnut
         options={{
             plugins: {
+                datalabels: false,
                 labels: {
                     render: 'label',
                     fontSize: 14,

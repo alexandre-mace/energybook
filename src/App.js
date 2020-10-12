@@ -11,12 +11,17 @@ import renewablesShareData from './Dataset/renewables_share.csv';
 import energySupplySource from './Dataset/energy_supply_source.json';
 import renewableEnergyInvestment from './Dataset/renewable_energy_investment.json';
 import renewableEnergyInvestmentPercentage from './Dataset/renewable_energy_investment_percentage.json';
+import renewableEnergyInvestmentByTechnology from './Dataset/investment-in-renewable-energy-by-technology.csv';
+import energyUsePerCapitaVsPoverty from './Dataset/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.csv';
 import Line from "./UI/components/Line";
 import MultipleLines from "./UI/components/MultipleLines";
 import Doughnut from "./UI/components/Doughnut";
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import {Bar} from "react-chartjs-2";
+import MultipleBars from "./UI/components/MultipleBars";
+import Bubble from "./UI/components/Bubble";
 
 function getKeyByValue(array, value) {
     return array.findIndex(arrayValue => arrayValue === value);
@@ -43,28 +48,48 @@ async function getEnerdataCsv(file, setter, countrySetter, index) {
         .map(value => parseFloat(value))
   })
 }
-// async function getIeaCsv(file, setter, countrySetter, index) {
-//     const response = await fetch(file)
-//     const reader = response.body.getReader()
-//     const result = await reader.read() // raw array
-//     const decoder = new TextDecoder('utf-8')
-//     const csv = decoder.decode(result.value) // the csv text
-//     const results = Papa.parse(csv, { header: true }) // object with { data, errors, meta }
-//     const rows = results.data // array of objects
-//
-//     countrySetter(Array.from(new Set(rows.map(row => row.Country))).filter(country => country !== ''));
-//     setter(rows.filter(row => row.Country === index).filter(row => row.Product !== 'Total').map(row => ({
-//         keys: Object.keys(row)
-//             .filter(number => (!isNaN(parseFloat(number)) && isFinite(number)))
-//             .map(value => parseFloat(value))
-//         ,
-//         values: Object.values(row)
-//             .filter(number => (!isNaN(parseFloat(number)) && isFinite(number)))
-//             .map(value => parseFloat(value))
-//         ,
-//         name: row.Product
-//     })))
-// }
+
+async function getOwidCsv(file, setter, countrySetter, index) {
+    const response = await fetch(file)
+    const reader = response.body.getReader()
+    const result = await reader.read() // raw array
+    const decoder = new TextDecoder('utf-8')
+    const csv = decoder.decode(result.value) // the csv text
+    const results = Papa.parse(csv, { header: true }) // object with { data, errors, meta }
+    const rows = results.data // array of objects
+
+    let rowsData = [].concat.apply([], rows.map(row => Object.keys(row).map((dataset, index) => ({
+        name: Object.keys(row)[index],
+        value: parseFloat(Object.values(row)[index]),
+        year: row['Year']
+    })).filter(dataset => dataset.name !== 'Year')));
+
+    const labels = Object.keys(rows[0]).map((key, index) => key).filter(label => label !== 'Year')
+    setter({
+        keys: rows.map(row => row.Year),
+        datasets: labels.map(label => ({
+            name: label,
+            values: rowsData.filter(row => row.name === label).map(row => row.value)
+        }))
+    })
+}
+
+async function getOwidBubbleCsv(file, setter, countrySetter, index, year) {
+    const response = await fetch(file)
+    const reader = response.body.getReader()
+    const result = await reader.read() // raw array
+    const decoder = new TextDecoder('utf-8')
+    const csv = decoder.decode(result.value) // the csv text
+    const results = Papa.parse(csv, { header: true }) // object with { data, errors, meta }
+    const rows = results.data // array of objects
+
+
+    const data = rows.filter(row => parseInt(row.Year) === year).filter(row => (row['Energy use (kg of oil equivalent per capita)'] !== '' && row['Poverty - $1.90 a day (% of population)'] !== ''))
+    setter(data.map(data => ({
+        label: data.Entity,
+        data: {x: parseFloat(data['Energy use (kg of oil equivalent per capita)']), y: parseFloat(data['Poverty - $1.90 a day (% of population)'])}
+    })))
+}
 
 async function getOwidJson(
     file,
@@ -279,6 +304,15 @@ function App() {
     const [renewableEnergyInvestmentPercentageDatasets, setRenewableEnergyInvestmentPercentageDatasets] = React.useState([])
     const [renewableEnergyInvestmentPercentageCountries, setRenewableEnergyInvestmentPercentageCountries] = React.useState([])
 
+    const [renewableEnergyInvestmentByTechnologyIndex, setRenewableEnergyInvestmentByTechnologyIndex] = React.useState('World')
+    const [renewableEnergyInvestmentByTechnologyIndexDatasets, setRenewableEnergyInvestmentByTechnologyDatasets] = React.useState([])
+    const [renewableEnergyInvestmentByTechnologyIndexCountries, setRenewableEnergyInvestmentByTechnologyCountries] = React.useState([])
+
+    const [energyUsePerCapitaVsPovertyIndex, setEnergyUsePerCapitaVsPovertyIndex] = React.useState('World')
+    const [energyUsePerCapitaVsPovertyDatasets, setEnergyUsePerCapitaVsPovertyDatasets] = React.useState([])
+    const [energyUsePerCapitaVsPovertyCountries, setEnergyUsePerCapitaVsPovertyCountries] = React.useState([])
+    const [energyUsePerCapitaVsPovertyYear, setEnergyUsePerCapitaVsPovertyYear] = React.useState(2014)
+
     const getEnergyConsumption = () => {
         getEnerdataCsv(totalEnergyConsumptionData, setTotalEnergyConsumption, setTotalEnergyConsumptionCountries, totalEnergyConsumptionIndex)
     }
@@ -313,6 +347,25 @@ function App() {
         )
     }
 
+    const getRenewableEnergyInvestmentByTechnology = () => {
+        getOwidCsv(
+            renewableEnergyInvestmentByTechnology,
+            setRenewableEnergyInvestmentByTechnologyDatasets,
+            setRenewableEnergyInvestmentByTechnologyCountries,
+            renewableEnergyInvestmentByTechnologyIndex
+        )
+    }
+
+    const getEnergyUsePerCapitaVsPoverty = () => {
+        getOwidBubbleCsv(
+            energyUsePerCapitaVsPoverty,
+            setEnergyUsePerCapitaVsPovertyDatasets,
+            setEnergySupplySourceCountries,
+            energyUsePerCapitaVsPovertyIndex,
+            energyUsePerCapitaVsPovertyYear
+        )
+    }
+
     const getRenewableEnergyInvestmentPercentage = () => {
         getOwidJson2(
             renewableEnergyInvestmentPercentage,
@@ -330,6 +383,8 @@ function App() {
       getEnergySupplySource()
       getRenewableEnergyInvestment()
       getRenewableEnergyInvestmentPercentage()
+      getRenewableEnergyInvestmentByTechnology()
+      getEnergyUsePerCapitaVsPoverty()
       delayedCloseLoader();
   }, [])
 
@@ -370,6 +425,7 @@ function App() {
         return computed;
     }
 
+    console.log(energyUsePerCapitaVsPovertyDatasets)
   return (
       <>
       {(!dataComputed() || loading) &&
@@ -425,6 +481,10 @@ function App() {
                               keys={totalEnergyConsumption.keys}
                               values={totalEnergyConsumption.values}
                               options={{
+                                  plugins: {
+                                      labels: false,
+                                      datalabels: false
+                                  },
                                   scales: {
                                       yAxes: [{
                                           ticks: {
@@ -471,6 +531,10 @@ function App() {
                       keys={totalElectricityConsumption.keys}
                       values={totalElectricityConsumption.values}
                       options={{
+                          plugins: {
+                              labels: false,
+                              datalabels: false
+                          },
                           scales: {
                               yAxes: [{
                                   ticks: {
@@ -517,6 +581,10 @@ function App() {
                           keys={totalCo2Emmisions.keys}
                           values={totalCo2Emmisions.values}
                           options={{
+                              plugins: {
+                                  labels: false,
+                                  datalabels: false
+                              },
                               scales: {
                                   yAxes: [{
                                       ticks: {
@@ -564,6 +632,10 @@ function App() {
                 keys={renewablesShare.keys}
                 values={renewablesShare.values}
                 options={{
+                    plugins: {
+                        labels: false,
+                        datalabels: false
+                    },
                     scales: {
                         yAxes: [{
                             ticks: {
@@ -679,6 +751,10 @@ function App() {
                                   }
                               })}
                               options={{
+                                  plugins: {
+                                      labels: false,
+                                      datalabels: false
+                                  },
                                   scales: {
                                       yAxes: [{
                                           stacked: true,
@@ -697,6 +773,10 @@ function App() {
                           name='Renewables share'
                           datasets={energySupplySourceDatasets}
                           options={{
+                              plugins: {
+                                  labels: false,
+                                  datalabels: false
+                              },
                               scales: {
                                   yAxes: [{
                                       stacked: true,
@@ -741,6 +821,10 @@ function App() {
                                 name='Renewables share'
                                 datasets={renewableEnergyInvestmentDatasets}
                                 options={{
+                                    plugins: {
+                                        labels: false,
+                                        datalabels: false
+                                    },
                                     scales: {
                                         yAxes: [{
                                             stacked: true,
@@ -790,6 +874,10 @@ function App() {
                                     }
                                 })}
                                 options={{
+                                    plugins: {
+                                        labels: false,
+                                        datalabels: false
+                                    },
                                     scales: {
                                         yAxes: [{
                                             stacked: true,
@@ -804,6 +892,104 @@ function App() {
                                 }}
                             >
                             </Doughnut>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container my-3 my-md-5">
+                <div className="row">
+                    <div className="col">
+                        <p>Also, the world has changed his mind on which technology to invest deeper overtime.</p>
+                    </div>
+                </div>
+            </div>
+            <div className="container mt-5">
+                <div className="row">
+                    <div className="col d-flex justify-content-center">
+              <span className={"mr-3"}>
+                Here is the renewable energy investment of the world by <strong>technology</strong>
+              </span>
+                    </div>
+                </div>
+            </div>
+            <div className="container my-3 my-md-5 pb-5">
+                <div className="row">
+                    <div className="col">
+                        <div className="white-wrapper">
+                            <MultipleBars
+                                datasets={renewableEnergyInvestmentByTechnologyIndexDatasets}
+                                options={{
+                                    plugins: {
+                                        labels: false,
+                                        datalabels: false
+                                    },
+                                    legend: {
+                                    },
+                                    scales: {
+                                        xAxes: [{
+                                            stacked: true
+                                        }],
+                                        yAxes: [{
+                                            stacked: true
+                                        }]
+                                    }
+                                }}
+                            >
+                            </MultipleBars>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container my-3 my-md-5">
+                <div className="row">
+                    <div className="col">
+                        <p>That being said, we can question ourselves, the one who invested the most in renewables compared to their GDP, are they also the one who consumes the most ?</p>
+                    </div>
+                </div>
+            </div>
+            <div className="container mt-5">
+                <div className="row">
+                    <div className="col d-flex justify-content-center">
+              <span className={"mr-3"}>
+                Here is the energy use per capita compared to the share of population in extreme <strong>poverty</strong>
+              </span>
+                    </div>
+                </div>
+            </div>
+            <div className="container my-3 my-md-5 pb-5">
+                <div className="row">
+                    <div className="col">
+                        <div className="white-wrapper">
+                            <Bubble
+                                datasets={energyUsePerCapitaVsPovertyDatasets}
+                                options={{
+                                    plugins: {
+                                        datalabels: {
+                                            anchor: function (context) {
+                                                var value = context.dataset.data[context.dataIndex];
+                                                return (value.x > 3000 || (value.x < 3000 && value.y > 6)) ? 'end' : 'center';
+                                            },
+                                            align: function (context) {
+                                                var value = context.dataset.data[context.dataIndex];
+                                                return (value.x > 3000 || (value.x < 3000 && value.y > 6)) ? 'end' : 'center';
+                                            },
+                                            color: function (context) {
+                                                var value = context.dataset.data[context.dataIndex];
+                                                return (value.x > 3000 || (value.x < 3000 && value.y > 6)) ? context.dataset.backgroundColor : '';
+                                            },
+                                            font: {
+                                                weight: 'bold'
+                                            },
+                                            formatter: function (value, context) {
+                                                return context.dataset.label;
+                                            },
+                                            offset: 2,
+                                            padding: 0
+                                        }
+                                    },
+                                }}
+                            >
+                            </Bubble>
                         </div>
                     </div>
                 </div>
