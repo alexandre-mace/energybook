@@ -7,35 +7,40 @@ function getRandomColor() {
 }
 
 
-const MultipleLines = ({datasets, options = {}}) => (
+const MultipleLines = ({datasets, options = {}}) => {
+    const datasetsValues = (Array.isArray(datasets)) ? datasets : datasets.values
+
+    return (
     <ChartLine
         options={options}
         data={{
-            labels: datasets[0].keys,
-            datasets: datasets.map(dataset => {
+            labels: datasets[0] ? datasets[0].keys : datasets.keys,
+            datasets: datasetsValues.map(dataset => {
                 const color = getRandomColor()
                 return {
-                label: dataset.name,
-                // fill: false,
-                lineTension: 0.1,
-                displayColors: false,
-                backgroundColor: `rgba(${color},0.6)`,
-                borderColor: `rgba(${color},1)`,
-                borderCapStyle: 'butt',
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderJoinStyle: 'miter',
-                pointBorderColor: `rgba(${color},1)`,
-                pointBackgroundColor: `rgba(${color},1)`,
-                pointBorderWidth: 1,
-                pointHoverRadius: 5,
-                pointHoverBackgroundColor: `rgba(${color},1)`,
-                pointHoverBorderColor: `rgba(${color},1)`,
-                pointHoverBorderWidth: 2,
-                pointRadius: 1,
-                pointHitRadius: 1000,
-                data: dataset.values
-            }})
-        }} />
-)
+                    label: dataset.name,
+                    // fill: false,
+                    lineTension: 0.1,
+                    displayColors: false,
+                    backgroundColor: `rgba(${color},0.6)`,
+                    borderColor: `rgba(${color},1)`,
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: `rgba(${color},1)`,
+                    pointBackgroundColor: `rgba(${color},1)`,
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: `rgba(${color},1)`,
+                    pointHoverBorderColor: `rgba(${color},1)`,
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 1000,
+                    data: dataset.values
+                }
+            })
+        }}/>
+    )
+}
 export default MultipleLines;

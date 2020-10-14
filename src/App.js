@@ -13,18 +13,38 @@ import renewableEnergyInvestment from './Dataset/renewable_energy_investment.jso
 import renewableEnergyInvestmentPercentage from './Dataset/renewable_energy_investment_percentage.json';
 import renewableEnergyInvestmentByTechnology from './Dataset/investment-in-renewable-energy-by-technology.csv';
 import energyUsePerCapitaVsPoverty from './Dataset/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.csv';
+import totalFinalConsumptionBySectorData from './Dataset/total_final_consumption_by_sector.csv';
 import Line from "./UI/components/Line";
 import MultipleLines from "./UI/components/MultipleLines";
 import Doughnut from "./UI/components/Doughnut";
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
-import {Bar} from "react-chartjs-2";
 import MultipleBars from "./UI/components/MultipleBars";
 import Bubble from "./UI/components/Bubble";
 
 function getKeyByValue(array, value) {
     return array.findIndex(arrayValue => arrayValue === value);
+}
+
+async function getIaeDataCsv(file, setter, index) {
+    const response = await fetch(file)
+    const reader = response.body.getReader()
+    const result = await reader.read() // raw array
+    const decoder = new TextDecoder('utf-8')
+    const csv = decoder.decode(result.value) // the csv text
+    const results = Papa.parse(csv, { header: true }) // object with { data, errors, meta }
+    const rows = results.data // array of objects
+
+    const values = Object.keys(rows[0]).filter(row => row !== 'year')
+    setter({
+        keys: rows.map(row => row.year)
+        ,
+        values: values.filter(value => value !== 'Units').map(value => ({
+            name: value,
+            values: rows.map(row => row[value])
+        }))
+    })
 }
 
 async function getEnerdataCsv(file, setter, countrySetter, index) {
@@ -313,6 +333,9 @@ function App() {
     const [energyUsePerCapitaVsPovertyCountries, setEnergyUsePerCapitaVsPovertyCountries] = React.useState([])
     const [energyUsePerCapitaVsPovertyYear, setEnergyUsePerCapitaVsPovertyYear] = React.useState(2014)
 
+    const [totalFinalConsumptionBySectorYear, setTotalFinalConsumptionBySectorYear] = React.useState(2018)
+    const [totalFinalConsumptionBySectorDatasets, setTotalFinalConsumptionBySectorDatasets] = React.useState([])
+
     const getEnergyConsumption = () => {
         getEnerdataCsv(totalEnergyConsumptionData, setTotalEnergyConsumption, setTotalEnergyConsumptionCountries, totalEnergyConsumptionIndex)
     }
@@ -324,6 +347,10 @@ function App() {
     }
     const getRenewablesShare = () => {
         getEnerdataCsv(renewablesShareData, setRenewablesShare, setRenewablesShareCountries, renewablesShareIndex)
+    }
+
+    const getTotalFinalConsumptionBySector = () => {
+        getIaeDataCsv(totalFinalConsumptionBySectorData, setTotalFinalConsumptionBySectorDatasets)
     }
 
     const getEnergySupplySource = () => {
@@ -385,6 +412,7 @@ function App() {
       getRenewableEnergyInvestmentPercentage()
       getRenewableEnergyInvestmentByTechnology()
       getEnergyUsePerCapitaVsPoverty()
+      getTotalFinalConsumptionBySector()
       delayedCloseLoader();
   }, [])
 
@@ -425,6 +453,7 @@ function App() {
         return computed;
     }
 
+    console.log(totalFinalConsumptionBySectorDatasets)
   return (
       <>
       {(!dataComputed() || loading) &&
@@ -989,6 +1018,52 @@ function App() {
                                 }}
                             >
                             </Bubble>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container my-3 my-md-5">
+                <div className="row">
+                    <div className="col">
+                        <p>Digging deeper, which <strong>sector</strong> consumes the most ?</p>
+                    </div>
+                </div>
+            </div>
+            <div className="container mt-5">
+                <div className="row">
+                    <div className="col d-flex justify-content-center">
+              <span className={"mr-3"}>
+                Here is the total final energy consumption of the World by sector
+              </span>
+                    </div>
+                </div>
+            </div>
+            <div className="container my-3 my-md-5 pb-5">
+                <div className="row">
+                    <div className="col">
+                        <div className="white-wrapper">
+                            <MultipleLines
+                                name='total final consumption by sector'
+                                datasets={totalFinalConsumptionBySectorDatasets}
+                                options={{
+                                    plugins: {
+                                        labels: false,
+                                        datalabels: false
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            stacked: true,
+                                            ticks: {
+                                            }
+                                        }]
+                                    },
+                                    legend: {
+                                        position: 'right',
+                                        reverse: true
+                                    }
+                                }}
+                            >
+                            </MultipleLines>
                         </div>
                     </div>
                 </div>
