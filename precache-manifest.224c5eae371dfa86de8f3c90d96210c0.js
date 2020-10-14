@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4a7355959a4620e728ce5e1a112cace4",
+    "revision": "90f2f347cc8e655d750e78aa2572f44a",
     "url": "/energybook/index.html"
   },
   {
-    "revision": "f63981cfa444159d740b",
+    "revision": "eae47f280a61afbc810a",
     "url": "/energybook/static/css/main.51da8209.chunk.css"
   },
   {
-    "revision": "2dc68fe8b11e5a139db7",
-    "url": "/energybook/static/js/2.89a02d11.chunk.js"
+    "revision": "6ef1f3e1b6af9efeacd6",
+    "url": "/energybook/static/js/2.c452658d.chunk.js"
   },
   {
     "revision": "e1ef5787b5880b241fd938918bbdc5b8",
-    "url": "/energybook/static/js/2.89a02d11.chunk.js.LICENSE.txt"
+    "url": "/energybook/static/js/2.c452658d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f63981cfa444159d740b",
-    "url": "/energybook/static/js/main.e4021aed.chunk.js"
+    "revision": "eae47f280a61afbc810a",
+    "url": "/energybook/static/js/main.a02b25ee.chunk.js"
   },
   {
     "revision": "4748ca5942796f2f8742",
@@ -46,5 +46,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "910e7983619ec4194911122100497415",
     "url": "/energybook/static/media/total_energy_consumption.910e7983.csv"
+  },
+  {
+    "revision": "e9c0cfab8b847684afbaf06b6b57ee1a",
+    "url": "/energybook/static/media/total_final_consumption_by_sector.e9c0cfab.csv"
   }
 ]);
