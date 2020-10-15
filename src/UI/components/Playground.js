@@ -90,7 +90,7 @@ const Playground = () => {
             <div className="row my-5">
                 <div className="col">
                     <p>Here is the math ((eol * 5000000 * 0.2) + (sol * 300 * 0.16) + (nuc * 1100000000 * 0.75)) / 100000.</p>
-                    <p>It goes number of thing + Power in MW + Charge factor for each, divided for the sike of readability</p>
+                    <p>It goes number of thing + Power in MW + Charge factor for each, divided for the sake of readability</p>
                 </div>
             </div>
         </div>
