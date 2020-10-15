@@ -48,37 +48,37 @@ const EnergyComparator = () => {
                         <ColorControlledDoughnut datasets={[
                             {
                                 name: 'Wind turbine',
-                                value: calculateEnergySourcePower(eol, powerData.eol.averagePower, powerData.eol.averageChargeFactor) / powerRatioDivider,
+                                value: calculateEnergySourcePower(eol, powerData.eol.averagePower, powerData.eol.averageChargeFactor),
                                 color: 'lightgray'
                             },
                             {
                                 name: 'Solar panel',
-                                value: calculateEnergySourcePower(sol, powerData.sol.averagePower, powerData.sol.averageChargeFactor) / powerRatioDivider,
+                                value: calculateEnergySourcePower(sol, powerData.sol.averagePower, powerData.sol.averageChargeFactor),
                                 color: 'blue'
                             },
                             {
                                 name: 'Nuclear power plant',
-                                value: calculateEnergySourcePower(nuc, powerData.nuc.averagePower, powerData.nuc.averageChargeFactor) / powerRatioDivider,
+                                value: calculateEnergySourcePower(nuc, powerData.nuc.averagePower, powerData.nuc.averageChargeFactor),
                                 color: 'lightgreen'
                             },
                             {
                                 name: 'Coal thermal power station',
-                                value: calculateEnergySourcePower(therCoal, powerData.therCoal.averagePower, powerData.therCoal.averageChargeFactor) / powerRatioDivider,
+                                value: calculateEnergySourcePower(therCoal, powerData.therCoal.averagePower, powerData.therCoal.averageChargeFactor),
                                 color: 'black'
                             },
                             {
                                 name: 'Oil thermal power station',
-                                value: calculateEnergySourcePower(therOil, powerData.therOil.averagePower, powerData.therOil.averageChargeFactor) / powerRatioDivider,
+                                value: calculateEnergySourcePower(therOil, powerData.therOil.averagePower, powerData.therOil.averageChargeFactor),
                                 color: 'purple'
                             },
                             {
                                 name: 'Gas thermal power station',
-                                value: calculateEnergySourcePower(therGas, powerData.therGas.averagePower, powerData.therGas.averageChargeFactor) / powerRatioDivider,
+                                value: calculateEnergySourcePower(therGas, powerData.therGas.averagePower, powerData.therGas.averageChargeFactor),
                                 color: 'darkgray'
                             },
                             {
                                 name: 'Hydroelectric power station',
-                                value: calculateEnergySourcePower(hydro, powerData.hydro.averagePower, powerData.hydro.averageChargeFactor) / powerRatioDivider,
+                                value: calculateEnergySourcePower(hydro, powerData.hydro.averagePower, powerData.hydro.averageChargeFactor),
                                 color: 'lightblue'
                             },
                         ]}/>
