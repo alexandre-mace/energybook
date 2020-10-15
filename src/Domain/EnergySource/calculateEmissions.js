@@ -1,18 +1,39 @@
 import powerData from "./PowerData";
-import {powerRatioDivider} from "../../UI/components/EnergyComparator";
 import calculateEnergySourceEmissions from "./calculateEnergySourceEmissions";
+import calculateEnergySourcePower from "./calculateEnergySourcePower";
 
-const calculateEmissions = (eolNb, nucNb, solNb, therCoalNb, therOilNb, therGasNb, hydroNb, ) => {
+const calculateEmissions = (eolNb, nucNb, solNb, therCoalNb, therOilNb, therGasNb, hydroNb) => {
     return (
         (
-            calculateEnergySourceEmissions(eolNb, powerData.eol.co2) +
-            calculateEnergySourceEmissions(nucNb, powerData.nuc.co2) +
-            calculateEnergySourceEmissions(solNb, powerData.sol.co2) +
-            calculateEnergySourceEmissions(therCoalNb, powerData.therCoal.co2) +
-            calculateEnergySourceEmissions(therOilNb, powerData.therOil.co2) +
-            calculateEnergySourceEmissions(therGasNb, powerData.therGas.co2) +
-            calculateEnergySourceEmissions(hydroNb, powerData.hydro.co2)
-        )/ powerRatioDivider
+            calculateEnergySourceEmissions(
+                calculateEnergySourcePower(eolNb, powerData.eol.averagePower, powerData.eol.averageChargeFactor),
+                powerData.eol.co2
+            ) +
+            calculateEnergySourceEmissions(
+                calculateEnergySourcePower(nucNb, powerData.nuc.averagePower, powerData.nuc.averageChargeFactor),
+                powerData.nuc.co2
+            ) +
+            calculateEnergySourceEmissions(
+                calculateEnergySourcePower(solNb, powerData.sol.averagePower, powerData.sol.averageChargeFactor),
+                powerData.sol.co2
+            ) +
+            calculateEnergySourceEmissions(
+                calculateEnergySourcePower(therCoalNb, powerData.therCoal.averagePower, powerData.therCoal.averageChargeFactor),
+                powerData.therCoal.co2
+            ) +
+            calculateEnergySourceEmissions(
+                calculateEnergySourcePower(therOilNb, powerData.therOil.averagePower, powerData.therOil.averageChargeFactor),
+                powerData.therOil.co2
+            ) +
+            calculateEnergySourceEmissions(
+                calculateEnergySourcePower(therGasNb, powerData.therGas.averagePower, powerData.therGas.averageChargeFactor),
+                powerData.therGas.co2
+            ) +
+            calculateEnergySourceEmissions(
+                calculateEnergySourcePower(hydroNb, powerData.hydro.averagePower, powerData.hydro.averageChargeFactor),
+                powerData.hydro.co2
+            )
+        ) / 1000
     )
 }
 export default calculateEmissions;

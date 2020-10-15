@@ -11,7 +11,7 @@ const calculateSurface = (eolNb, nucNb, solNb, therCoalNb, therOilNb, therGasNb,
             calculateEnergySourceSurface(therOilNb, powerData.therOil.averageSurface) +
             calculateEnergySourceSurface(therGasNb, powerData.therGas.averageSurface) +
             calculateEnergySourceSurface(hydroNb, powerData.hydro.averageSurface)
-        )
+        ) / 1000
     )
 }
 export default calculateSurface;

@@ -1,4 +1,4 @@
-const calculateEnergySourceEmissions = (nb, emissions) => {
-    return nb * emissions
+const calculateEnergySourceEmissions = (energy, emissions) => {
+    return energy * emissions
 }
 export default calculateEnergySourceEmissions;
