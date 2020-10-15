@@ -23,7 +23,7 @@ const Versus = () => {
                             (therOil * {powerData.therOil.averagePower} * {powerData.therOil.averageChargeFactor}) +
                             (therGas * {powerData.therGas.averagePower} * {powerData.therGas.averageChargeFactor}) +
                             (hydro * {powerData.hydro.averagePower} * {powerData.hydro.averageChargeFactor}).</p>
-                        <p>It goes number of thing x Power in MW x Charge factor for each.</p>
+                        <p>It goes number of thing x Power in MW x (charge factor || availability rate)  for each.</p>
                     </div>
                 </div>
             </div>

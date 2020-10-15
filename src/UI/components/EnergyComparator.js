@@ -14,6 +14,7 @@ import calculatePower from "../../Domain/EnergySource/calculatePower";
 import calculateEnergySourcePower from "../../Domain/EnergySource/calculateEnergySourcePower";
 import calculateSurface from "../../Domain/EnergySource/calculateSurface";
 import formatNumber from "../../Infrastructure/Formatter/formatNumber";
+import calculateEmissions from "../../Domain/EnergySource/calculateEmissions";
 
 export const powerRatioDivider = 100000;
 
@@ -44,7 +45,7 @@ const EnergyComparator = () => {
                     <div className="col text-center">
                         <div className={"mb-3"}>Power MW <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculatePower(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <div className={"mb-3"}>Surface m² <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateSurface(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
-                        {/*<div className={"mb-3"}> Emissions <strong style={{fontSize: '1.7rem'}}>{calculatePower(eol, nuc, sol, therCoal, therOil, therGas, hydro)}</strong></div>*/}
+                        <div className={"mb-3"}> CO2 Emissions g/kWh  <strong style={{fontSize: '1.7rem'}}>{calculateEmissions(eol, nuc, sol, therCoal, therOil, therGas, hydro)}</strong></div>
                         <ColorControlledDoughnut datasets={[
                             {
                                 name: 'Wind turbine',
