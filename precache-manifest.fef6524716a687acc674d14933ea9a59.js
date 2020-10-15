@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d7478ae406e05cb7d3d3a544ec4cb1a6",
+    "revision": "c35ae4ec4e3c9d172eed6a566075edb0",
     "url": "/energybook/index.html"
   },
   {
-    "revision": "eb4e6f820ff0c422def6",
+    "revision": "7f049a6677afff91c02a",
     "url": "/energybook/static/css/main.c89caa24.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/energybook/static/js/2.06b965cb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "eb4e6f820ff0c422def6",
-    "url": "/energybook/static/js/main.708dcb23.chunk.js"
+    "revision": "7f049a6677afff91c02a",
+    "url": "/energybook/static/js/main.5ed43562.chunk.js"
   },
   {
     "revision": "4748ca5942796f2f8742",
