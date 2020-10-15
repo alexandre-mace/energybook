@@ -486,13 +486,12 @@ function App() {
                     </div>
                 </div>
             </div>
-            <div className="py-2"></div>
             {appMode === 'playground' &&
                 <Playground/>
             }
             {appMode === 'book' &&
                 <>
-          <div className="container my-3 my-md-5 pt-5">
+                <div className="container my-3 my-md-5 pt-5">
               <div className="row">
                   <div className="col">
                       <h1 className={"mb-3 pb-5 app-title color-primary"}>Energy Book</h1>
@@ -501,7 +500,7 @@ function App() {
                   </div>
               </div>
           </div>
-            <div className="pt-5"></div>
+            <div className="pt-2"></div>
           <div className="container mt-5 pt-5">
               <div className="row">
                   <div className="col d-flex justify-content-center">

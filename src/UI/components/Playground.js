@@ -33,20 +33,6 @@ const Playground = () => {
     const [hydroRight, setHydroRight] = React.useState(0)
 
     const calculatePower = (eol, sol, nuc, therCoal, therOil, therGas, hydro) => {
-        console.log(nuc)
-        console.log(therCoal)
-        console.log(therOil)
-        console.log(therGas)
-        console.log(hydro)
-        console.log((
-            (eol * 5000000 * 0.2) +
-            (sol * 300 * 0.16) +
-            (nuc * 1100000000 * 0.75) +
-            (therCoal * 600000000 * 0.22) +
-            (therOil * 600000000 * 0.1) +
-            (therGas * 500000000 * 0.55) +
-            (hydro * 250000000 * 0.28)
-        ))
         return (
             (eol * 5000000 * 0.2) +
             (sol * 300 * 0.16) +
@@ -58,7 +44,8 @@ const Playground = () => {
         ) / 100000
     }
     return (
-        <div className="container playground">
+        <>
+        <div className="playground container">
             <div className="row">
                 <div className="col-6">
                     {
@@ -287,6 +274,7 @@ const Playground = () => {
                 </div>
             </div>
         </div>
+            </>
     )
 }
 export default Playground;
