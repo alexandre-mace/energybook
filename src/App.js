@@ -668,6 +668,7 @@ function App() {
           <div className="container my-3 my-md-5">
               <div className="row">
                   <div className="col">
+                      <p>PS : Note the weird trick, since we started looking after co2 emissions in the 90's, we took co2 emissions to another planet. </p>
                       <p>How can we <i>partly</i> solve it ?</p>
                       <p>By using <strong>renewable energy</strong>.</p>
                   </div>
