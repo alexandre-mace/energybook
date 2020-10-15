@@ -22,6 +22,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import MultipleBars from "./UI/components/MultipleBars";
 import Bubble from "./UI/components/Bubble";
+import Playground from "./UI/components/Playground";
 
 function getKeyByValue(array, value) {
     return array.findIndex(arrayValue => arrayValue === value);
@@ -290,6 +291,7 @@ const autoComplete = (options, setIndex, index) => {
 
 function App() {
     const [loading, setLoading] = React.useState(true)
+    const [appMode, setAppMode] = React.useState('book')
 
     const [totalCo2EmmisionsIndex, setTotalCo2EmmisionsIndex] = React.useState('World')
   const [totalCo2Emmisions, setTotalCo2Emmisions] = React.useState({keys: [], values: []})
@@ -469,14 +471,28 @@ function App() {
             <div className="container my-3 my-md-5 pb-5">
                 <div className="row justify-content-center header">
                     <div className="col-auto">
-                        <span className={"clickable"} onClick={() => window.location.reload(false)}><strong>Book</strong></span>
+                        <span className={"clickable"} onClick={() => {
+                            // window.location.reload(false)
+                            setAppMode('book')
+                        }}>
+                            {appMode === 'book' && <strong>Book</strong>}
+                            {appMode !== 'book' && <strong className={"black"}>Book</strong>}
+                        </span>
                     </div>
-                    <div className={"col-auto"}>
-                        <span className={"disabled"}>Playground (WIP)</span>
+                    <div className={"col-auto"} onClick={() => setAppMode('playground')}>
+                        <span className={"clickable"}>
+                            {appMode === 'playground' && <strong>Playground (WIP)</strong>}
+                            {appMode !== 'playground' && <strong className={"black"}>Playground (WIP)</strong>}
+                        </span>
                     </div>
                 </div>
             </div>
             <div className="py-2"></div>
+            {appMode === 'playground' &&
+                <Playground/>
+            }
+            {appMode === 'book' &&
+                <>
           <div className="container my-3 my-md-5 pt-5">
               <div className="row">
                   <div className="col">
@@ -1068,6 +1084,8 @@ function App() {
                     </div>
                 </div>
             </div>
+                    </>
+            }
       </>
       }
     </>
