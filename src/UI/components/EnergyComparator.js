@@ -28,8 +28,8 @@ const EnergyComparator = () => {
 
     return (
         <>
-            <div className="container pt-5">
-                <div className="row position-absolute" style={{opacity: 0.17}}>
+            <div className="container">
+                <div className="row position-absolute energy-pictos">
                     <div className="col">
                         <PictoGenerator name={'nuclear power plant'} img={nuclearPowerPlantImg} total={nuc}/>
                         <PictoGenerator name={'wind turbine'} img={windTurbineImg} total={eol/10}/>

@@ -172,6 +172,10 @@ body {
 .sliders * {
   font-size: 0.8rem !important;
 }
+.energy-pictos {
+  margin-top: -50px;
+  opacity: 0.17;
+}
 body {
   font-size: calc(1rem + 0.5vw) !important;
 }
