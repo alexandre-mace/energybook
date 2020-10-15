@@ -1,5 +1,8 @@
 import React from 'react';
 import ComparatorSlider from "./ComparatorSlider";
+import windTurbineImg from './../../UI/wind-turbine.png';
+import solarPanelImg from './../../UI/solar-panel.png';
+import nuclearPowerPlantImg from './../../UI/nuclear-power-plant.png';
 
 const Playground = () => {
     const [eolLeft, setEolLeft] = React.useState(0)
@@ -17,6 +20,42 @@ const Playground = () => {
     return (
         <div className="container">
             <div className="row">
+                <div className="col-6">
+                    {
+                        [...Array(Math.ceil(nucLeft))].map((e, i) =>
+                            <img style={{width: 20, height: 20}}  src={nuclearPowerPlantImg} alt="nuclear power plant"/>
+                        )
+                    }
+                    {
+                        [...Array(Math.ceil(eolLeft/10))].map((e, i) =>
+                            <img style={{width: 20, height: 20}}  src={windTurbineImg} alt="wind turbine"/>
+                        )
+                    }
+                    {
+                        [...Array(Math.ceil(solLeft/100000))].map((e, i) =>
+                            <img style={{width: 20, height: 20}}  src={solarPanelImg} alt="solar panel"/>
+                        )
+                    }
+                </div>
+                <div className="col-6">
+                    {
+                        [...Array(Math.ceil(nucRight))].map((e, i) =>
+                            <img style={{width: 20, height: 20}}  src={nuclearPowerPlantImg} alt="nuclear power plant"/>
+                        )
+                    }
+                    {
+                        [...Array(Math.ceil(eolRight/10))].map((e, i) =>
+                            <img style={{width: 20, height: 20}}  src={windTurbineImg} alt="wind turbine"/>
+                        )
+                    }
+                    {
+                        [...Array(Math.ceil(solRight/100000))].map((e, i) =>
+                            <img style={{width: 20, height: 20}}  src={solarPanelImg} alt="solar panel"/>
+                        )
+                    }
+                </div>
+            </div>
+            <div className="row mt-5">
                 <div className="col-6 text-center">
                     Left power : {calculatePower(eolLeft, solLeft, nucLeft)}
                 </div>
@@ -34,10 +73,10 @@ const Playground = () => {
             </div>
             <div className="row my-4">
                 <div className="col-6">
-                    Solar panel : <ComparatorSlider sliderValue={solLeft} setter={setSolLeft} max={10000000} step={1000}/>
+                    Solar panel : <ComparatorSlider sliderValue={solLeft} setter={setSolLeft} max={30000000} step={1000000}/>
                 </div>
                 <div className="col-6">
-                    Solar panel : <ComparatorSlider sliderValue={solRight} setter={setSolRight} max={10000000} step={1000}/>
+                    Solar panel : <ComparatorSlider sliderValue={solRight} setter={setSolRight} max={30000000} step={1000000}/>
                 </div>
             </div>
             <div className="row my-4">
