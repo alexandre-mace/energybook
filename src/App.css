@@ -169,6 +169,9 @@ body {
 .black {
   color: black !important;
 }
+.playground * {
+  font-size: 1rem !important;
+}
 body {
   font-size: calc(1rem + 0.5vw) !important;
 }

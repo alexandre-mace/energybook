@@ -20,7 +20,7 @@ const ComparatorSlider = ({sliderValue, setter, max, step}) => {
     };
 
     return (
-        <div className={"row no-gutter"}>
+        <div className={"row no-gutter sliders"}>
             <div className="col-9 pr-0">
                 <Slider
                     value={typeof sliderValue === 'number' ? sliderValue : 0}

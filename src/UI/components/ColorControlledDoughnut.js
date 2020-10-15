@@ -10,15 +10,15 @@ function getRandomColor() {
 
 const ColorControlledDoughnut = ({datasets, options = {}}) => (
     <ChartDoughnut
-        height={100}
+        height={150}
         options={{
             plugins: {
                 datalabels: false,
                 labels: {
                     render: 'label',
-                    fontSize: 14,
+                    fontSize: 12,
                     fontStyle: 'bold',
-                    fontColor: '#000',
+                    fontColor: '#fff',
                     fontFamily: '"Lucida Console", Monaco, monospace'
                 }
             }

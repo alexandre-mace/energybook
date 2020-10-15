@@ -455,7 +455,6 @@ function App() {
         return computed;
     }
 
-    console.log(totalFinalConsumptionBySectorDatasets)
   return (
       <>
       {(!dataComputed() || loading) &&
