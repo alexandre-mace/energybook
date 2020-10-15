@@ -472,8 +472,8 @@ function App() {
                 <div className="row justify-content-center header">
                     <div className="col-auto">
                         <span className={"clickable"} onClick={() => {
-                            // window.location.reload(false)
-                            setAppMode('book')
+                            window.location.reload(false)
+                            // setAppMode('book')
                         }}>
                             {appMode === 'book' && <strong>Book</strong>}
                             {appMode !== 'book' && <strong className={"black"}>Book</strong>}
