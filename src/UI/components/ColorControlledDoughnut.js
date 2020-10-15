@@ -21,6 +21,9 @@ const ColorControlledDoughnut = ({datasets, options = {}}) => (
                     fontColor: '#fff',
                     fontFamily: '"Lucida Console", Monaco, monospace'
                 }
+            },
+            legend: {
+                display: false
             }
         }}
         data={{

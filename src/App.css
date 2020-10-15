@@ -170,7 +170,7 @@ body {
   color: black !important;
 }
 .sliders * {
-  font-size: 1rem !important;
+  font-size: 0.8rem !important;
 }
 body {
   font-size: calc(1rem + 0.5vw) !important;

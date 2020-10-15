@@ -291,7 +291,7 @@ const autoComplete = (options, setIndex, index) => {
 
 function App() {
     const [loading, setLoading] = React.useState(true)
-    const [appMode, setAppMode] = React.useState('book')
+    const [appMode, setAppMode] = React.useState('playground')
 
     const [totalCo2EmmisionsIndex, setTotalCo2EmmisionsIndex] = React.useState('World')
   const [totalCo2Emmisions, setTotalCo2Emmisions] = React.useState({keys: [], values: []})
