@@ -204,6 +204,8 @@ const Playground = () => {
                     ]}/>
                 </div>
             </div>
+        </div>
+        <div className="container sliders">
             <div className="row mt-5">
                 <div className="col-6">
                     Wind turbine (nb) : <ComparatorSlider sliderValue={eolLeft} setter={setEolLeft} max={1000} step={50}/>
