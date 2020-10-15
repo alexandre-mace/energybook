@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.css": "/energybook/static/css/main.c89caa24.chunk.css",
-    "main.js": "/energybook/static/js/main.37716427.chunk.js",
-    "main.js.map": "/energybook/static/js/main.37716427.chunk.js.map",
+    "main.css": "/energybook/static/css/main.98eed662.chunk.css",
+    "main.js": "/energybook/static/js/main.067ae8db.chunk.js",
+    "main.js.map": "/energybook/static/js/main.067ae8db.chunk.js.map",
     "runtime-main.js": "/energybook/static/js/runtime-main.7279f93b.js",
     "runtime-main.js.map": "/energybook/static/js/runtime-main.7279f93b.js.map",
-    "static/js/2.90abe751.chunk.js": "/energybook/static/js/2.90abe751.chunk.js",
-    "static/js/2.90abe751.chunk.js.map": "/energybook/static/js/2.90abe751.chunk.js.map",
+    "static/js/2.97e1709d.chunk.js": "/energybook/static/js/2.97e1709d.chunk.js",
+    "static/js/2.97e1709d.chunk.js.map": "/energybook/static/js/2.97e1709d.chunk.js.map",
     "index.html": "/energybook/index.html",
-    "precache-manifest.fbbdaf997635d8c719eca64f559045e5.js": "/energybook/precache-manifest.fbbdaf997635d8c719eca64f559045e5.js",
+    "precache-manifest.6b5f6af722a9c26bc82bda1fde276ea3.js": "/energybook/precache-manifest.6b5f6af722a9c26bc82bda1fde276ea3.js",
     "service-worker.js": "/energybook/service-worker.js",
-    "static/css/main.c89caa24.chunk.css.map": "/energybook/static/css/main.c89caa24.chunk.css.map",
-    "static/js/2.90abe751.chunk.js.LICENSE.txt": "/energybook/static/js/2.90abe751.chunk.js.LICENSE.txt",
+    "static/css/main.98eed662.chunk.css.map": "/energybook/static/css/main.98eed662.chunk.css.map",
+    "static/js/2.97e1709d.chunk.js.LICENSE.txt": "/energybook/static/js/2.97e1709d.chunk.js.LICENSE.txt",
+    "static/media/coal.png": "/energybook/static/media/coal.ce5bc250.png",
     "static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.csv": "/energybook/static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.95d591bf.csv",
+    "static/media/hydro.png": "/energybook/static/media/hydro.e50b6d47.png",
     "static/media/investment-in-renewable-energy-by-technology.csv": "/energybook/static/media/investment-in-renewable-energy-by-technology.72070554.csv",
     "static/media/nuclear-power-plant.png": "/energybook/static/media/nuclear-power-plant.47a2d30d.png",
     "static/media/renewables_share.csv": "/energybook/static/media/renewables_share.9ef3a7c8.csv",
@@ -24,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7279f93b.js",
-    "static/js/2.90abe751.chunk.js",
-    "static/css/main.c89caa24.chunk.css",
-    "static/js/main.37716427.chunk.js"
+    "static/js/2.97e1709d.chunk.js",
+    "static/css/main.98eed662.chunk.css",
+    "static/js/main.067ae8db.chunk.js"
   ]
 }

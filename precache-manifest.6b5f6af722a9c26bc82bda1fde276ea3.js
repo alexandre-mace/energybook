@@ -1,31 +1,39 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3a19a0918be903c0a1d4586a8e4f8447",
+    "revision": "1ff720d7f25223319bfa15acd9713a2a",
     "url": "/energybook/index.html"
   },
   {
-    "revision": "4bdefa34a37da5536be9",
-    "url": "/energybook/static/css/main.c89caa24.chunk.css"
+    "revision": "1fb5ecca7cf775222535",
+    "url": "/energybook/static/css/main.98eed662.chunk.css"
   },
   {
-    "revision": "3156249330ebf173996a",
-    "url": "/energybook/static/js/2.90abe751.chunk.js"
+    "revision": "57e26234a3276eba1998",
+    "url": "/energybook/static/js/2.97e1709d.chunk.js"
   },
   {
     "revision": "e1ef5787b5880b241fd938918bbdc5b8",
-    "url": "/energybook/static/js/2.90abe751.chunk.js.LICENSE.txt"
+    "url": "/energybook/static/js/2.97e1709d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4bdefa34a37da5536be9",
-    "url": "/energybook/static/js/main.37716427.chunk.js"
+    "revision": "1fb5ecca7cf775222535",
+    "url": "/energybook/static/js/main.067ae8db.chunk.js"
   },
   {
     "revision": "4748ca5942796f2f8742",
     "url": "/energybook/static/js/runtime-main.7279f93b.js"
   },
   {
+    "revision": "ce5bc250b4d6f4b2afabefcac75fddf8",
+    "url": "/energybook/static/media/coal.ce5bc250.png"
+  },
+  {
     "revision": "95d591bfedc72f37b57f652327636e89",
     "url": "/energybook/static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.95d591bf.csv"
+  },
+  {
+    "revision": "e50b6d4729b4d2996b9bd05dfad09bea",
+    "url": "/energybook/static/media/hydro.e50b6d47.png"
   },
   {
     "revision": "72070554677a1c0a3f71e4b68054b2da",
