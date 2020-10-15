@@ -23,6 +23,7 @@ import Switch from '@material-ui/core/Switch';
 import MultipleBars from "./UI/components/MultipleBars";
 import Bubble from "./UI/components/Bubble";
 import Playground from "./UI/components/Playground";
+import Versus from "./UI/components/Versus";
 
 function getKeyByValue(array, value) {
     return array.findIndex(arrayValue => arrayValue === value);
@@ -471,23 +472,41 @@ function App() {
                 <div className="row justify-content-center header">
                     <div className="col-auto">
                         <span className={"clickable"} onClick={() => {
-                            window.location.reload(false)
-                            // setAppMode('book')
+                            setLoading(true)
+                            delayedCloseLoader()
+                            setAppMode('book')
                         }}>
                             {appMode === 'book' && <strong>Book</strong>}
                             {appMode !== 'book' && <strong className={"black"}>Book</strong>}
                         </span>
                     </div>
-                    <div className={"col-auto"} onClick={() => setAppMode('playground')}>
-                        <span className={"clickable"}>
+                    <div className={"col-auto"} onClick={() => {
+                        // setLoading(true)
+                        // delayedCloseLoader()
+                        // setAppMode('playground')
+                    }}>
+                        <span className={"disabled"}>
                             {appMode === 'playground' && <strong>Playground (WIP)</strong>}
                             {appMode !== 'playground' && <strong className={"black"}>Playground (WIP)</strong>}
+                        </span>
+                    </div>
+                    <div className={"col-auto"} onClick={() => {
+                        setLoading(true)
+                        delayedCloseLoader()
+                        setAppMode('versus')
+                    }}>
+                        <span className={"clickable"}>
+                            {appMode === 'versus' && <strong>Versus</strong>}
+                            {appMode !== 'versus' && <strong className={"black"}>Versus</strong>}
                         </span>
                     </div>
                 </div>
             </div>
             {appMode === 'playground' &&
                 <Playground/>
+            }
+            {appMode === 'versus' &&
+                <Versus/>
             }
             {appMode === 'book' &&
                 <>
