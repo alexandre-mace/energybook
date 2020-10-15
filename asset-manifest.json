@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/energybook/static/css/main.51da8209.chunk.css",
-    "main.js": "/energybook/static/js/main.a02b25ee.chunk.js",
-    "main.js.map": "/energybook/static/js/main.a02b25ee.chunk.js.map",
+    "main.css": "/energybook/static/css/main.c89caa24.chunk.css",
+    "main.js": "/energybook/static/js/main.285f2965.chunk.js",
+    "main.js.map": "/energybook/static/js/main.285f2965.chunk.js.map",
     "runtime-main.js": "/energybook/static/js/runtime-main.7279f93b.js",
     "runtime-main.js.map": "/energybook/static/js/runtime-main.7279f93b.js.map",
-    "static/js/2.c452658d.chunk.js": "/energybook/static/js/2.c452658d.chunk.js",
-    "static/js/2.c452658d.chunk.js.map": "/energybook/static/js/2.c452658d.chunk.js.map",
+    "static/js/2.31bf06b6.chunk.js": "/energybook/static/js/2.31bf06b6.chunk.js",
+    "static/js/2.31bf06b6.chunk.js.map": "/energybook/static/js/2.31bf06b6.chunk.js.map",
     "index.html": "/energybook/index.html",
-    "precache-manifest.224c5eae371dfa86de8f3c90d96210c0.js": "/energybook/precache-manifest.224c5eae371dfa86de8f3c90d96210c0.js",
+    "precache-manifest.4dec0ea7271d50bf2f6354605a4dda82.js": "/energybook/precache-manifest.4dec0ea7271d50bf2f6354605a4dda82.js",
     "service-worker.js": "/energybook/service-worker.js",
-    "static/css/main.51da8209.chunk.css.map": "/energybook/static/css/main.51da8209.chunk.css.map",
-    "static/js/2.c452658d.chunk.js.LICENSE.txt": "/energybook/static/js/2.c452658d.chunk.js.LICENSE.txt",
+    "static/css/main.c89caa24.chunk.css.map": "/energybook/static/css/main.c89caa24.chunk.css.map",
+    "static/js/2.31bf06b6.chunk.js.LICENSE.txt": "/energybook/static/js/2.31bf06b6.chunk.js.LICENSE.txt",
     "static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.csv": "/energybook/static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.95d591bf.csv",
     "static/media/investment-in-renewable-energy-by-technology.csv": "/energybook/static/media/investment-in-renewable-energy-by-technology.72070554.csv",
     "static/media/renewables_share.csv": "/energybook/static/media/renewables_share.9ef3a7c8.csv",
@@ -22,8 +22,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7279f93b.js",
-    "static/js/2.c452658d.chunk.js",
-    "static/css/main.51da8209.chunk.css",
-    "static/js/main.a02b25ee.chunk.js"
+    "static/js/2.31bf06b6.chunk.js",
+    "static/css/main.c89caa24.chunk.css",
+    "static/js/main.285f2965.chunk.js"
   ]
 }
