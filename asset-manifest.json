@@ -1,20 +1,22 @@
 {
   "files": {
     "main.css": "/energybook/static/css/main.c89caa24.chunk.css",
-    "main.js": "/energybook/static/js/main.285f2965.chunk.js",
-    "main.js.map": "/energybook/static/js/main.285f2965.chunk.js.map",
+    "main.js": "/energybook/static/js/main.708dcb23.chunk.js",
+    "main.js.map": "/energybook/static/js/main.708dcb23.chunk.js.map",
     "runtime-main.js": "/energybook/static/js/runtime-main.7279f93b.js",
     "runtime-main.js.map": "/energybook/static/js/runtime-main.7279f93b.js.map",
-    "static/js/2.31bf06b6.chunk.js": "/energybook/static/js/2.31bf06b6.chunk.js",
-    "static/js/2.31bf06b6.chunk.js.map": "/energybook/static/js/2.31bf06b6.chunk.js.map",
+    "static/js/2.06b965cb.chunk.js": "/energybook/static/js/2.06b965cb.chunk.js",
+    "static/js/2.06b965cb.chunk.js.map": "/energybook/static/js/2.06b965cb.chunk.js.map",
     "index.html": "/energybook/index.html",
-    "precache-manifest.4dec0ea7271d50bf2f6354605a4dda82.js": "/energybook/precache-manifest.4dec0ea7271d50bf2f6354605a4dda82.js",
+    "precache-manifest.945a00ee11aac608500353f94c5c8f46.js": "/energybook/precache-manifest.945a00ee11aac608500353f94c5c8f46.js",
     "service-worker.js": "/energybook/service-worker.js",
     "static/css/main.c89caa24.chunk.css.map": "/energybook/static/css/main.c89caa24.chunk.css.map",
-    "static/js/2.31bf06b6.chunk.js.LICENSE.txt": "/energybook/static/js/2.31bf06b6.chunk.js.LICENSE.txt",
+    "static/js/2.06b965cb.chunk.js.LICENSE.txt": "/energybook/static/js/2.06b965cb.chunk.js.LICENSE.txt",
     "static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.csv": "/energybook/static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.95d591bf.csv",
     "static/media/investment-in-renewable-energy-by-technology.csv": "/energybook/static/media/investment-in-renewable-energy-by-technology.72070554.csv",
+    "static/media/nuclear-power-plant.png": "/energybook/static/media/nuclear-power-plant.47a2d30d.png",
     "static/media/renewables_share.csv": "/energybook/static/media/renewables_share.9ef3a7c8.csv",
+    "static/media/solar-panel.png": "/energybook/static/media/solar-panel.4c6ee7a5.png",
     "static/media/total_co2_emissions.csv": "/energybook/static/media/total_co2_emissions.ae35b90c.csv",
     "static/media/total_electricity_consumption.csv": "/energybook/static/media/total_electricity_consumption.c23a0dbf.csv",
     "static/media/total_energy_consumption.csv": "/energybook/static/media/total_energy_consumption.910e7983.csv",
@@ -22,8 +24,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7279f93b.js",
-    "static/js/2.31bf06b6.chunk.js",
+    "static/js/2.06b965cb.chunk.js",
     "static/css/main.c89caa24.chunk.css",
-    "static/js/main.285f2965.chunk.js"
+    "static/js/main.708dcb23.chunk.js"
   ]
 }
