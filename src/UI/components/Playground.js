@@ -96,7 +96,7 @@ const Playground = () => {
                         )
                     }
                     {
-                        [...Array(0)].map((e, i) =>
+                        [...Array(Math.ceil(solRight/100000))].map((e, i) =>
                             <img style={{width: 20, height: 20}}  src={solarPanelImg} alt="solar panel"/>
                         )
                     }
