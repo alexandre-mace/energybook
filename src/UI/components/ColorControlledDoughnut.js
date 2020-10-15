@@ -2,12 +2,6 @@ import React from 'react';
 import {Doughnut as ChartDoughnut} from 'react-chartjs-2';
 import 'chartjs-plugin-labels';
 
-function getRandomColor() {
-    var o = Math.round, r = Math.random, s = 255;
-    return o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s);
-}
-
-
 const ColorControlledDoughnut = ({datasets, options = {}}) => (
     <ChartDoughnut
         height={150}
