@@ -33,7 +33,7 @@ const calculateCost = (eolNb, nucNb, solNb, therCoalNb, therOilNb, therGasNb, hy
                 calculateEnergySourcePower(hydroNb, powerData.hydro.averagePower, powerData.hydro.averageChargeFactor),
                 powerData.hydro.cost
             )
-        ) / 1000
+        )
     )
 }
 export default calculateCost;
