@@ -81,8 +81,8 @@ function App() {
                       <div className="row">
                           <div className="col">
                               <h1 className={"mb-3 pb-5 app-title color-primary"}>Energy Book</h1>
-                              <h4>This book will teach you the basis about energy.</h4>
-                              <p>We are consuming a lot of it, and it is increasing every day.</p>
+                              <h4>This book will teach you the basis about energy 📔</h4>
+                              <p>I made this website because energy use is one of the main theme of our generation.</p>
                           </div>
                       </div>
                     </div>
@@ -93,7 +93,7 @@ function App() {
                                 <div><strong className={"clickable"} onClick={() => setAppMode('playground')}>Discover playground mode</strong></div>
                             </div>
                             <div className="d-flex col display-flex flex-column justify-content-between">
-                                <div><p>Compare energy sources together</p></div>
+                                <div><p>Compare energy sources together.</p></div>
                                 <div><strong className={"clickable"} onClick={() => {
                                     setLoading(true)
                                     delayedCloseLoader()
