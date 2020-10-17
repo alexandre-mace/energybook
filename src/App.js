@@ -36,14 +36,6 @@ function App() {
                             {appMode !== 'home' && <strong className={"black"}>Home</strong>}
                         </span>
                     </div>
-                    <div className="col-auto">
-                        <span className={"clickable"} onClick={() => {
-                            setAppMode('narrative')
-                        }}>
-                            {appMode === 'narrative' && <strong>Narrative</strong>}
-                            {appMode !== 'narrative' && <strong className={"black"}>Narrative</strong>}
-                        </span>
-                    </div>
                     <div className={"col-auto"} onClick={() => {
                         // setLoading(true)
                         // delayedCloseLoader()
@@ -62,6 +54,14 @@ function App() {
                         <span className={"clickable"}>
                             {appMode === 'versus' && <strong>Versus</strong>}
                             {appMode !== 'versus' && <strong className={"black"}>Versus</strong>}
+                        </span>
+                    </div>
+                    <div className="col-auto">
+                        <span className={"clickable"} onClick={() => {
+                            setAppMode('narrative')
+                        }}>
+                            {appMode === 'narrative' && <strong>Narrative</strong>}
+                            {appMode !== 'narrative' && <strong className={"black"}>Narrative</strong>}
                         </span>
                     </div>
                 </div>
@@ -89,10 +89,6 @@ function App() {
                     <div className="container my-3 my-md-5 pt-5">
                         <div className="row">
                             <div className="d-flex col display-flex flex-column justify-content-between">
-                                <div><p>Learn things step by step from the start.</p></div>
-                                <div><strong className={"clickable"} onClick={() => setAppMode('narrative')}>Discover narrative mode</strong></div>
-                            </div>
-                            <div className="d-flex col display-flex flex-column justify-content-between">
                                 <div><p>Explore and play around energy data.</p></div>
                                 <div><strong className={"clickable"} onClick={() => setAppMode('playground')}>Discover playground mode</strong></div>
                             </div>
@@ -103,6 +99,10 @@ function App() {
                                     delayedCloseLoader()
                                     setAppMode('versus')
                                 }}>Discover versus mode</strong></div>
+                            </div>
+                            <div className="d-flex col display-flex flex-column justify-content-between">
+                                <div><p>Learn things step by step from the start.</p></div>
+                                <div><strong className={"clickable"} onClick={() => setAppMode('narrative')}>Discover narrative mode</strong></div>
                             </div>
                         </div>
                     </div>
