@@ -11,7 +11,7 @@ const calculatePower = (eolNb, nucNb, solNb, therCoalNb, therOilNb, therGasNb, h
             calculateEnergySourcePower(therOilNb, powerData.therOil.averagePower, powerData.therOil.averageChargeFactor) +
             calculateEnergySourcePower(therGasNb, powerData.therGas.averagePower, powerData.therGas.averageChargeFactor) +
             calculateEnergySourcePower(hydroNb, powerData.hydro.averagePower, powerData.hydro.averageChargeFactor)
-        )
+        ) / 1000
     )
 }
 export default calculatePower;

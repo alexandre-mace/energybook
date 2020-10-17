@@ -16,7 +16,7 @@ const Versus = () => {
                 </div>
                 <div className="row my-5 pt-5">
                     <div className="col">
-                        <p>Here is the math (eol * {powerData.eol.averagePower} * {powerData.eol.averageChargeFactor}) +
+                        <p>Here is the math about power (eol * {powerData.eol.averagePower} * {powerData.eol.averageChargeFactor}) +
                             (sol * {powerData.sol.averagePower} * {powerData.sol.averageChargeFactor}) +
                             (nuc * {powerData.nuc.averagePower} * {powerData.nuc.averageChargeFactor}) +
                             (therCoal * {powerData.therCoal.averagePower} * {powerData.therCoal.averageChargeFactor}) +

@@ -98,7 +98,11 @@ function App() {
                             </div>
                             <div className="d-flex col display-flex flex-column justify-content-between">
                                 <div><p>Compare energy sources together</p></div>
-                                <div><strong className={"clickable"} onClick={() => setAppMode('versus')}>Discover versus mode</strong></div>
+                                <div><strong className={"clickable"} onClick={() => {
+                                    setLoading(true)
+                                    delayedCloseLoader()
+                                    setAppMode('versus')
+                                }}>Discover versus mode</strong></div>
                             </div>
                         </div>
                     </div>

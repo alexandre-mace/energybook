@@ -1,11 +1,11 @@
 const powerData = {
     'eol': {
-        'averagePower': 5000,
-        'averageChargeFactor': 0.2,
-        'averageSurface': 1000,
-        'co2': 10,
-        'cost': 55,
-        'materials': {
+        'averagePower': 5000, // kW
+        'averageChargeFactor': 0.2, // %
+        'averageSurface': 1000, // m2
+        'co2': 10, // g/kWh
+        'cost': 55, // €/MWh
+        'materials': { // ton/TWh
             'aluminium': 35,
             'cement': 0,
             'concrete': 8000,
@@ -19,7 +19,7 @@ const powerData = {
         }
     },
     'sol': {
-        'averagePower': 0.3,
+        'averagePower': 3,
         'averageChargeFactor': 0.16,
         'averageSurface': 1.8,
         'co2': 85,
@@ -58,7 +58,7 @@ const powerData = {
     },
     'therCoal': {
         'averagePower': 600000,
-        'averageChargeFactor': 0.22,
+        'averageChargeFactor': 0.75,
         'averageSurface': 1500000,
         'co2': 950,
         'cost': 70,
@@ -76,15 +76,27 @@ const powerData = {
         }
     },
     'therOil': {
-        'averagePower': 600000,
-        'averageChargeFactor': 0.1,
-        'averageSurface': 1200000,
+        'averagePower': 600000, //
+        'averageChargeFactor': 0.75, // %
+        'averageSurface': 1200000, // km²
         'co2': 700,
-        'cost': 75
+        'cost': 75,
+        'materials': {
+            'aluminium': 3,
+            'cement': 0,
+            'concrete': 870,
+            'copper': 1,
+            'glass': 0,
+            'iron': 1,
+            'lead': 0,
+            'plastic': 0,
+            'silicon': 0,
+            'steel': 310
+        }
     },
     'therGas': {
         'averagePower': 600000,
-        'averageChargeFactor': 0.55,
+        'averageChargeFactor': 0.75,
         'averageSurface': 1200000,
         'co2': 430,
         'cost': 75,

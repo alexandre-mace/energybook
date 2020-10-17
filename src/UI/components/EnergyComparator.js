@@ -16,6 +16,7 @@ import calculateSurface from "../../Domain/EnergySource/calculateSurface";
 import formatNumber from "../../Infrastructure/Formatter/formatNumber";
 import calculateEmissions from "../../Domain/EnergySource/calculateEmissions";
 import calculateCost from "../../Domain/EnergySource/calculateCost";
+import calculateMaterials from "../../Domain/EnergySource/calculateMaterials";
 
 export const powerRatioDivider = 100000;
 
@@ -47,6 +48,7 @@ const EnergyComparator = () => {
                         <div className={"mb-3"}>Energy MWh <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculatePower(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <div className={"mb-3"}>Surface km² <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateSurface(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <div className={"mb-3"}>CO2 Emissions kg  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateEmissions(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
+                        <div className={"mb-3"}>Materials T  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateMaterials(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <div className={"mb-3"}>Cost €  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateCost(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <ColorControlledDoughnut datasets={[
                             {
