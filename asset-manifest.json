@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/energybook/static/css/main.97182837.chunk.css",
-    "main.js": "/energybook/static/js/main.7cf4fb85.chunk.js",
-    "main.js.map": "/energybook/static/js/main.7cf4fb85.chunk.js.map",
+    "main.css": "/energybook/static/css/main.92d8a013.chunk.css",
+    "main.js": "/energybook/static/js/main.f5bb788f.chunk.js",
+    "main.js.map": "/energybook/static/js/main.f5bb788f.chunk.js.map",
     "runtime-main.js": "/energybook/static/js/runtime-main.7279f93b.js",
     "runtime-main.js.map": "/energybook/static/js/runtime-main.7279f93b.js.map",
-    "static/js/2.981b8be3.chunk.js": "/energybook/static/js/2.981b8be3.chunk.js",
-    "static/js/2.981b8be3.chunk.js.map": "/energybook/static/js/2.981b8be3.chunk.js.map",
+    "static/js/2.847586f3.chunk.js": "/energybook/static/js/2.847586f3.chunk.js",
+    "static/js/2.847586f3.chunk.js.map": "/energybook/static/js/2.847586f3.chunk.js.map",
     "index.html": "/energybook/index.html",
-    "precache-manifest.f7be2a434317e644c2b8e9d684149047.js": "/energybook/precache-manifest.f7be2a434317e644c2b8e9d684149047.js",
+    "precache-manifest.47ff67bed6dfc253f2475286b45a875f.js": "/energybook/precache-manifest.47ff67bed6dfc253f2475286b45a875f.js",
     "service-worker.js": "/energybook/service-worker.js",
-    "static/css/main.97182837.chunk.css.map": "/energybook/static/css/main.97182837.chunk.css.map",
-    "static/js/2.981b8be3.chunk.js.LICENSE.txt": "/energybook/static/js/2.981b8be3.chunk.js.LICENSE.txt",
+    "static/css/main.92d8a013.chunk.css.map": "/energybook/static/css/main.92d8a013.chunk.css.map",
+    "static/js/2.847586f3.chunk.js.LICENSE.txt": "/energybook/static/js/2.847586f3.chunk.js.LICENSE.txt",
     "static/media/coal.png": "/energybook/static/media/coal.ce5bc250.png",
     "static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.csv": "/energybook/static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.95d591bf.csv",
     "static/media/hydro.png": "/energybook/static/media/hydro.e50b6d47.png",
@@ -26,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7279f93b.js",
-    "static/js/2.981b8be3.chunk.js",
-    "static/css/main.97182837.chunk.css",
-    "static/js/main.7cf4fb85.chunk.js"
+    "static/js/2.847586f3.chunk.js",
+    "static/css/main.92d8a013.chunk.css",
+    "static/js/main.f5bb788f.chunk.js"
   ]
 }
