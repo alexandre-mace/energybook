@@ -82,7 +82,7 @@ function App() {
                           <div className="col">
                               <h1 className={"mb-3 pb-5 app-title color-primary"}>Energy Book</h1>
                               <h4>This book will teach you the basis about energy 📔</h4>
-                              <p>I made this website because energy use is one of the main theme of our generation.</p>
+                              <p>Energy use is one of the main theme of our generation, having knowledge about it is important.</p>
                           </div>
                       </div>
                     </div>
