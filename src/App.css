@@ -48,8 +48,16 @@
     transform: rotate(360deg);
   }
 }
+.menu-home {
+  position: absolute;
+  left: 0;
+}
 
 .box-loader {
+  background-color: #b3bbfa;
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100vh;
   width: 100vw;
   display: flex;
