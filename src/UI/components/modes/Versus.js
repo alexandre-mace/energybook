@@ -10,6 +10,7 @@ const Versus = () => {
                     <div className="col">
                         <h4>Welcome to the versus section &#129354;</h4>
                         <p>Here you can compare two energy systems together.</p>
+                        <p style={{ fontSize: '1rem' }}>⚠️ This tool contains approximations (at large scale, by system, ..), use it for magnitude order.</p>
                     </div>
                 </div>
             </div>
