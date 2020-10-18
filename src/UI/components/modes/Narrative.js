@@ -30,8 +30,7 @@ function Narrative() {
             {loading &&
                 <Loader/>
             }
-            {!loading &&
-            <>
+            <div className={loading ? 'hidden' : ''}>
                 <div className="container pt-3 mb-5">
                     <div className="row">
                         <div className="col">
@@ -142,7 +141,7 @@ function Narrative() {
                 </div>
 
                 <EnergyConsumptionBySector/>
-            </>
+            </div>
             }
         </>
     );

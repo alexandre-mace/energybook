@@ -52,10 +52,16 @@
   position: absolute;
   left: 0;
 }
-
+.hidden {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
 .box-loader {
   background-color: #b3bbfa;
   position: absolute;
+  z-index: 100;
   top: 0;
   left: 0;
   height: 100vh;
