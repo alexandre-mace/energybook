@@ -37,13 +37,11 @@ function App() {
                         </span>
                     </div>
                     <div className={"col-auto"} onClick={() => {
-                        // setLoading(true)
-                        // delayedCloseLoader()
-                        // setAppMode('playground')
+                        setAppMode('playground')
                     }}>
-                        <span className={"disabled"}>
-                            {appMode === 'playground' && <strong>Playground (WIP)</strong>}
-                            {appMode !== 'playground' && <strong className={"black"}>Playground (WIP)</strong>}
+                        <span className={"clickable"}>
+                            {appMode === 'playground' && <strong>Playground</strong>}
+                            {appMode !== 'playground' && <strong className={"black"}>Playground</strong>}
                         </span>
                     </div>
                     <div className={"col-auto"} onClick={() => {

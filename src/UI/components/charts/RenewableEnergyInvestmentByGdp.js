@@ -22,7 +22,7 @@ const RenewableEnergyInvestmentByGdp = () => {
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
-                                Here is the renewable energy investment of the continents by percentage of GDP
+                                Here is the renewable energy investment of the continents by <strong>percentage of GDP</strong>
                             </span>
                     </div>
                 </div>

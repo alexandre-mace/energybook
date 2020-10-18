@@ -16,9 +16,6 @@
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
 }
-.MuiInput-underline:after {
-  border-bottom-color: rgba(75,192,192,0.4) !important;
-}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -72,7 +69,18 @@
     transition: opacity 0.4s;
     opacity: 0.5;
 }
-
+.MuiPaper-root, .MuiTabs-root, .MuiTab-root {
+    border-radius: 20px !important;
+}
+.MuiTab-textColorPrimary.Mui-selected {
+    border: 3px solid #eb5c5c !important;
+}
+.MuiTab-root:focus {
+    outline: none !important;
+}
+.PrivateTabIndicator-root-5, .MuiTabs-indicator {
+    height: 0px !important;
+}
 .scrollTop:hover{
     opacity: 1;
 }
@@ -178,6 +186,9 @@
 }
 .min-chart-height {
   min-height: 666px;
+}
+.min-chart-wrapper-height {
+  min-height: 731px;
 }
 .white-wrapper {
   padding: 20px;

@@ -172,7 +172,6 @@ function Narrative() {
                         </div>
                     </div>
                 </div>
-
                 <EnergyConsumptionBySector/>
             </div>
             }
