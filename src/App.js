@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import Playground from "./UI/components/Playground";
-import Versus from "./UI/components/Versus";
-import Narrative from "./UI/components/Narrative";
-import Loader from "./UI/components/Loader";
+import Playground from "./UI/components/modes/Playground";
+import Versus from "./UI/components/modes/Versus";
+import Narrative from "./UI/components/modes/Narrative";
+import Loader from "./UI/components/utils/Loader";
 
 function App() {
     const [loading, setLoading] = React.useState(true)
@@ -81,7 +81,7 @@ function App() {
                       <div className="row">
                           <div className="col">
                               <h1 className={"mb-3 pb-5 app-title color-primary"}>Energy Book</h1>
-                              <h4>This book will teach you the basis about energy 📔</h4>
+                              <h4>This book will teach you the basis about energy &#128212;</h4>
                               <p>Energy use is one of the main theme of our generation, having knowledge about it is important.</p>
                           </div>
                       </div>

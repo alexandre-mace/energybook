@@ -1,6 +1,6 @@
 import Papa from "papaparse";
 
-async function getIaeDataCsv(file, setter, index) {
+async function getIaeDataCsv(file, setter) {
     const response = await fetch(file)
     const reader = response.body.getReader()
     const result = await reader.read() // raw array

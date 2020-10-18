@@ -1,15 +1,15 @@
 import React from 'react';
 import ComparatorSlider from "./ComparatorSlider";
-import windTurbineImg from './../../UI/wind-turbine.png';
-import solarPanelImg from './../../UI/solar-panel.png';
-import nuclearPowerPlantImg from './../../UI/nuclear-power-plant.png';
-import therCoalImg from './../../UI/coal.png';
-import therGasImg from './../../UI/gas.png';
-import therOilImg from './../../UI/oil.png';
-import hydroImg from './../../UI/hydro.png';
-import ColorControlledDoughnut from "./ColorControlledDoughnut";
+import windTurbineImg from '../images/wind-turbine.png';
+import solarPanelImg from '../images/solar-panel.png';
+import nuclearPowerPlantImg from '../images/nuclear-power-plant.png';
+import therCoalImg from '../images/coal.png';
+import therGasImg from '../images/gas.png';
+import therOilImg from '../images/oil.png';
+import hydroImg from '../images/hydro.png';
+import ColorControlledDoughnut from "./charts-types/ColorControlledDoughnut";
 import powerData from "../../Domain/EnergySource/PowerData";
-import PictoGenerator from "./PictoGenerator";
+import PictoGenerator from "./utils/PictoGenerator";
 import calculatePower from "../../Domain/EnergySource/calculatePower";
 import calculateEnergySourcePower from "../../Domain/EnergySource/calculateEnergySourcePower";
 import calculateSurface from "../../Domain/EnergySource/calculateSurface";
@@ -47,9 +47,9 @@ const EnergyComparator = () => {
                     <div className="col text-center">
                         <div className={"mb-3"}>Energy MWh <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculatePower(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <div className={"mb-3"}>Surface km² <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateSurface(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
-                        <div className={"mb-3"}>CO2 Emissions kg  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateEmissions(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
+                        <div className={"mb-3"}>CO2 Emissions kg/h  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateEmissions(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <div className={"mb-3"}>Materials T  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateMaterials(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
-                        <div className={"mb-3"}>Cost €  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateCost(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
+                        <div className={"mb-3"}>Use cost €/h  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateCost(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <ColorControlledDoughnut datasets={[
                             {
                                 name: 'Wind turbine',

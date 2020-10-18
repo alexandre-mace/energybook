@@ -1,6 +1,6 @@
 import React from 'react';
-import powerData from "../../Domain/EnergySource/PowerData";
-import EnergyComparator from "./EnergyComparator";
+import powerData from "../../../Domain/EnergySource/PowerData";
+import EnergyComparator from "../EnergyComparator";
 
 const Versus = () => {
     return (
