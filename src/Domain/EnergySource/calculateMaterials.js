@@ -33,7 +33,7 @@ const calculateMaterials = (eolNb, nucNb, solNb, therCoalNb, therOilNb, therGasN
                 calculateEnergySourcePower(hydroNb, powerData.hydro.averagePower, powerData.hydro.averageChargeFactor),
                 powerData.hydro.materials
             )
-        ) / 10000
+        ) / 1000
     )
 }
 export default calculateMaterials;

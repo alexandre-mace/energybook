@@ -40,7 +40,7 @@ const powerData = {
     'nuc': {
         'averagePower': 1100000,
         'averageChargeFactor': 0.75,
-        'averageSurface': 1500000,
+        'averageSurface': 1250000,
         'co2': 6,
         'cost': 70,
         'materials': {
@@ -59,7 +59,7 @@ const powerData = {
     'therCoal': {
         'averagePower': 600000,
         'averageChargeFactor': 0.75,
-        'averageSurface': 1500000,
+        'averageSurface': 1250000,
         'co2': 950,
         'cost': 70,
         'materials': {
