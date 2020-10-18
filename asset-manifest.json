@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/energybook/static/css/main.92d8a013.chunk.css",
-    "main.js": "/energybook/static/js/main.397685ba.chunk.js",
-    "main.js.map": "/energybook/static/js/main.397685ba.chunk.js.map",
+    "main.css": "/energybook/static/css/main.c0c2eca6.chunk.css",
+    "main.js": "/energybook/static/js/main.06ee94c6.chunk.js",
+    "main.js.map": "/energybook/static/js/main.06ee94c6.chunk.js.map",
     "runtime-main.js": "/energybook/static/js/runtime-main.7279f93b.js",
     "runtime-main.js.map": "/energybook/static/js/runtime-main.7279f93b.js.map",
-    "static/js/2.847586f3.chunk.js": "/energybook/static/js/2.847586f3.chunk.js",
-    "static/js/2.847586f3.chunk.js.map": "/energybook/static/js/2.847586f3.chunk.js.map",
+    "static/js/2.704ed468.chunk.js": "/energybook/static/js/2.704ed468.chunk.js",
+    "static/js/2.704ed468.chunk.js.map": "/energybook/static/js/2.704ed468.chunk.js.map",
     "index.html": "/energybook/index.html",
-    "precache-manifest.7f09e66708967bdbe721b96165863a2e.js": "/energybook/precache-manifest.7f09e66708967bdbe721b96165863a2e.js",
+    "precache-manifest.70fc272024e45118b28b555c83c9f9df.js": "/energybook/precache-manifest.70fc272024e45118b28b555c83c9f9df.js",
     "service-worker.js": "/energybook/service-worker.js",
-    "static/css/main.92d8a013.chunk.css.map": "/energybook/static/css/main.92d8a013.chunk.css.map",
-    "static/js/2.847586f3.chunk.js.LICENSE.txt": "/energybook/static/js/2.847586f3.chunk.js.LICENSE.txt",
+    "static/css/main.c0c2eca6.chunk.css.map": "/energybook/static/css/main.c0c2eca6.chunk.css.map",
+    "static/js/2.704ed468.chunk.js.LICENSE.txt": "/energybook/static/js/2.704ed468.chunk.js.LICENSE.txt",
     "static/media/coal.png": "/energybook/static/media/coal.ce5bc250.png",
     "static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.csv": "/energybook/static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.95d591bf.csv",
     "static/media/hydro.png": "/energybook/static/media/hydro.e50b6d47.png",
     "static/media/investment-in-renewable-energy-by-technology.csv": "/energybook/static/media/investment-in-renewable-energy-by-technology.72070554.csv",
     "static/media/nuclear-power-plant.png": "/energybook/static/media/nuclear-power-plant.47a2d30d.png",
-    "static/media/renewables_share.csv": "/energybook/static/media/renewables_share.9ef3a7c8.csv",
     "static/media/solar-panel.png": "/energybook/static/media/solar-panel.4c6ee7a5.png",
     "static/media/total_co2_emissions.csv": "/energybook/static/media/total_co2_emissions.ae35b90c.csv",
     "static/media/total_electricity_consumption.csv": "/energybook/static/media/total_electricity_consumption.c23a0dbf.csv",
@@ -26,8 +25,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7279f93b.js",
-    "static/js/2.847586f3.chunk.js",
-    "static/css/main.92d8a013.chunk.css",
-    "static/js/main.397685ba.chunk.js"
+    "static/js/2.704ed468.chunk.js",
+    "static/css/main.c0c2eca6.chunk.css",
+    "static/js/main.06ee94c6.chunk.js"
   ]
 }

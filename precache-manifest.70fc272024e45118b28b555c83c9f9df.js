@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c3fc3f2d780d2e74631d75b10c4ea532",
+    "revision": "03d4c517db102483e31d2e9e414e02ae",
     "url": "/energybook/index.html"
   },
   {
-    "revision": "ae7adcfab24128fcc0b7",
-    "url": "/energybook/static/css/main.92d8a013.chunk.css"
+    "revision": "e9d0b460030782768a61",
+    "url": "/energybook/static/css/main.c0c2eca6.chunk.css"
   },
   {
-    "revision": "9ca10664583b48133109",
-    "url": "/energybook/static/js/2.847586f3.chunk.js"
+    "revision": "e239a944a6626cbb46d3",
+    "url": "/energybook/static/js/2.704ed468.chunk.js"
   },
   {
-    "revision": "e1ef5787b5880b241fd938918bbdc5b8",
-    "url": "/energybook/static/js/2.847586f3.chunk.js.LICENSE.txt"
+    "revision": "e9933115f5aa0d3636f2633d9cb69c4f",
+    "url": "/energybook/static/js/2.704ed468.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ae7adcfab24128fcc0b7",
-    "url": "/energybook/static/js/main.397685ba.chunk.js"
+    "revision": "e9d0b460030782768a61",
+    "url": "/energybook/static/js/main.06ee94c6.chunk.js"
   },
   {
     "revision": "4748ca5942796f2f8742",
@@ -42,10 +42,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "47a2d30d1c69ecaffd20532a6aa8b398",
     "url": "/energybook/static/media/nuclear-power-plant.47a2d30d.png"
-  },
-  {
-    "revision": "9ef3a7c867980bf3ca0f020eccfaba74",
-    "url": "/energybook/static/media/renewables_share.9ef3a7c8.csv"
   },
   {
     "revision": "4c6ee7a5e6b0244deff18942755be234",
