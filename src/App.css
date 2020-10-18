@@ -49,6 +49,9 @@
   position: absolute;
   left: 0;
 }
+.MuiTab-root {
+    max-width: 270px !important;
+}
 .hidden {
     opacity: 0;
     width: 1px;
