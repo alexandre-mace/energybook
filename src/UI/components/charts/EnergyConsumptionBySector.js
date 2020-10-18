@@ -16,7 +16,7 @@ const EnergyConsumptionBySector = () => {
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
-                                Here is the total final energy consumption of the World by sector
+                                Here is the total final energy consumption of the World by <strong>sector</strong>
                             </span>
                     </div>
                 </div>

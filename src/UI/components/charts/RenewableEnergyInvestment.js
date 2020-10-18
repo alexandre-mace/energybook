@@ -21,7 +21,7 @@ const RenewableEnergyInvestment = () => {
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
-                                Here is the renewable energy investment of the continents
+                                Here is the renewable energy <strong>investment of the continents</strong>
                             </span>
                     </div>
                 </div>

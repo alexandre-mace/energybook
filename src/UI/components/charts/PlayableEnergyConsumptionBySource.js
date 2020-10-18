@@ -52,7 +52,7 @@ const PlayableEnergyConsumptionBySource = () => {
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
-                                Here is the {energySupplySourceOnlyNonRenewables ? 'non renewables' : ''}{energySupplySourceOnlyRenewables ? 'renewables' : ''} energy consumption by source of the
+                                Here is the {energySupplySourceOnlyNonRenewables ? 'non renewables' : ''}{energySupplySourceOnlyRenewables ? 'renewables' : ''} <strong>energy consumption by source</strong> of the
                             </span>
                         <AutoComplete
                             options={energySupplySourceCountries}
