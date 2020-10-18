@@ -8,7 +8,13 @@ import MultipleLines from "../charts-types/MultipleLines";
 import React from "react";
 import getEnergySupplySource from "../../../Infrastructure/Adapter/getEnergySupplySource";
 
-const EnergyConsumptionBySource = () => {
+const EnergyConsumptionBySource = ({
+   mode = 'lines',
+   onlyCategories = false,
+   onlyRenewables = false,
+   onlyNonRenewables = false,
+   year = 2018
+}) => {
     const [energySupplySourceIndex, setEnergySupplySourceIndex] = React.useState('World')
     const [energySupplySourceDatasets, setEnergySupplySourceDatasets] = React.useState([])
     const [energySupplySourceCountries, setEnergySupplySourceCountries] = React.useState([])
@@ -23,9 +29,9 @@ const EnergyConsumptionBySource = () => {
             setEnergySupplySourceDatasets,
             setEnergySupplySourceCountries,
             energySupplySourceIndex,
-            showRenewableCategories,
-            energySupplySourceOnlyRenewables,
-            energySupplySourceOnlyNonRenewables
+            onlyCategories,
+            onlyRenewables,
+            onlyNonRenewables
         )
     }, [])
 
@@ -34,11 +40,11 @@ const EnergyConsumptionBySource = () => {
             setEnergySupplySourceDatasets,
             setEnergySupplySourceCountries,
             energySupplySourceIndex,
-            showRenewableCategories,
-            energySupplySourceOnlyRenewables,
-            energySupplySourceOnlyNonRenewables
+            onlyCategories,
+            onlyRenewables,
+            onlyNonRenewables
         )
-    }, [energySupplySourceIndex, showRenewableCategories, energySupplySourceOnlyRenewables, energySupplySourceOnlyNonRenewables])
+    }, [energySupplySourceIndex, energySupplySourceYear])
 
     return (
         <>
@@ -46,7 +52,7 @@ const EnergyConsumptionBySource = () => {
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
-                                Here is the energy consumption by source of the
+                                Here is the {onlyNonRenewables ? 'non renewables' : ''}{onlyRenewables ? 'renewables' : ''} energy consumption by source of the
                             </span>
                         <AutoComplete
                             options={energySupplySourceCountries}
@@ -56,69 +62,68 @@ const EnergyConsumptionBySource = () => {
                     </div>
                 </div>
             </div>
-            <div className="container my-3 my-md-5 pb-5">
+            <div className="container my-3 my-md-5">
                 <div className="row">
                     <div className="col min-chart-height">
                         <div className="white-wrapper">
-
                             <FormGroup row>
-                                <FormControlLabel
-                                    control={
-                                        <Switch
-                                            checked={showRenewableCategories}
-                                            onChange={() => {
-                                                setShowRenewableCategories(!(showRenewableCategories))
-                                                setEnergySupplySourceOnlyNonRenewables(false)
-                                                setEnergySupplySourceOnlyRenewables(false)
-                                            }}
-                                            name="showRenewableCategories"
-                                            color="primary"
-                                        />
-                                    }
-                                    label="Only renewable / non renewables"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch
-                                            checked={energySupplySourceOnlyRenewables}
-                                            onChange={() => {
-                                                setEnergySupplySourceOnlyRenewables(!(energySupplySourceOnlyRenewables))
-                                                setEnergySupplySourceOnlyNonRenewables(false)
-                                                setShowRenewableCategories(false)
-                                            }}
-                                            name="showOnlyRenewableCategories"
-                                            color="primary"
-                                        />
-                                    }
-                                    label="Only renewables"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch
-                                            checked={energySupplySourceOnlyNonRenewables}
-                                            onChange={() => {
-                                                setEnergySupplySourceOnlyNonRenewables(!(energySupplySourceOnlyNonRenewables))
-                                                setEnergySupplySourceOnlyRenewables(false)
-                                                setShowRenewableCategories(false)
-                                            }}
-                                            name="showOnlyNonRenewableCategories"
-                                            color="primary"
-                                        />
-                                    }
-                                    label="Only non renewables"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch
-                                            checked={energySupplySourceDoughnutMode}
-                                            onChange={() => setEnergySupplySourceDoughnutMode(!(energySupplySourceDoughnutMode))}
-                                            name="energySupplySourceDoughnutMode"
-                                            color="primary"
-                                        />
-                                    }
-                                    label="Doughnut mode"
-                                />
-                                {energySupplySourceDoughnutMode &&
+                                {/*<FormControlLabel*/}
+                                {/*    control={*/}
+                                {/*        <Switch*/}
+                                {/*            checked={showRenewableCategories}*/}
+                                {/*            onChange={() => {*/}
+                                {/*                setShowRenewableCategories(!(showRenewableCategories))*/}
+                                {/*                setEnergySupplySourceOnlyNonRenewables(false)*/}
+                                {/*                setEnergySupplySourceOnlyRenewables(false)*/}
+                                {/*            }}*/}
+                                {/*            name="showRenewableCategories"*/}
+                                {/*            color="primary"*/}
+                                {/*        />*/}
+                                {/*    }*/}
+                                {/*    label="Only renewable / non renewables"*/}
+                                {/*/>*/}
+                                {/*<FormControlLabel*/}
+                                {/*    control={*/}
+                                {/*        <Switch*/}
+                                {/*            checked={energySupplySourceOnlyRenewables}*/}
+                                {/*            onChange={() => {*/}
+                                {/*                setEnergySupplySourceOnlyRenewables(!(energySupplySourceOnlyRenewables))*/}
+                                {/*                setEnergySupplySourceOnlyNonRenewables(false)*/}
+                                {/*                setShowRenewableCategories(false)*/}
+                                {/*            }}*/}
+                                {/*            name="showOnlyRenewableCategories"*/}
+                                {/*            color="primary"*/}
+                                {/*        />*/}
+                                {/*    }*/}
+                                {/*    label="Only renewables"*/}
+                                {/*/>*/}
+                                {/*<FormControlLabel*/}
+                                {/*    control={*/}
+                                {/*        <Switch*/}
+                                {/*            checked={energySupplySourceOnlyNonRenewables}*/}
+                                {/*            onChange={() => {*/}
+                                {/*                setEnergySupplySourceOnlyNonRenewables(!(energySupplySourceOnlyNonRenewables))*/}
+                                {/*                setEnergySupplySourceOnlyRenewables(false)*/}
+                                {/*                setShowRenewableCategories(false)*/}
+                                {/*            }}*/}
+                                {/*            name="showOnlyNonRenewableCategories"*/}
+                                {/*            color="primary"*/}
+                                {/*        />*/}
+                                {/*    }*/}
+                                {/*    label="Only non renewables"*/}
+                                {/*/>*/}
+                                {/*<FormControlLabel*/}
+                                {/*    control={*/}
+                                {/*        <Switch*/}
+                                {/*            checked={energySupplySourceDoughnutMode}*/}
+                                {/*            onChange={() => setEnergySupplySourceDoughnutMode(!(energySupplySourceDoughnutMode))}*/}
+                                {/*            name="energySupplySourceDoughnutMode"*/}
+                                {/*            color="primary"*/}
+                                {/*        />*/}
+                                {/*    }*/}
+                                {/*    label="Doughnut mode"*/}
+                                {/*/>*/}
+                                {(mode === 'doughnut' && energySupplySourceDatasets[0]) &&
                                 <AutoComplete
                                     options={energySupplySourceDatasets[0].keys}
                                     setIndex={setEnergySupplySourceYear}
@@ -126,7 +131,7 @@ const EnergyConsumptionBySource = () => {
                                 />
                                 }
                             </FormGroup>
-                            {energySupplySourceDoughnutMode &&
+                            {mode === 'doughnut' &&
                             <Doughnut
                                 name='Renewables share'
                                 datasets={energySupplySourceDatasets.map(dataset => {
@@ -153,7 +158,7 @@ const EnergyConsumptionBySource = () => {
                             >
                             </Doughnut>
                             }
-                            {!energySupplySourceDoughnutMode &&
+                            {mode !== 'doughnut' &&
                             <MultipleLines
                                 name='Renewables share'
                                 datasets={energySupplySourceDatasets}

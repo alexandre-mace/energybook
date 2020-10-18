@@ -5,6 +5,14 @@ import EnergyComparator from "../EnergyComparator";
 const Versus = () => {
     return (
         <>
+            <div className="container pt-3 mb-5">
+                <div className="row">
+                    <div className="col">
+                        <h4>Welcome to the versus section &#129354;</h4>
+                        <p>Here you can compare two energy systems together.</p>
+                    </div>
+                </div>
+            </div>
             <div className="playground container">
                 <div className="row">
                     <div className="col-6">

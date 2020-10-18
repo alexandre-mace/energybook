@@ -4,13 +4,14 @@ import Loader from "../utils/Loader";
 import EnergyConsumption from "../charts/EnergyConsumption";
 import ElectricityConsumption from "../charts/ElectricityConsumption";
 import Co2Emissions from "../charts/Co2Emissions";
-import RenewableShare from "../charts/RenewableShare";
 import EnergyConsumptionBySource from "../charts/EnergyConsumptionBySource";
 import RenewableEnergyInvestment from "../charts/RenewableEnergyInvestment";
 import RenewableEnergyInvestmentByGdp from "../charts/RenewableEnergyInvestmentByGdp";
 import RenewableEnergyInvestmentByTechology from "../charts/RenewableEnergyInvestmentByTechnology";
 import CapitaEnergyUseVsPoverty from "../charts/CapitaEnergyUseVsPoverty";
 import EnergyConsumptionBySector from "../charts/EnergyConsumptionBySector";
+import {CircleIndicator} from "../utils/ScrollIndicator";
+import ScrollBackToTop from "../utils/BackToTop";
 
 function Narrative() {
     const [loading, setLoading] = React.useState(true)
@@ -31,6 +32,8 @@ function Narrative() {
                 <Loader/>
             }
             <div className={loading ? 'hidden' : ''}>
+                <CircleIndicator/>
+                <ScrollBackToTop/>
                 <div className="container pt-3 mb-5">
                     <div className="row">
                         <div className="col">
@@ -77,17 +80,47 @@ function Narrative() {
                     </div>
                 </div>
 
-                <RenewableShare/>
+                <EnergyConsumptionBySource onlyCategories={true}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
                         <div className="col">
-                            <p>That is definetely not a lot, lets see what is in there...</p>
+                            <p>That is definetely not a lot of <strong>renewables</strong>, lets see what is in there...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <EnergyConsumptionBySource onlyRenewables={true}/>
+
+                <div className="container my-3 my-md-5">
+                    <div className="row">
+                        <div className="col">
+                            <p>And, let's take a deeper look at who are the <strong>non renewables</strong>, the biggest part of energy consumption source.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <EnergyConsumptionBySource onlyNonRenewables={true}/>
+
+                <div className="container my-3 my-md-5">
+                    <div className="row">
+                        <div className="col">
+                            <p>Let's put them <strong>together</strong> to get the global point of view.</p>
                         </div>
                     </div>
                 </div>
 
                 <EnergyConsumptionBySource/>
+
+                <div className="container my-3 my-md-5">
+                    <div className="row">
+                        <div className="col">
+                            <p>Being year precise, here is <strong>another representation</strong> of it.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <EnergyConsumptionBySource mode={"doughnut"}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">

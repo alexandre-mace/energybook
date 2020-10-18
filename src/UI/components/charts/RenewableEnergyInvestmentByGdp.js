@@ -16,7 +16,6 @@ const RenewableEnergyInvestmentByGdp = () => {
         )
     }, [])
 
-    console.log(renewableEnergyInvestmentPercentageDatasets)
     return (
         <>
             <div className="container mt-5">
