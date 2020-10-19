@@ -26,7 +26,7 @@ const PlayableEnergyConsumptionBySource = () => {
             setEnergySupplySourceDatasets,
             setEnergySupplySourceCountries,
             energySupplySourceIndex,
-            energySupplySourceDoughnutMode,
+            showRenewableCategories,
             energySupplySourceOnlyRenewables,
             energySupplySourceOnlyNonRenewables
         )
@@ -37,14 +37,14 @@ const PlayableEnergyConsumptionBySource = () => {
             setEnergySupplySourceDatasets,
             setEnergySupplySourceCountries,
             energySupplySourceIndex,
-            energySupplySourceDoughnutMode,
+            showRenewableCategories,
             energySupplySourceOnlyRenewables,
             energySupplySourceOnlyNonRenewables
         )
     }, [
         energySupplySourceIndex,
         energySupplySourceYear,
-        energySupplySourceDoughnutMode,
+        showRenewableCategories,
         energySupplySourceOnlyRenewables,
         energySupplySourceOnlyNonRenewables
     ])
@@ -55,8 +55,7 @@ const PlayableEnergyConsumptionBySource = () => {
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
-                                Here is the {energySupplySourceOnlyNonRenewables ? 'non renewables' : ''}{energySupplySourceOnlyRenewables ? 'renewables' : ''}
-                                <strong>energy consumption by source</strong> of the
+                                Here is the {energySupplySourceOnlyNonRenewables ? 'non renewables' : ''}{energySupplySourceOnlyRenewables ? 'renewables' : ''} <strong>energy consumption by source</strong> of the
                             </span>
                         <AutoComplete
                             options={energySupplySourceCountries}
