@@ -49,15 +49,15 @@ const PlayableEnergyInvestment = () => {
                 </div>
             </div>
             <div className={'min-chart-wrapper-height'}>
-            {(!byTechnology && !byGdp) &&
+                {(!byTechnology && !byGdp) &&
                 <RenewableEnergyInvestment/>
-            }
-            {byTechnology &&
-            <RenewableEnergyInvestmentByTechology/>
-            }
-            {byGdp &&
-            <RenewableEnergyInvestmentByGdp/>
-            }
+                }
+                {byTechnology &&
+                <RenewableEnergyInvestmentByTechology/>
+                }
+                {byGdp &&
+                <RenewableEnergyInvestmentByGdp/>
+                }
             </div>
         </>
     )

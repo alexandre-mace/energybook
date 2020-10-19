@@ -218,11 +218,20 @@ footer {
   }
 }
 .min-chart-height {
-  min-height: 666px;
+    min-height: 350px;
 }
 .min-chart-wrapper-height {
-  min-height: 731px;
+    min-height: 450px;
 }
+@media (min-width: 992px) {
+    .min-chart-height {
+        min-height: 666px;
+    }
+    .min-chart-wrapper-height {
+        min-height: 731px;
+    }
+}
+
 .white-wrapper {
   padding: 20px;
   background-color: white;
@@ -273,7 +282,31 @@ body {
   opacity: 0.1;
 }
 body {
-  font-size: calc(1rem + 0.5vw) !important;
+  font-size: 1rem !important;
+}
+.MuiTabs-flexContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+canvas {
+    max-height: 400px !important;
+    min-height: 300px !important;
+}
+@media (min-width: 760px) {
+    canvas {
+        max-height: 500px !important;
+    }
+}
+@media (min-width: 1200px) {
+    canvas {
+        max-height: 700px !important;
+        min-height: 500px !important;
+    }
+}
+.doughnut-wrapper canvas, .bubble-wrapper canvas {
+    max-height: unset !important;
+    min-height: auto !important;
 }
 @media (min-width: 1200px) {
   body {
@@ -281,7 +314,7 @@ body {
   }
 }
 h1 {
-  font-size: calc(1rem + 2.3vw) !important;
+  font-size: calc(1rem + 8vw) !important;
 }
 @media (min-width: 1200px) {
   h1 {
@@ -289,7 +322,7 @@ h1 {
   }
 }
 h4 {
-  font-size: calc(1rem + 1vw) !important;
+  font-size: calc(1rem + 1.3vw) !important;
 }
 @media (min-width: 1200px) {
   h4 {

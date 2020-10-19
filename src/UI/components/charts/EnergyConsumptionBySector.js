@@ -1,8 +1,11 @@
 import MultipleLines from "../charts-types/MultipleLines";
 import React from "react";
 import getEnergyConsumptionBySector from "../../../Infrastructure/Adapter/getEnergyConsumptionBySector";
+import useWindowDimensions from "../utils/useWindowDimension";
 
 const EnergyConsumptionBySector = () => {
+    const { height, width } = useWindowDimensions();
+
     const [totalFinalConsumptionBySectorYear, setTotalFinalConsumptionBySectorYear] = React.useState(2018)
     const [totalFinalConsumptionBySectorDatasets, setTotalFinalConsumptionBySectorDatasets] = React.useState([])
 
@@ -12,7 +15,7 @@ const EnergyConsumptionBySector = () => {
 
     return (
         <>
-            <div className="container mt-5">
+            <div className="container mt-3 mt-md-5">
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
@@ -29,6 +32,7 @@ const EnergyConsumptionBySector = () => {
                                 name='total final consumption by sector'
                                 datasets={totalFinalConsumptionBySectorDatasets}
                                 options={{
+                                    maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
                                         datalabels: false
@@ -54,7 +58,7 @@ const EnergyConsumptionBySector = () => {
                                         }]
                                     },
                                     legend: {
-                                        position: 'right',
+                                        position: width > 760 ? 'right': 'top',
                                         reverse: true
                                     }
                                 }}

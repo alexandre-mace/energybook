@@ -43,6 +43,7 @@ const EnergyConsumption = () => {
                                 keys={totalEnergyConsumption.keys}
                                 values={totalEnergyConsumption.values}
                                 options={{
+                                    maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
                                         datalabels: false

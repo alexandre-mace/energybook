@@ -28,7 +28,7 @@ const Playground = () => {
                 <Loader/>
             }
             <div className={loading ? 'hidden' : ''}>
-                <div className="container mb-5">
+                <div className="container mb-3 mb-md-5">
                     <div className="row">
                         <div className="col">
                             <h4>Welcome to the playground section &#127918;</h4>

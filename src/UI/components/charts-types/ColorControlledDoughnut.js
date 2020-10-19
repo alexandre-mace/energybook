@@ -6,6 +6,7 @@ const ColorControlledDoughnut = ({datasets, options = {}}) => (
     <ChartDoughnut
         height={150}
         options={{
+            responsive: true,
             plugins: {
                 datalabels: false,
                 labels: {

@@ -2,8 +2,11 @@ import Doughnut from "../charts-types/Doughnut";
 import React from "react";
 import getRenewableEnergyInvestmentPercentage
     from "../../../Infrastructure/Adapter/getRenewableEnergyInvestmentPercentage";
+import useWindowDimensions from "../utils/useWindowDimension";
 
 const RenewableEnergyInvestmentByGdp = () => {
+    const { height, width } = useWindowDimensions();
+
     const [renewableEnergyInvestmentPercentageIndex, setRenewableEnergyInvestmentPercentageIndex] = React.useState('World')
     const [renewableEnergyInvestmentPercentageDatasets, setRenewableEnergyInvestmentPercentageDatasets] = React.useState([])
     const [renewableEnergyInvestmentPercentageCountries, setRenewableEnergyInvestmentPercentageCountries] = React.useState([])
@@ -18,7 +21,7 @@ const RenewableEnergyInvestmentByGdp = () => {
 
     return (
         <>
-            <div className="container mt-5">
+            <div className="container mt-3 mt-md-5">
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
@@ -30,7 +33,7 @@ const RenewableEnergyInvestmentByGdp = () => {
             <div className="container my-3 my-md-5 pb-5">
                 <div className="row">
                     <div className="col">
-                        <div className="white-wrapper">
+                        <div className="white-wrapper doughnut-wrapper">
                             <Doughnut
                                 name='Renewables share'
                                 datasets={renewableEnergyInvestmentPercentageDatasets.map(dataset => {
@@ -66,7 +69,7 @@ const RenewableEnergyInvestmentByGdp = () => {
                                         }]
                                     },
                                     legend: {
-                                        position: 'right',
+                                        position: width > 760 ? 'right': 'top',
                                         reverse: true
                                     }
                                 }}

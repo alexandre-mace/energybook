@@ -21,7 +21,7 @@ const ComparatorSlider = ({sliderValue, setter, max, step}) => {
 
     return (
         <div className={"row no-gutter sliders"}>
-            <div className="col-9 pr-0">
+            <div className="col-12 col-sm-9 pr-0">
                 <Slider
                     value={typeof sliderValue === 'number' ? sliderValue : 0}
                     onChange={((event, newValue) => handleSliderChange(event, newValue, setter))}
@@ -30,7 +30,7 @@ const ComparatorSlider = ({sliderValue, setter, max, step}) => {
                     aria-labelledby="input-slider"
                 />
             </div>
-            <div className="col-3">
+            <div className="col-12 col-sm-3">
                 <Input
                     value={sliderValue}
                     margin="dense"

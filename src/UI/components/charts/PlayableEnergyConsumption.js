@@ -89,16 +89,16 @@ const PlayableEnergyConsumption = () => {
             </div>
             <div className={'min-chart-wrapper-height'}>
                 {bySource &&
-                    <PlayableEnergyConsumptionBySource/>
+                <PlayableEnergyConsumptionBySource/>
                 }
                 {bySector &&
-                    <EnergyConsumptionBySector/>
+                <EnergyConsumptionBySector/>
                 }
                 {defaultConsumption &&
-                    <EnergyConsumption/>
+                <EnergyConsumption/>
                 }
                 {electricity &&
-                    <ElectricityConsumption/>
+                <ElectricityConsumption/>
                 }
             </div>
         </>

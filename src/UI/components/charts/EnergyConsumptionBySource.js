@@ -7,14 +7,17 @@ import getKeyByValue from "../../../Infrastructure/Transformer/getKeyByValue";
 import MultipleLines from "../charts-types/MultipleLines";
 import React from "react";
 import getEnergySupplySource from "../../../Infrastructure/Adapter/getEnergySupplySource";
+import useWindowDimensions from "../utils/useWindowDimension";
 
 const EnergyConsumptionBySource = ({
-   mode = 'lines',
-   onlyCategories = false,
-   onlyRenewables = false,
-   onlyNonRenewables = false,
-   year = 2018
-}) => {
+                                       mode = 'lines',
+                                       onlyCategories = false,
+                                       onlyRenewables = false,
+                                       onlyNonRenewables = false,
+                                       year = 2018
+                                   }) => {
+    const { height, width } = useWindowDimensions();
+
     const [energySupplySourceIndex, setEnergySupplySourceIndex] = React.useState('World')
     const [energySupplySourceDatasets, setEnergySupplySourceDatasets] = React.useState([])
     const [energySupplySourceCountries, setEnergySupplySourceCountries] = React.useState([])
@@ -48,7 +51,7 @@ const EnergyConsumptionBySource = ({
 
     return (
         <>
-            <div className="container mt-5">
+            <div className="container mt-3 mt-md-5">
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
@@ -143,6 +146,7 @@ const EnergyConsumptionBySource = ({
                                     }
                                 })}
                                 options={{
+                                    maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
                                         datalabels: false
@@ -163,6 +167,7 @@ const EnergyConsumptionBySource = ({
                                 name='Renewables share'
                                 datasets={energySupplySourceDatasets}
                                 options={{
+                                    maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
                                         datalabels: false
@@ -188,7 +193,7 @@ const EnergyConsumptionBySource = ({
                                         }]
                                     },
                                     legend: {
-                                        position: 'right',
+                                        position: width > 760 ? 'right': 'top',
                                         reverse: true
                                     }
                                 }}

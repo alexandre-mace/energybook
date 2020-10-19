@@ -23,7 +23,7 @@ const Versus = () => {
                         <EnergyComparator/>
                     </div>
                 </div>
-                <div className="row my-5 pt-5">
+                <div className="row my-4 my-md-5 pt-3 pt-md-5">
                     <div className="col">
                         <p>Here is the math about energy (eol * {powerData.eol.averagePower} * {powerData.eol.averageChargeFactor}) +
                             (sol * {powerData.sol.averagePower} * {powerData.sol.averageChargeFactor}) +

@@ -18,7 +18,7 @@ const RenewableEnergyInvestmentByTechology = () => {
 
     return (
         <>
-            <div className="container mt-5">
+            <div className="container mt-3 mt-md-5">
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
@@ -34,6 +34,7 @@ const RenewableEnergyInvestmentByTechology = () => {
                             <MultipleBars
                                 datasets={renewableEnergyInvestmentByTechnologyIndexDatasets}
                                 options={{
+                                    maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
                                         datalabels: false

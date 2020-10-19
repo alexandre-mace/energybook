@@ -1,8 +1,11 @@
 import Bubble from "../charts-types/Bubble";
 import React from "react";
 import getEnergyUsePerCapitaVsPoverty from "../../../Infrastructure/Adapter/getCapitaEnergyUseVsPoverty";
+import useWindowDimensions from "../utils/useWindowDimension";
 
 const CapitaEnergyUseVsPoverty = () => {
+    const { height, width } = useWindowDimensions();
+
     const [energyUsePerCapitaVsPovertyIndex, setEnergyUsePerCapitaVsPovertyIndex] = React.useState('World')
     const [energyUsePerCapitaVsPovertyDatasets, setEnergyUsePerCapitaVsPovertyDatasets] = React.useState([])
     const [energyUsePerCapitaVsPovertyCountries, setEnergyUsePerCapitaVsPovertyCountries] = React.useState([])
@@ -19,7 +22,7 @@ const CapitaEnergyUseVsPoverty = () => {
 
     return (
         <>
-            <div className="container mt-5">
+            <div className="container mt-3 mt-md-5">
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
@@ -31,10 +34,15 @@ const CapitaEnergyUseVsPoverty = () => {
             <div className="container my-3 my-md-5 pb-5">
                 <div className="row">
                     <div className="col">
-                        <div className="white-wrapper">
+                        <div className="white-wrapper bubble-wrapper">
                             <Bubble
                                 datasets={energyUsePerCapitaVsPovertyDatasets}
                                 options={{
+                                    responsive: true,
+                                    maintainAspectRatio: true,
+                                    legend: {
+                                        display: width > 760
+                                    },
                                     plugins: {
                                         datalabels: {
                                             anchor: function (context) {

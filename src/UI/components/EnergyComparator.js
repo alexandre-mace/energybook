@@ -44,7 +44,7 @@ const EnergyComparator = () => {
                     </div>
                 </div>
                 <div className="row mt-4">
-                    <div className="col text-center">
+                    <div className="col text-center doughnut-wrapper">
                         <div className={"mb-3"}>Energy MWh <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculatePower(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <div className={"mb-3"}>Surface km² <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateSurface(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <div className={"mb-3"}>CO2 Emissions kg/h  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateEmissions(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>

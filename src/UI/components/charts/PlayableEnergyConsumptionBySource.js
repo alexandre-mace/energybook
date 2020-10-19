@@ -7,8 +7,11 @@ import getKeyByValue from "../../../Infrastructure/Transformer/getKeyByValue";
 import MultipleLines from "../charts-types/MultipleLines";
 import React from "react";
 import getEnergySupplySource from "../../../Infrastructure/Adapter/getEnergySupplySource";
+import useWindowDimensions from "../utils/useWindowDimension";
 
 const PlayableEnergyConsumptionBySource = () => {
+    const { height, width } = useWindowDimensions();
+
     const [energySupplySourceIndex, setEnergySupplySourceIndex] = React.useState('World')
     const [energySupplySourceDatasets, setEnergySupplySourceDatasets] = React.useState([])
     const [energySupplySourceCountries, setEnergySupplySourceCountries] = React.useState([])
@@ -48,11 +51,12 @@ const PlayableEnergyConsumptionBySource = () => {
 
     return (
         <>
-            <div className="container mt-5">
+            <div className="container mt-3 mt-md-5">
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
-                                Here is the {energySupplySourceOnlyNonRenewables ? 'non renewables' : ''}{energySupplySourceOnlyRenewables ? 'renewables' : ''} <strong>energy consumption by source</strong> of the
+                                Here is the {energySupplySourceOnlyNonRenewables ? 'non renewables' : ''}{energySupplySourceOnlyRenewables ? 'renewables' : ''}
+                                <strong>energy consumption by source</strong> of the
                             </span>
                         <AutoComplete
                             options={energySupplySourceCountries}
@@ -132,51 +136,57 @@ const PlayableEnergyConsumptionBySource = () => {
                                 }
                             </FormGroup>
                             {energySupplySourceDoughnutMode &&
-                            <Doughnut
-                                name='Renewables share'
-                                datasets={energySupplySourceDatasets.map(dataset => {
-                                    const index = getKeyByValue(dataset.keys, energySupplySourceYear)
-                                    return {
-                                        name: dataset.name,
-                                        key: dataset.keys[index],
-                                        value: dataset.values[index]
-                                    }
-                                })}
-                                options={{
-                                    plugins: {
-                                        labels: false,
-                                        datalabels: false
-                                    },
-                                    scales: {
-                                        yAxes: [{
-                                            stacked: true,
-                                            ticks: {},
-                                            scaleLabel: {
-                                                display: true,
-                                                labelString: 'TWh',
-                                                fontColor: 'black',
-                                                fontSize: '14'
-                                            }
-                                        }],
-                                        xAxes: [{
-                                            scaleLabel: {
-                                                display: true,
-                                                labelString: 'Years',
-                                                fontColor: 'black',
-                                                fontSize: '14'
-                                            }
-                                        }]
-                                    },
-                                    legend: {}
-                                }}
-                            >
-                            </Doughnut>
+                            <div className="doughnut-wrapper">
+                                <Doughnut
+                                    name='Renewables share'
+                                    datasets={energySupplySourceDatasets.map(dataset => {
+                                        const index = getKeyByValue(dataset.keys, energySupplySourceYear)
+                                        return {
+                                            name: dataset.name,
+                                            key: dataset.keys[index],
+                                            value: dataset.values[index]
+                                        }
+                                    })}
+                                    options={{
+                                        maintainAspectRatio: true,
+                                        responsive: true,
+                                        plugins: {
+                                            labels: false,
+                                            datalabels: false
+                                        },
+                                        scales: {
+                                            yAxes: [{
+                                                stacked: true,
+                                                ticks: {},
+                                                scaleLabel: {
+                                                    display: true,
+                                                    labelString: 'TWh',
+                                                    fontColor: 'black',
+                                                    fontSize: '14'
+                                                }
+                                            }],
+                                            xAxes: [{
+                                                scaleLabel: {
+                                                    display: true,
+                                                    labelString: 'Years',
+                                                    fontColor: 'black',
+                                                    fontSize: '14'
+                                                }
+                                            }]
+                                        },
+                                        legend: {}
+                                    }}
+                                >
+                                </Doughnut>
+                            </div>
+
                             }
                             {!energySupplySourceDoughnutMode &&
                             <MultipleLines
                                 name='Renewables share'
                                 datasets={energySupplySourceDatasets}
                                 options={{
+                                    maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
                                         datalabels: false
@@ -202,7 +212,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                         }]
                                     },
                                     legend: {
-                                        position: 'right',
+                                        position: width > 760 ? 'right': 'top',
                                         reverse: true
                                     }
                                 }}

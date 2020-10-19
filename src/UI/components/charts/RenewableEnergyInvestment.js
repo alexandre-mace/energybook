@@ -1,8 +1,11 @@
 import MultipleLines from "../charts-types/MultipleLines";
 import React from "react";
 import getRenewableEnergyInvestment from "../../../Infrastructure/Adapter/getRenewableEnergyInvestment";
+import useWindowDimensions from "../utils/useWindowDimension";
 
 const RenewableEnergyInvestment = () => {
+    const { height, width } = useWindowDimensions();
+
     const [renewableEnergyInvestmentIndex, setRenewableEnergyInvestmentIndex] = React.useState('World')
     const [renewableEnergyInvestmentDatasets, setRenewableEnergyInvestmentDatasets] = React.useState([])
     const [renewableEnergyInvestmentCountries, setRenewableEnergyInvestmentCountries] = React.useState([])
@@ -17,7 +20,7 @@ const RenewableEnergyInvestment = () => {
 
     return (
         <>
-            <div className="container mt-5">
+            <div className="container mt-3 mt-md-5">
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
@@ -34,6 +37,7 @@ const RenewableEnergyInvestment = () => {
                                 name='Renewables share'
                                 datasets={renewableEnergyInvestmentDatasets}
                                 options={{
+                                    maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
                                         datalabels: false
@@ -59,7 +63,7 @@ const RenewableEnergyInvestment = () => {
                                         }]
                                     },
                                     legend: {
-                                        position: 'right',
+                                        position: width > 760 ? 'right': 'top',
                                         reverse: true
                                     }
                                 }}

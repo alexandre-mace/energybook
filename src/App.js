@@ -27,9 +27,9 @@ function App() {
       }
       {!loading &&
         <>
-            <div className="container mb-3 mb-md-5 pt-3 pt-md-5 pb-5">
+            <div className="container mb-3 mb-md-5 pt-3 pt-md-5 pb-3 pb-md-5">
                 <div className="row justify-content-center header position-relative">
-                    <div className="col-auto menu-home">
+                    <div className="col-auto d-none d-md-flex menu-home">
                         <span className={"clickable"} onClick={() => {
                             setAppMode('home')
                         }}>
@@ -79,31 +79,31 @@ function App() {
             }
             {appMode === 'home' &&
                 <>
-                    <div className="container my-3 my-md-5 pt-5">
+                    <div className="container my-3 my-md-5 pt-3 pt-md-5">
                       <div className="row">
                           <div className="col">
-                              <h1 className={"mb-3 pb-5 app-title color-primary"}>Energy Book</h1>
+                              <h1 className={"mb-3 pb-3 pb-md-5 app-title color-primary"}>Energy Book</h1>
                               <h4>This book will teach you the basis about energy &#128212;</h4>
                               <p>Energy use is one of the main theme of our generation, having knowledge about it is important.</p>
                           </div>
                       </div>
                     </div>
-                    <div className="container my-3 my-md-5 pt-5">
+                    <div className="container my-3 my-md-5 pt-3 pt-md-5">
                         <div className="row">
-                            <div className="d-flex col display-flex flex-column justify-content-between">
-                                <div><p>Explore and play around energy data.</p></div>
+                            <div className="d-flex col-12 col-md-4 display-flex flex-column justify-content-between">
+                                <div><p className={"mb-0 mb-md-2 mt-3 mt-md-0"}>Explore and play around energy data.</p></div>
                                 <div><strong className={"clickable"} onClick={() => setAppMode('playground')}>Discover playground mode</strong></div>
                             </div>
-                            <div className="d-flex col display-flex flex-column justify-content-between">
-                                <div><p>Compare energy sources together.</p></div>
+                            <div className="d-flex col-12 col-md-4 display-flex flex-column justify-content-between">
+                                <div><p className={"mb-0 mb-md-2 mt-4 mt-md-0"}>Compare energy sources together.</p></div>
                                 <div><strong className={"clickable"} onClick={() => {
                                     setLoading(true)
                                     delayedCloseLoader()
                                     setAppMode('versus')
                                 }}>Discover versus mode</strong></div>
                             </div>
-                            <div className="d-flex col display-flex flex-column justify-content-between">
-                                <div><p>Learn things step by step from the start.</p></div>
+                            <div className="d-flex col-12 col-md-4 display-flex flex-column justify-content-between">
+                                <div><p className={"mb-0 mb-md-2 mt-3 mt-md-0"}>Learn things step by step from the start.</p></div>
                                 <div><strong className={"clickable"} onClick={() => setAppMode('narrative')}>Discover narrative mode</strong></div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@ function App() {
                 <div className="row align-items-center">
                     <div className="col-auto m-auto p-0">
                         <p className={'mb-0 text-center clickable link'} onClick={() => setAppMode('sources')}>Sources</p>
-                        <p className={'mb-0'}>Made with love and concerns by <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/alexandre-mace">@alexandre-mace</a></strong></p>
+                        <p className={'mb-0'}>Made with love and concern by <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/alexandre-mace">@alexandre-mace</a></strong></p>
                     </div>
                 </div>
             </footer>

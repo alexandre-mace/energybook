@@ -18,7 +18,7 @@ const Co2Emissions = () => {
 
     return (
         <>
-            <div className="container mt-5">
+            <div className="container mt-3 mt-md-5">
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                             <span className={"mr-3"}>
@@ -40,6 +40,7 @@ const Co2Emissions = () => {
                                 keys={totalCo2Emmisions.keys}
                                 values={totalCo2Emmisions.values}
                                 options={{
+                                    maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
                                         datalabels: false
