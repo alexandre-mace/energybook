@@ -40,11 +40,23 @@ const RenewableEnergyInvestmentByTechology = () => {
                                     },
                                     legend: {},
                                     scales: {
-                                        xAxes: [{
-                                            stacked: true
-                                        }],
                                         yAxes: [{
-                                            stacked: true
+                                            stacked: true,
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'billion $',
+                                                fontColor: 'black',
+                                                fontSize: '14'
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            stacked: true,
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Years',
+                                                fontColor: 'black',
+                                                fontSize: '14'
+                                            }
                                         }]
                                     }
                                 }}

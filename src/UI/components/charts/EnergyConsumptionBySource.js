@@ -170,7 +170,21 @@ const EnergyConsumptionBySource = ({
                                     scales: {
                                         yAxes: [{
                                             stacked: true,
-                                            ticks: {}
+                                            ticks: {},
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'TWh',
+                                                fontColor: 'black',
+                                                fontSize: '14'
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Years',
+                                                fontColor: 'black',
+                                                fontSize: '14'
+                                            }
                                         }]
                                     },
                                     legend: {

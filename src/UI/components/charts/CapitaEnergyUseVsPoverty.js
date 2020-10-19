@@ -59,6 +59,24 @@ const CapitaEnergyUseVsPoverty = () => {
                                             padding: 0
                                         }
                                     },
+                                    scales: {
+                                        yAxes: [{
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Poverty - $1.90 a day (% of population)',
+                                                fontColor: 'black',
+                                                fontSize: '14'
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Energy use (kg of oil equivalent per capita)',
+                                                fontColor: 'black',
+                                                fontSize: '14'
+                                            }
+                                        }]
+                                    },
                                 }}
                             >
                             </Bubble>

@@ -50,6 +50,20 @@ const RenewableShare = () => {
                                             ticks: {
                                                 beginAtZero: true,
                                                 suggestedMax: 100
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: '% of share in energy supply',
+                                                fontColor: 'black',
+                                                fontSize: '14'
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Years',
+                                                fontColor: 'black',
+                                                fontSize: '14'
                                             }
                                         }]
                                     },

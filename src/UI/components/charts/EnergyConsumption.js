@@ -52,6 +52,20 @@ const EnergyConsumption = () => {
                                             ticks: {
                                                 beginAtZero: true,
                                                 suggestedMax: 4000
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Mtoe',
+                                                fontColor: 'black',
+                                                fontSize: '14'
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Years',
+                                                fontColor: 'black',
+                                                fontSize: '14'
                                             }
                                         }]
                                     },

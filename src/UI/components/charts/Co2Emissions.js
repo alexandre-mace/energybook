@@ -49,6 +49,20 @@ const Co2Emissions = () => {
                                             ticks: {
                                                 beginAtZero: true,
                                                 suggestedMax: 10000
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'MtCO2',
+                                                fontColor: 'black',
+                                                fontSize: '14'
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Years',
+                                                fontColor: 'black',
+                                                fontSize: '14'
                                             }
                                         }]
                                     },
