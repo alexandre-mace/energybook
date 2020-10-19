@@ -61,6 +61,12 @@ body::after {
     display: block;
     height: 50px; /* Set same as footer's height */
 }
+.link:hover {
+    text-decoration: underline;
+}
+.sources {
+    word-break: break-word;
+}
 footer {
     position: absolute;
     bottom: 0;

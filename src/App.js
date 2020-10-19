@@ -4,6 +4,7 @@ import Playground from "./UI/components/modes/Playground";
 import Versus from "./UI/components/modes/Versus";
 import Narrative from "./UI/components/modes/Narrative";
 import Loader from "./UI/components/utils/Loader";
+import Sources from "./UI/components/modes/Sources";
 
 function App() {
     const [loading, setLoading] = React.useState(true)
@@ -73,6 +74,9 @@ function App() {
             {appMode === 'narrative' &&
                 <Narrative/>
             }
+            {appMode === 'sources' &&
+                <Sources/>
+            }
             {appMode === 'home' &&
                 <>
                     <div className="container my-3 my-md-5 pt-5">
@@ -109,6 +113,7 @@ function App() {
             <footer className="footer p-0">
                 <div className="row align-items-center">
                     <div className="col-auto m-auto p-0">
+                        <p className={'mb-0 text-center clickable link'} onClick={() => setAppMode('sources')}>Sources</p>
                         <p className={'mb-0'}>Made with love and concerns by <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/alexandre-mace">@alexandre-mace</a></strong></p>
                     </div>
                 </div>
