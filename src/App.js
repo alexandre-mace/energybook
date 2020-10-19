@@ -26,7 +26,7 @@ function App() {
       }
       {!loading &&
         <>
-            <div className="container my-3 my-md-5 pb-5">
+            <div className="container mb-3 mb-md-5 pt-3 pt-md-5 pb-5">
                 <div className="row justify-content-center header position-relative">
                     <div className="col-auto menu-home">
                         <span className={"clickable"} onClick={() => {
@@ -106,6 +106,13 @@ function App() {
                     </div>
                 </>
             }
+            <footer className="footer p-0">
+                <div className="row align-items-center">
+                    <div className="col-auto m-auto p-0">
+                        <p className={'mb-0'}>Made with love and concerns by <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/alexandre-mace">@alexandre-mace</a></strong></p>
+                    </div>
+                </div>
+            </footer>
         </>
         }
     </>
