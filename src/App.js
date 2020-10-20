@@ -27,7 +27,7 @@ function App() {
       }
       {!loading &&
         <>
-            <div className="container mb-3 mb-md-5 pt-3 pt-md-5 pb-3 pb-md-5">
+            <div className="container menu mb-3 mb-md-5 pt-3 pt-md-5 pb-3 pb-md-5">
                 <div className="row justify-content-center header position-relative">
                     <div className="col-auto d-none d-md-flex menu-home">
                         <span className={"clickable"} onClick={() => {
@@ -79,7 +79,7 @@ function App() {
             }
             {appMode === 'home' &&
                 <>
-                    <div className="container my-3 my-md-5 pt-3 pt-md-5">
+                    <div className="container my-3 my-md-5 pt-0 pt-md-5">
                       <div className="row">
                           <div className="col">
                               <h1 className={"mb-3 pb-3 pb-md-5 app-title color-primary"}>Energy Book</h1>

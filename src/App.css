@@ -91,8 +91,8 @@ footer {
 .scrollTop {
     position: fixed;
     width: 50px;
-    bottom: 50px;
-    right: 50px;
+    bottom: 20px;
+    right: 20px;
     align-items: center;
     height: 50px;
     justify-content: center;
@@ -101,6 +101,12 @@ footer {
     animation: fadeIn 0.3s;
     transition: opacity 0.4s;
     opacity: 0.5;
+}
+@media (min-width: 1200px) {
+    .scrollTop {
+        width: 50px;
+        bottom: 50px;
+    }
 }
 .MuiPaper-root, .MuiTabs-root, .MuiTab-root {
     border-radius: 20px !important;
@@ -128,14 +134,30 @@ footer {
 }
 .scroll-indicator {
     position: fixed;
-    top: 50px;
-    left: 50px;
-    width: 80px;
-    height: 80px;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
     z-index: 10;
+}
+@media (min-width: 1200px) {
+    .scroll-indicator {
+        width: 80px;
+        height: 80px;
+        top: 50px;
+        left: 50px;
+    }
 }
 .scroll-indicator svg path {
     stroke: #eb5c5c;
+}
+.tiny-text {
+    font-size: 0.8rem;
+}
+@media (min-width: 1200px) {
+    .tiny-text {
+        font-size: 1rem;
+    }
 }
 .box-loader {
   background-color: #b3bbfa;
@@ -288,7 +310,11 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
-
+@media (max-width: 374px) {
+    .menu strong {
+        font-size: 1rem;
+    }
+}
 canvas {
     max-height: 400px !important;
     min-height: 300px !important;

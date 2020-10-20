@@ -5,12 +5,12 @@ import EnergyComparator from "../EnergyComparator";
 const Versus = () => {
     return (
         <>
-            <div className="container pt-3 mb-5">
+            <div className="container pt-3 mb-3 mb-md-5">
                 <div className="row">
                     <div className="col">
                         <h4>Welcome to the versus section &#129354;</h4>
                         <p>Here you can compare two energy systems together.</p>
-                        <p style={{ fontSize: '1rem' }}>⚠️ This tool contains approximations (at large scale, by system, ..), use it for magnitude order.</p>
+                        <p className={"tiny-text"}>⚠️ This tool contains approximations (at large scale, by system, ..), use it for magnitude order.</p>
                     </div>
                 </div>
             </div>
