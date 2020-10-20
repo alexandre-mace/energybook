@@ -47,15 +47,16 @@ const CapitaEnergyUseVsPoverty = () => {
                                         datalabels: {
                                             anchor: function (context) {
                                                 var value = context.dataset.data[context.dataIndex];
-                                                return (value.x > 3000 || (value.x < 3000 && value.y > 6)) ? 'end' : 'center';
+                                                return (value.x > 6000 || (value.x < 3000 && value.y > 6)) ? 'end' : 'end';
                                             },
                                             align: function (context) {
                                                 var value = context.dataset.data[context.dataIndex];
-                                                return (value.x > 3000 || (value.x < 3000 && value.y > 6)) ? 'end' : 'center';
+                                                return (value.x > 6000 || (value.x < 3000 && value.y > 6)) ? 'end' : 'end';
                                             },
                                             color: function (context) {
                                                 var value = context.dataset.data[context.dataIndex];
-                                                return (value.x > 3000 || (value.x < 3000 && value.y > 6)) ? context.dataset.backgroundColor : '';
+                                                console.log(context)
+                                                return (value.x > 6000 || (value.x < 3000 && value.y > 6) || (value.x > 1500 && value.x < 6000 && value.y < 6 && context.dataset.label.length <= 6)) ? context.dataset.backgroundColor : '';
                                             },
                                             font: {
                                                 weight: 'bold'
