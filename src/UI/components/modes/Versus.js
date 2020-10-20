@@ -32,7 +32,10 @@ const Versus = () => {
                             (therOil * {powerData.therOil.averagePower} * {powerData.therOil.averageChargeFactor}) +
                             (therGas * {powerData.therGas.averagePower} * {powerData.therGas.averageChargeFactor}) +
                             (hydro * {powerData.hydro.averagePower} * {powerData.hydro.averageChargeFactor}).</p>
-                        <p>It goes number of thing x Power in MW x (charge factor || availability rate)  for each.</p>
+                        <p>It goes number of thing x Power in MW x (capacity factor || availability factor)  for each.</p>
+                        <p>For renewables, we talk about capacity factor, but we say availability factor for non renewables even though it is pretty much the same concept.</p>
+                        <p><strong>Charge factor</strong> : The net capacity factor is the unitless ratio of an actual electrical energy output over a given period of time to the maximum possible electrical energy output over that period.</p>
+                        <p><strong>Availability factor</strong> : The availability factor of a power plant is the amount of time that it is able to produce electricity over a certain period, divided by the amount of the time in the period.</p>
                     </div>
                 </div>
             </div>

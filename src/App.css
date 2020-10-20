@@ -67,6 +67,9 @@ body::after {
 .sources {
     word-break: break-word;
 }
+.sources a {
+    color: black;
+}
 footer {
     position: absolute;
     bottom: 0;
