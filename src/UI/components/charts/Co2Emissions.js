@@ -2,19 +2,21 @@ import AutoComplete from "../utils/AutoComplete";
 import Line from "../charts-types/Line";
 import React from "react";
 import getCo2Emissions from "../../../Infrastructure/Adapter/getCo2Emissions";
+import MultitpleAutoComplete from "../utils/MultipleAutoComplete";
+import MultipleLines from "../charts-types/MultipleLines";
 
 const Co2Emissions = () => {
-    const [totalCo2EmmisionsIndex, setTotalCo2EmmisionsIndex] = React.useState('World')
+    const [totalCo2EmmisionsIndexes, setTotalCo2EmmisionsIndexes] = React.useState(['World'])
     const [totalCo2Emmisions, setTotalCo2Emmisions] = React.useState({keys: [], values: []})
     const [totalCo2EmmisionsCountries, setTotalCo2EmmisionsCountries] = React.useState([])
 
     React.useEffect(() => {
-        getCo2Emissions(setTotalCo2Emmisions, setTotalCo2EmmisionsCountries, totalCo2EmmisionsIndex)
+        getCo2Emissions(setTotalCo2Emmisions, setTotalCo2EmmisionsCountries, totalCo2EmmisionsIndexes)
     }, [])
 
     React.useEffect(() => {
-        getCo2Emissions(setTotalCo2Emmisions, setTotalCo2EmmisionsCountries, totalCo2EmmisionsIndex)
-    }, [totalCo2EmmisionsIndex]) // []
+        getCo2Emissions(setTotalCo2Emmisions, setTotalCo2EmmisionsCountries, totalCo2EmmisionsIndexes)
+    }, [totalCo2EmmisionsIndexes]) // []
 
     return (
         <>
@@ -24,10 +26,10 @@ const Co2Emissions = () => {
                             <span className={"mr-3"}>
                                 Here is the co2 <strong>emissions</strong> of the
                             </span>
-                        <AutoComplete
+                        <MultitpleAutoComplete
                             options={totalCo2EmmisionsCountries}
-                            setIndex={setTotalCo2EmmisionsIndex}
-                            index={totalCo2EmmisionsIndex}/>
+                            setIndexes={setTotalCo2EmmisionsIndexes}
+                            indexes={totalCo2EmmisionsIndexes}/>
                     </div>
                 </div>
             </div>
@@ -35,10 +37,10 @@ const Co2Emissions = () => {
                 <div className="row">
                     <div className="col">
                         <div className="white-wrapper">
-                            <Line
+                            <MultipleLines
                                 name='Total co2 emissions'
-                                keys={totalCo2Emmisions.keys}
-                                values={totalCo2Emmisions.values}
+                                datasets={totalCo2Emmisions}
+                                fill={false}
                                 options={{
                                     maintainAspectRatio: false,
                                     plugins: {
@@ -72,7 +74,7 @@ const Co2Emissions = () => {
                                 }}
                                 color={'255,0,0'}
                             >
-                            </Line>
+                            </MultipleLines>
                         </div>
                     </div>
                 </div>

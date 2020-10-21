@@ -1,10 +1,10 @@
-import AutoComplete from "../utils/AutoComplete";
-import Line from "../charts-types/Line";
 import React from "react";
 import getElectricityConsumption from "../../../Infrastructure/Adapter/getElectricityConsumption";
+import MultipleLines from "../charts-types/MultipleLines";
+import MultitpleAutoComplete from "../utils/MultipleAutoComplete";
 
 const ElectricityConsumption = () => {
-    const [totalElectricityConsumptionIndex, setTotalElectricityConsumptionIndex] = React.useState('World')
+    const [totalElectricityConsumptionIndexes, setTotalElectricityConsumptionIndexes] = React.useState(['World'])
     const [totalElectricityConsumption, setTotalElectricityConsumption] = React.useState({keys: [], values: []})
     const [totalElectricityConsumptionCountries, setTotalElectricityConsumptionCountries] = React.useState([])
 
@@ -12,7 +12,7 @@ const ElectricityConsumption = () => {
         getElectricityConsumption(
             setTotalElectricityConsumption,
             setTotalElectricityConsumptionCountries,
-            totalElectricityConsumptionIndex
+            totalElectricityConsumptionIndexes
         )
     }, [])
 
@@ -20,9 +20,9 @@ const ElectricityConsumption = () => {
         getElectricityConsumption(
             setTotalElectricityConsumption,
             setTotalElectricityConsumptionCountries,
-            totalElectricityConsumptionIndex
+            totalElectricityConsumptionIndexes
         )
-    }, [totalElectricityConsumptionIndex]) // []
+    }, [totalElectricityConsumptionIndexes]) // []
 
     return (
         <>
@@ -32,10 +32,10 @@ const ElectricityConsumption = () => {
                         <span className={"mr-3"}>
                             Here is the total electricity consumption of the
                         </span>
-                        <AutoComplete
+                        <MultitpleAutoComplete
                             options={totalElectricityConsumptionCountries}
-                            setIndex={setTotalElectricityConsumptionIndex}
-                            index={totalElectricityConsumptionIndex}/>
+                            setIndexes={setTotalElectricityConsumptionIndexes}
+                            indexes={totalElectricityConsumptionIndexes}/>
                     </div>
                 </div>
             </div>
@@ -43,11 +43,10 @@ const ElectricityConsumption = () => {
                 <div className="row">
                     <div className="col">
                         <div className="white-wrapper">
-
-                            <Line
+                            <MultipleLines
                                 name='Total electricity consumption'
-                                keys={totalElectricityConsumption.keys}
-                                values={totalElectricityConsumption.values}
+                                fill={false}
+                                datasets={totalElectricityConsumption}
                                 options={{
                                     maintainAspectRatio: false,
                                     plugins: {
@@ -80,7 +79,7 @@ const ElectricityConsumption = () => {
                                     }
                                 }}
                                 color='255, 255, 3'>
-                            </Line>
+                            </MultipleLines>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import Papa from "papaparse";
 
-async function getEnerdataCsv(file, setter, indexesSetter, index) {
+async function getEnerdataCsv(file, setter, indexesSetter, indexes) {
     const response = await fetch(file)
     const reader = response.body.getReader()
     const result = await reader.read() // raw array
@@ -10,15 +10,20 @@ async function getEnerdataCsv(file, setter, indexesSetter, index) {
     const rows = results.data // array of objects
 
     indexesSetter(rows.map(row => row.zone));
-    setter({
-        keys: Object
-            .keys(rows.filter(data => data.zone === index)[0])
-            .filter(data => data !== 'zone')
-        ,
-        values: Object
-            .values(rows.filter(data => data.zone === index)[0])
-            .filter(value => value !== 'World')
-            .map(value => parseFloat(value))
-    })
+    if (indexes.length > 0 && rows) {
+        setter({
+            keys: Object
+                .keys(rows.filter(data => indexes.includes(data.zone))[0])
+                .filter(data => data !== 'zone')
+            ,
+            values: rows.filter(data => indexes.includes(data.zone))
+                .map(data => Object.values(data))
+                .map(data => data.filter(value => value !== 'World')
+                    .map(value => parseFloat(value))).map((data, index) => ({
+                    name: indexes[index],
+                    values: data
+                }))
+        })
+    }
 }
 export default getEnerdataCsv;

@@ -1,20 +1,20 @@
-import AutoComplete from "../utils/AutoComplete";
-import Line from "../charts-types/Line";
 import React from "react";
 import getEnergyConsumption from "../../../Infrastructure/Adapter/getEnergyConsumption";
+import MultipleLines from "../charts-types/MultipleLines";
+import MultitpleAutoComplete from "../utils/MultipleAutoComplete";
 
 const EnergyConsumption = () => {
-    const [totalEnergyConsumptionIndex, setTotalEnergyConsumptionIndex] = React.useState('World')
+    const [totalEnergyConsumptionIndexes, setTotalEnergyConsumptionIndexes] = React.useState(['World'])
     const [totalEnergyConsumption, setTotalEnergyConsumption] = React.useState({keys: [], values: []})
     const [totalEnergyConsumptionCountries, setTotalEnergyConsumptionCountries] = React.useState([])
 
     React.useEffect(() => {
-        getEnergyConsumption(setTotalEnergyConsumption, setTotalEnergyConsumptionCountries, totalEnergyConsumptionIndex)
+        getEnergyConsumption(setTotalEnergyConsumption, setTotalEnergyConsumptionCountries, totalEnergyConsumptionIndexes)
     }, [])
 
     React.useEffect(() => {
-        getEnergyConsumption(setTotalEnergyConsumption, setTotalEnergyConsumptionCountries, totalEnergyConsumptionIndex)
-    }, [totalEnergyConsumptionIndex]) // []
+        getEnergyConsumption(setTotalEnergyConsumption, setTotalEnergyConsumptionCountries, totalEnergyConsumptionIndexes)
+    }, [totalEnergyConsumptionIndexes]) // []
 
     return (
         <>
@@ -24,10 +24,11 @@ const EnergyConsumption = () => {
                         <span className={"mr-3"}>
                             Let's take a look of how much <strong>energy</strong> the
                         </span>
-                        <AutoComplete
+                        <MultitpleAutoComplete
+                            multiple={true}
                             options={totalEnergyConsumptionCountries}
-                            setIndex={setTotalEnergyConsumptionIndex}
-                            index={totalEnergyConsumptionIndex}/>
+                            setIndexes={setTotalEnergyConsumptionIndexes}
+                            indexes={totalEnergyConsumptionIndexes}/>
                         <span className={"mx-3"}>
                             is consuming
                         </span>
@@ -38,10 +39,10 @@ const EnergyConsumption = () => {
                 <div className="row">
                     <div className="col">
                         <div className="white-wrapper">
-                            <Line
+                            <MultipleLines
                                 name='Total energy consumption'
-                                keys={totalEnergyConsumption.keys}
-                                values={totalEnergyConsumption.values}
+                                fill={false}
+                                datasets={totalEnergyConsumption}
                                 options={{
                                     maintainAspectRatio: false,
                                     plugins: {
@@ -74,7 +75,7 @@ const EnergyConsumption = () => {
                                     }
                                 }}
                             >
-                            </Line>
+                            </MultipleLines>
                         </div>
                     </div>
                 </div>

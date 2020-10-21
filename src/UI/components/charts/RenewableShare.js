@@ -2,19 +2,21 @@ import AutoComplete from "../utils/AutoComplete";
 import Line from "../charts-types/Line";
 import React from "react";
 import getRenewablesShare from "../../../Infrastructure/Adapter/getRenewablesShare";
+import MultitpleAutoComplete from "../utils/MultipleAutoComplete";
+import MultipleLines from "../charts-types/MultipleLines";
 
 const RenewableShare = () => {
-    const [renewablesShareIndex, setRenewablesShareIndex] = React.useState('World')
+    const [renewablesShareIndexes, setRenewablesShareIndexes] = React.useState('World')
     const [renewablesShare, setRenewablesShare] = React.useState({keys: [], values: []})
     const [renewablesShareCountries, setRenewablesShareCountries] = React.useState([])
 
     React.useEffect(() => {
-        getRenewablesShare(setRenewablesShare, setRenewablesShareCountries, renewablesShareIndex)
+        getRenewablesShare(setRenewablesShare, setRenewablesShareCountries, renewablesShareIndexes)
     }, [])
 
     React.useEffect(() => {
-        getRenewablesShare(setRenewablesShare, setRenewablesShareCountries, renewablesShareIndex)
-    }, [renewablesShareIndex])
+        getRenewablesShare(setRenewablesShare, setRenewablesShareCountries, renewablesShareIndexes)
+    }, [renewablesShareIndexes])
 
     return (
         <>
@@ -24,10 +26,10 @@ const RenewableShare = () => {
                             <span className={"mr-3"}>
                                 Here is the renewables share of the
                             </span>
-                        <AutoComplete
+                        <MultitpleAutoComplete
                             options={renewablesShareCountries}
-                            setIndex={setRenewablesShareIndex}
-                            index={renewablesShareIndex}
+                            setIndexes={setRenewablesShareIndexes}
+                            indexes={renewablesShareIndexes}
                         />
                     </div>
                 </div>
@@ -36,10 +38,10 @@ const RenewableShare = () => {
                 <div className="row">
                     <div className="col">
                         <div className="white-wrapper">
-                            <Line
+                            <MultipleLines
                                 name='Renewables share'
-                                keys={renewablesShare.keys}
-                                values={renewablesShare.values}
+                                datasets={renewablesShare}
+                                fill={false}
                                 options={{
                                     maintainAspectRatio: false,
                                     plugins: {
@@ -74,7 +76,7 @@ const RenewableShare = () => {
                                 }}
                                 color={'0,255,0'}
                             >
-                            </Line></div>
+                            </MultipleLines></div>
                     </div>
                 </div>
             </div>
