@@ -55,7 +55,6 @@ const CapitaEnergyUseVsPoverty = () => {
                                             },
                                             color: function (context) {
                                                 var value = context.dataset.data[context.dataIndex];
-                                                console.log(context)
                                                 return (value.x > 6000 || (value.x < 3000 && value.y > 6) || (value.x > 1500 && value.x < 6000 && value.y < 6 && context.dataset.label.length <= 6)) ? context.dataset.backgroundColor : '';
                                             },
                                             font: {
