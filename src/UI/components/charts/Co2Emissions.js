@@ -48,8 +48,7 @@ const Co2Emissions = () => {
                                     scales: {
                                         yAxes: [{
                                             ticks: {
-                                                beginAtZero: true,
-                                                suggestedMax: 10000
+                                                beginAtZero: true
                                             },
                                             scaleLabel: {
                                                 display: true,

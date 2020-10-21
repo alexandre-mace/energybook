@@ -51,8 +51,7 @@ const EnergyConsumption = () => {
                                     scales: {
                                         yAxes: [{
                                             ticks: {
-                                                beginAtZero: true,
-                                                suggestedMax: 4000
+                                                beginAtZero: true
                                             },
                                             scaleLabel: {
                                                 display: true,
