@@ -1,5 +1,9 @@
 import Papa from "papaparse";
 
+function isNumeric(value) {
+    return /^-?\d+$/.test(value);
+}
+
 async function getEnerdataCsv(file, setter, indexesSetter, indexes) {
     const response = await fetch(file)
     const reader = response.body.getReader()
@@ -19,8 +23,8 @@ async function getEnerdataCsv(file, setter, indexesSetter, indexes) {
             values: rows.filter(data => indexes.includes(data.zone))
                 .map(data => Object.values(data))
                 .map(data => data.filter(value => value !== 'World')
-                    .map(value => parseFloat(value))).map((data, index) => ({
-                    name: indexes[index],
+                    .map(value => isNumeric(value) ? parseFloat(value) : value)).map(data => ({
+                    name: data.pop(),
                     values: data
                 }))
         })
