@@ -18,7 +18,7 @@ const EnergyConsumption = () => {
 
     return (
         <>
-            <div className="container pt-3 pt-md-5">
+            <div className="container pt-4 pt-md-5">
                 <div className="row">
                     <div className="col d-flex justify-content-center">
                         <span className={"mr-3"}>

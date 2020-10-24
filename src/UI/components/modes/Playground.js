@@ -36,7 +36,7 @@ const Playground = () => {
                         </div>
                     </div>
                 </div>
-                <div className="container pt-3">
+                <div className="container pt-4 pt-md-5">
                     <div className="row">
                         <div className="col-auto m-auto">
                             <Paper square>

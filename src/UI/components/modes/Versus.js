@@ -14,7 +14,7 @@ const Versus = () => {
                     </div>
                 </div>
             </div>
-            <div className="playground container">
+            <div className="playground container pt-3">
                 <div className="row">
                     <div className="col-6">
                         <EnergyComparator/>
