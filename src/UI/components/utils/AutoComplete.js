@@ -21,6 +21,7 @@ const AutoComplete = ({options, setIndex, index}) => {
             options={options.length > 0 ? typeof options[0] === 'string' ? sortCountries(options) : options : []}
             getOptionLabel={(option) => option.toString()}
             defaultValue={index}
+            value={index}
             fullWidth={false}
             onChange={
                 (event, value) => setIndex(value === null ? options[options.length - 1] : value)

@@ -36,6 +36,7 @@ const EnergyComparator = () => {
     const [energySupplySourceDatasets, setEnergySupplySourceDatasets] = React.useState([])
     const [energySupplySourceCountries, setEnergySupplySourceCountries] = React.useState([])
     const [energySupplySourceYear, setEnergySupplySourceYear] = React.useState(2018)
+    const [indexHasJustChanged, setIndexHasJustChanged] = React.useState(false)
 
     React.useEffect(() => {
         getEnergySupplySource(
@@ -68,6 +69,19 @@ const EnergyComparator = () => {
             )
         }
     }, [energySupplySourceDatasets, energySupplySourceIndex])
+
+    React.useEffect(() => {
+        setIndexHasJustChanged(true);
+        setTimeout(function () {
+            setIndexHasJustChanged(false)
+        }, 300)
+    }, [energySupplySourceIndex])
+
+    React.useEffect(() => {
+        if (energySupplySourceIndex !== 'Custom' && !indexHasJustChanged) {
+            setEnergySupplySourceIndex('Custom')
+        }
+    }, [eol, sol, nuc, therCoal, therOil, therOil, hydro])
 
     return (
         <>
