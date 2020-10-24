@@ -17,6 +17,9 @@ import formatNumber from "../../Infrastructure/Formatter/formatNumber";
 import calculateEmissions from "../../Domain/EnergySource/calculateEmissions";
 import calculateCost from "../../Domain/EnergySource/calculateCost";
 import calculateMaterials from "../../Domain/EnergySource/calculateMaterials";
+import getEnergySupplySource from "../../Infrastructure/Adapter/getEnergySupplySource";
+import chargeEnergySystem from "../../Domain/EnergySource/chargeEnergySystem";
+import AutoComplete from "./utils/AutoComplete";
 
 export const powerRatioDivider = 100000;
 
@@ -29,18 +32,55 @@ const EnergyComparator = () => {
     const [therGas, setTherGas] = React.useState(0)
     const [hydro, setHydro] = React.useState(0)
 
+    const [energySupplySourceIndex, setEnergySupplySourceIndex] = React.useState('Custom')
+    const [energySupplySourceDatasets, setEnergySupplySourceDatasets] = React.useState([])
+    const [energySupplySourceCountries, setEnergySupplySourceCountries] = React.useState([])
+    const [energySupplySourceYear, setEnergySupplySourceYear] = React.useState(2018)
+
+    React.useEffect(() => {
+        getEnergySupplySource(
+            setEnergySupplySourceDatasets,
+            setEnergySupplySourceCountries,
+            energySupplySourceIndex,
+        )
+    }, [])
+
+    React.useEffect(() => {
+        getEnergySupplySource(
+            setEnergySupplySourceDatasets,
+            setEnergySupplySourceCountries,
+            energySupplySourceIndex,
+        )
+    }, [energySupplySourceIndex])
+
+    React.useEffect(() => {
+        if (energySupplySourceDatasets.length > 0 && energySupplySourceDatasets[0].values.length > 0 && energySupplySourceIndex !== 'Custom') {
+            chargeEnergySystem(
+                energySupplySourceDatasets,
+                energySupplySourceYear,
+                setEol,
+                setSol,
+                setNuc,
+                setTherCoal,
+                setTherOil,
+                setTherGas,
+                setHydro
+            )
+        }
+    }, [energySupplySourceDatasets, energySupplySourceIndex])
+
     return (
         <>
             <div className="container">
                 <div className="row position-absolute energy-pictos">
                     <div className="col">
-                        <PictoGenerator name={'nuclear power plant'} img={nuclearPowerPlantImg} total={nuc}/>
-                        <PictoGenerator name={'wind turbine'} img={windTurbineImg} total={eol/10}/>
-                        <PictoGenerator name={'solar panel'} img={solarPanelImg} total={sol/100000}/>
-                        <PictoGenerator name={'coal thermal power plant'} img={therCoalImg} total={therCoal}/>
-                        <PictoGenerator name={'oil thermal power plant'} img={therOilImg} total={therOil}/>
-                        <PictoGenerator name={'gas thermal power plant'} img={therGasImg} total={therGas}/>
-                        <PictoGenerator name={'hydroelectric power plant'} img={hydroImg} total={hydro}/>
+                        <PictoGenerator name={'nuclear power plant'} img={nuclearPowerPlantImg} total={nuc > 10 ? 10 : nuc}/>
+                        <PictoGenerator name={'wind turbine'} img={windTurbineImg} total={eol/10 > 100 ? 100 : eol/10}/>
+                        <PictoGenerator name={'solar panel'} img={solarPanelImg} total={sol/100000 > 100 ? 100 : sol/100000}/>
+                        <PictoGenerator name={'coal thermal power plant'} img={therCoalImg} total={therCoal > 10 ? 10 : therCoal}/>
+                        <PictoGenerator name={'oil thermal power plant'} img={therOilImg} total={therOil > 10 ? 10 : therOil}/>
+                        <PictoGenerator name={'gas thermal power plant'} img={therGasImg} total={therGas > 10 ? 10 : therGas}/>
+                        <PictoGenerator name={'hydroelectric power plant'} img={hydroImg} total={hydro > 10 ? 10 : hydro}/>
                     </div>
                 </div>
                 <div className="row mt-4">
@@ -87,6 +127,17 @@ const EnergyComparator = () => {
                                 color: 'lightblue'
                             },
                         ]}/>
+                    </div>
+                </div>
+            </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <AutoComplete
+                            options={energySupplySourceCountries}
+                            setIndex={setEnergySupplySourceIndex}
+                            index={energySupplySourceIndex}
+                        /> {energySupplySourceYear} consumption energy presets
                     </div>
                 </div>
             </div>
