@@ -1,6 +1,6 @@
 import calculateTotalEnergyUnits from "./calculateTotalEnergyUnits";
 import getKeyByValue from "../../Infrastructure/Transformer/getKeyByValue";
-import powerData from "./PowerData";
+import energySystems from "../data/energySystems";
 
 const chargeEnergySystem = (
     datasets,
@@ -21,8 +21,8 @@ const chargeEnergySystem = (
                     value: dataset.values[index]
                 }
             }).find(data => data.name === 'Wind').value,
-            powerData.eol.averagePower,
-            powerData.eol.averageChargeFactor
+            energySystems.eol.averagePower,
+            energySystems.eol.averageChargeFactor
         )))
         setSol(Math.floor(calculateTotalEnergyUnits(datasets.map(dataset => {
                 const index = getKeyByValue(dataset.keys, year)
@@ -32,8 +32,8 @@ const chargeEnergySystem = (
                     value: dataset.values[index]
                 }
             }).find(data => data.name === 'Solar').value,
-            powerData.sol.averagePower,
-            powerData.sol.averageChargeFactor
+            energySystems.sol.averagePower,
+            energySystems.sol.averageChargeFactor
         )))
         setNuc(Math.floor(calculateTotalEnergyUnits(datasets.map(dataset => {
                 const index = getKeyByValue(dataset.keys, year)
@@ -43,8 +43,8 @@ const chargeEnergySystem = (
                     value: dataset.values[index]
                 }
             }).find(data => data.name === 'Nuclear').value,
-            powerData.nuc.averagePower,
-            powerData.nuc.averageChargeFactor
+            energySystems.nuc.averagePower,
+            energySystems.nuc.averageChargeFactor
         )))
         setTherCoal(Math.floor(calculateTotalEnergyUnits(datasets.map(dataset => {
                 const index = getKeyByValue(dataset.keys, year)
@@ -54,8 +54,8 @@ const chargeEnergySystem = (
                     value: dataset.values[index]
                 }
             }).find(data => data.name === 'Coal').value,
-            powerData.therCoal.averagePower,
-            powerData.therCoal.averageChargeFactor
+            energySystems.therCoal.averagePower,
+            energySystems.therCoal.averageChargeFactor
         )))
         setTherOil(Math.floor(calculateTotalEnergyUnits(datasets.map(dataset => {
                 const index = getKeyByValue(dataset.keys, year)
@@ -65,8 +65,8 @@ const chargeEnergySystem = (
                     value: dataset.values[index]
                 }
             }).find(data => data.name === 'Oil').value,
-            powerData.therOil.averagePower,
-            powerData.therOil.averageChargeFactor
+            energySystems.therOil.averagePower,
+            energySystems.therOil.averageChargeFactor
         )))
         setTherGas(Math.floor(calculateTotalEnergyUnits(datasets.map(dataset => {
                 const index = getKeyByValue(dataset.keys, year)
@@ -76,8 +76,8 @@ const chargeEnergySystem = (
                     value: dataset.values[index]
                 }
             }).find(data => data.name === 'Gas').value,
-            powerData.therGas.averagePower,
-            powerData.therGas.averageChargeFactor
+            energySystems.therGas.averagePower,
+            energySystems.therGas.averageChargeFactor
         )))
         setHydro(Math.floor(calculateTotalEnergyUnits(datasets.map(dataset => {
                 const index = getKeyByValue(dataset.keys, year)
@@ -87,8 +87,8 @@ const chargeEnergySystem = (
                     value: dataset.values[index]
                 }
             }).find(data => data.name === 'Hydropower').value,
-            powerData.hydro.averagePower,
-            powerData.hydro.averageChargeFactor
+            energySystems.hydro.averagePower,
+            energySystems.hydro.averageChargeFactor
         )))
 }
 

@@ -4,9 +4,9 @@ import getRenewableEnergyInvestment from "../../../Infrastructure/Adapter/getRen
 import useWindowDimensions from "../utils/useWindowDimension";
 
 const RenewableEnergyInvestment = () => {
-    const { height, width } = useWindowDimensions();
+    const { width } = useWindowDimensions();
 
-    const [renewableEnergyInvestmentIndex, setRenewableEnergyInvestmentIndex] = React.useState('World')
+    const [renewableEnergyInvestmentIndex] = React.useState('World')
     const [renewableEnergyInvestmentDatasets, setRenewableEnergyInvestmentDatasets] = React.useState([])
     const [renewableEnergyInvestmentCountries, setRenewableEnergyInvestmentCountries] = React.useState([])
 
@@ -16,7 +16,7 @@ const RenewableEnergyInvestment = () => {
             setRenewableEnergyInvestmentCountries,
             renewableEnergyInvestmentIndex
         )
-    }, [])
+    }, [renewableEnergyInvestmentIndex])
 
     return (
         <>

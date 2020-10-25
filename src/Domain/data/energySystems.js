@@ -1,4 +1,4 @@
-const powerData = {
+const energySystems = {
     'eol': {
         'averagePower': 5000, // kW
         'averageChargeFactor': 0.2, // %
@@ -134,4 +134,4 @@ const powerData = {
     }
 }
 
-export default powerData;
+export default energySystems;

@@ -29,7 +29,7 @@ function Narrative() {
     return (
         <>
             {loading &&
-                <Loader/>
+            <Loader/>
             }
             <div className={loading ? 'hidden' : ''}>
                 <CircleIndicator/>
@@ -37,7 +37,7 @@ function Narrative() {
                 <div className="container pt-3 mb-3 mb-md-5">
                     <div className="row">
                         <div className="col">
-                            <h4>Welcome to the narrative section 📖</h4>
+                            <h4>Welcome to the narrative section <span role={"img"} aria-label={"book"}>📖</span></h4>
                             <p>Here you will be learning energy stuff from the start.</p>
                         </div>
                     </div>
@@ -49,8 +49,10 @@ function Narrative() {
                     <div className="row">
                         <div className="col">
                             <p>Thanks to energy we can produce the amazing thing that
-                                is <strong>electricity</strong> &#9889;.</p>
-                            <p>The power of the vast majority of tools used in our world (but dont forget about thermic).</p>
+                                is <strong>electricity</strong> <span role={"img"} aria-label={"thunder"}>&#9889;</span>.
+                            </p>
+                            <p>The power of the vast majority of tools used in our world (but dont forget about
+                                thermic).</p>
                         </div>
                     </div>
                 </div>
@@ -72,7 +74,8 @@ function Narrative() {
                 <div className="container my-3 my-md-5">
                     <div className="row">
                         <div className="col">
-                            <p>PS : Note the weird trick, since we started looking after co2 emissions in the 90's, we took
+                            <p>PS : Note the weird trick, since we started looking after co2 emissions in the 90's, we
+                                took
                                 co2 emissions to another planet. </p>
                             <p>How can we <i>partly</i> solve it ?</p>
                             <p>By using <strong>renewable energy</strong> (and decarbonized energy)</p>
@@ -85,7 +88,8 @@ function Narrative() {
                 <div className="container my-3 my-md-5">
                     <div className="row">
                         <div className="col">
-                            <p>That is definetely not a lot of <strong>renewables</strong>, lets see what is in there...</p>
+                            <p>That is definetely not a lot of <strong>renewables</strong>, lets see what is in there...
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -95,7 +99,8 @@ function Narrative() {
                 <div className="container my-3 my-md-5">
                     <div className="row">
                         <div className="col">
-                            <p>And, let's take a deeper look at who are the <strong>non renewables</strong>, the biggest part of energy consumption source.</p>
+                            <p>And, let's take a deeper look at who are the <strong>non renewables</strong>, the biggest
+                                part of energy consumption source.</p>
                         </div>
                     </div>
                 </div>

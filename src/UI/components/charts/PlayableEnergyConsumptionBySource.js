@@ -10,7 +10,7 @@ import getEnergySupplySource from "../../../Infrastructure/Adapter/getEnergySupp
 import useWindowDimensions from "../utils/useWindowDimension";
 
 const PlayableEnergyConsumptionBySource = () => {
-    const { height, width } = useWindowDimensions();
+    const {width} = useWindowDimensions();
 
     const [energySupplySourceIndex, setEnergySupplySourceIndex] = React.useState('World')
     const [energySupplySourceDatasets, setEnergySupplySourceDatasets] = React.useState([])
@@ -20,17 +20,6 @@ const PlayableEnergyConsumptionBySource = () => {
     const [energySupplySourceDoughnutMode, setEnergySupplySourceDoughnutMode] = React.useState(false)
     const [energySupplySourceOnlyRenewables, setEnergySupplySourceOnlyRenewables] = React.useState(false)
     const [energySupplySourceOnlyNonRenewables, setEnergySupplySourceOnlyNonRenewables] = React.useState(false)
-
-    React.useEffect(() => {
-        getEnergySupplySource(
-            setEnergySupplySourceDatasets,
-            setEnergySupplySourceCountries,
-            energySupplySourceIndex,
-            showRenewableCategories,
-            energySupplySourceOnlyRenewables,
-            energySupplySourceOnlyNonRenewables
-        )
-    }, [])
 
     React.useEffect(() => {
         getEnergySupplySource(
@@ -55,7 +44,8 @@ const PlayableEnergyConsumptionBySource = () => {
                 <div className="row">
                     <div className="col d-flex justify-content-center flex-wrap">
                             <span className={"mr-3"}>
-                                Here is the {energySupplySourceOnlyNonRenewables ? 'non renewables' : ''}{energySupplySourceOnlyRenewables ? 'renewables' : ''} <strong>energy consumption by source</strong> of the
+                                Here is the {energySupplySourceOnlyNonRenewables ? 'non renewables' : ''}{energySupplySourceOnlyRenewables ? 'renewables' : ''}
+                                <strong>energy consumption by source</strong> of the
                             </span>
                         <AutoComplete
                             options={energySupplySourceCountries}
@@ -211,7 +201,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                         }]
                                     },
                                     legend: {
-                                        position: width > 760 ? 'right': 'top',
+                                        position: width > 760 ? 'right' : 'top',
                                         reverse: true
                                     }
                                 }}

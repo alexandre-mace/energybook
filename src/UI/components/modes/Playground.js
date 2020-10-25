@@ -31,7 +31,7 @@ const Playground = () => {
                 <div className="container mb-3 mb-md-5 pt-3">
                     <div className="row">
                         <div className="col">
-                            <h4>Welcome to the playground section &#127918;</h4>
+                            <h4>Welcome to the playground section <span role={"img"} aria-label={"play"}>&#127918;</span></h4>
                             <p>Here you can browse and play around data.</p>
                         </div>
                     </div>

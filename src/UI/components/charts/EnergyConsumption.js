@@ -10,17 +10,13 @@ const EnergyConsumption = () => {
 
     React.useEffect(() => {
         getEnergyConsumption(setTotalEnergyConsumption, setTotalEnergyConsumptionCountries, totalEnergyConsumptionIndexes)
-    }, [])
-
-    React.useEffect(() => {
-        getEnergyConsumption(setTotalEnergyConsumption, setTotalEnergyConsumptionCountries, totalEnergyConsumptionIndexes)
-    }, [totalEnergyConsumptionIndexes]) // []
+    }, [totalEnergyConsumptionIndexes])
 
     return (
         <>
             <div className="container pt-4 pt-md-5">
                 <div className="row">
-                    <div className="col d-flex justify-content-center flex-wrap">
+                    <div className="col d-flex justify-content-center">
                         <span className={"mr-3"}>
                             Let's take a look of how much <strong>energy</strong> the
                         </span>

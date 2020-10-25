@@ -14,15 +14,7 @@ const ElectricityConsumption = () => {
             setTotalElectricityConsumptionCountries,
             totalElectricityConsumptionIndexes
         )
-    }, [])
-
-    React.useEffect(() => {
-        getElectricityConsumption(
-            setTotalElectricityConsumption,
-            setTotalElectricityConsumptionCountries,
-            totalElectricityConsumptionIndexes
-        )
-    }, [totalElectricityConsumptionIndexes]) // []
+    }, [totalElectricityConsumptionIndexes])
 
     return (
         <>

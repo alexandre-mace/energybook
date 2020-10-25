@@ -1,4 +1,4 @@
-import totalco2EmissionsData from "../../Dataset/total_co2_emissions.csv";
+import totalco2EmissionsData from "../../Domain/data/datasets/total_co2_emissions.csv";
 import getEnerdataCsv from "../Repository/Enerdata/getEnerdataCsv";
 
 const getCo2Emissions = (setter, indexesSetter, index) => {

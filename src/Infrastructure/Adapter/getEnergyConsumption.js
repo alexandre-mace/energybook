@@ -1,4 +1,4 @@
-import totalEnergyConsumptionData from "../../Dataset/total_energy_consumption.csv";
+import totalEnergyConsumptionData from "../../Domain/data/datasets/total_energy_consumption.csv";
 import getEnerdataCsv from "../Repository/Enerdata/getEnerdataCsv";
 
 const getEnergyConsumption = (setter, indexesSetter, index) => {

@@ -10,7 +10,7 @@ function getRandomColor() {
 
 
 const Doughnut = ({datasets, options = {}}) => {
-    const { height, width } = useWindowDimensions();
+    const { width } = useWindowDimensions();
 
     return (
         <ChartDoughnut

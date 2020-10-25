@@ -4,12 +4,12 @@ import getEnergyUsePerCapitaVsPoverty from "../../../Infrastructure/Adapter/getC
 import useWindowDimensions from "../utils/useWindowDimension";
 
 const CapitaEnergyUseVsPoverty = () => {
-    const { height, width } = useWindowDimensions();
+    const {width} = useWindowDimensions();
 
-    const [energyUsePerCapitaVsPovertyIndex, setEnergyUsePerCapitaVsPovertyIndex] = React.useState('World')
+    const [energyUsePerCapitaVsPovertyIndex] = React.useState('World')
     const [energyUsePerCapitaVsPovertyDatasets, setEnergyUsePerCapitaVsPovertyDatasets] = React.useState([])
     const [energyUsePerCapitaVsPovertyCountries, setEnergyUsePerCapitaVsPovertyCountries] = React.useState([])
-    const [energyUsePerCapitaVsPovertyYear, setEnergyUsePerCapitaVsPovertyYear] = React.useState(2014)
+    const [energyUsePerCapitaVsPovertyYear] = React.useState(2014)
 
     React.useEffect(() => {
         getEnergyUsePerCapitaVsPoverty(
@@ -18,7 +18,7 @@ const CapitaEnergyUseVsPoverty = () => {
             energyUsePerCapitaVsPovertyIndex,
             energyUsePerCapitaVsPovertyYear
         )
-    }, [])
+    }, [energyUsePerCapitaVsPovertyIndex, energyUsePerCapitaVsPovertyYear])
 
     return (
         <>

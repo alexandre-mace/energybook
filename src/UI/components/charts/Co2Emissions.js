@@ -1,5 +1,3 @@
-import AutoComplete from "../utils/AutoComplete";
-import Line from "../charts-types/Line";
 import React from "react";
 import getCo2Emissions from "../../../Infrastructure/Adapter/getCo2Emissions";
 import MultitpleAutoComplete from "../utils/MultipleAutoComplete";
@@ -9,10 +7,6 @@ const Co2Emissions = () => {
     const [totalCo2EmmisionsIndexes, setTotalCo2EmmisionsIndexes] = React.useState(['World'])
     const [totalCo2Emmisions, setTotalCo2Emmisions] = React.useState({keys: [], values: []})
     const [totalCo2EmmisionsCountries, setTotalCo2EmmisionsCountries] = React.useState([])
-
-    React.useEffect(() => {
-        getCo2Emissions(setTotalCo2Emmisions, setTotalCo2EmmisionsCountries, totalCo2EmmisionsIndexes)
-    }, [])
 
     React.useEffect(() => {
         getCo2Emissions(setTotalCo2Emmisions, setTotalCo2EmmisionsCountries, totalCo2EmmisionsIndexes)

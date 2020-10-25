@@ -10,9 +10,9 @@ function App() {
     const [loading, setLoading] = React.useState(true)
     const [appMode, setAppMode] = React.useState('home')
 
-  React.useEffect(() => {
-      delayedCloseLoader();
-  }, [])
+    React.useEffect(() => {
+        delayedCloseLoader();
+    }, [])
 
     const delayedCloseLoader = () => {
         setTimeout(() => {
@@ -20,82 +20,88 @@ function App() {
         }, 1300);
     }
 
-  return (
-      <>
-      {loading &&
-          <Loader/>
-      }
-      {!loading &&
+    return (
         <>
-            <div className="container menu mb-3 mb-md-5 pt-3 pt-md-5 pb-3 pb-md-5">
-                <div className="row justify-content-center header position-relative">
-                    <div className="col-auto d-none d-md-flex menu-home">
+            {loading &&
+            <Loader/>
+            }
+            {!loading &&
+            <>
+                <div className="container menu mb-3 mb-md-5 pt-3 pt-md-5 pb-3 pb-md-5">
+                    <div className="row justify-content-center header position-relative">
+                        <div className="col-auto d-none d-md-flex menu-home">
                         <span className={"clickable"} onClick={() => {
                             setAppMode('home')
                         }}>
                             {appMode === 'home' && <strong>Home</strong>}
                             {appMode !== 'home' && <strong className={"black"}>Home</strong>}
                         </span>
-                    </div>
-                    <div className={"col-auto"} onClick={() => {
-                        setAppMode('playground')
-                    }}>
+                        </div>
+                        <div className={"col-auto"} onClick={() => {
+                            setAppMode('playground')
+                        }}>
                         <span className={"clickable"}>
                             {appMode === 'playground' && <strong>Playground</strong>}
                             {appMode !== 'playground' && <strong className={"black"}>Playground</strong>}
                         </span>
-                    </div>
-                    <div className={"col-auto"} onClick={() => {
-                        setLoading(true)
-                        delayedCloseLoader()
-                        setAppMode('versus')
-                    }}>
+                        </div>
+                        <div className={"col-auto"} onClick={() => {
+                            setLoading(true)
+                            delayedCloseLoader()
+                            setAppMode('versus')
+                        }}>
                         <span className={"clickable"}>
                             {appMode === 'versus' && <strong>Versus</strong>}
                             {appMode !== 'versus' && <strong className={"black"}>Versus</strong>}
                         </span>
-                    </div>
-                    <div className="col-auto">
+                        </div>
+                        <div className="col-auto">
                         <span className={"clickable"} onClick={() => {
                             setAppMode('narrative')
                         }}>
                             {appMode === 'narrative' && <strong>Narrative</strong>}
                             {appMode !== 'narrative' && <strong className={"black"}>Narrative</strong>}
                         </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {appMode === 'playground' &&
+                {appMode === 'playground' &&
                 <Playground/>
-            }
-            {appMode === 'versus' &&
+                }
+                {appMode === 'versus' &&
                 <Versus/>
-            }
-            {appMode === 'narrative' &&
+                }
+                {appMode === 'narrative' &&
                 <Narrative/>
-            }
-            {appMode === 'sources' &&
+                }
+                {appMode === 'sources' &&
                 <Sources/>
-            }
-            {appMode === 'home' &&
+                }
+                {appMode === 'home' &&
                 <>
                     <div className="container my-3 my-md-5 pt-0 pt-md-5">
-                      <div className="row">
-                          <div className="col">
-                              <h1 className={"mb-3 pb-3 pb-md-5 app-title color-primary"}>Energy Book</h1>
-                              <h4>This book will teach you the basis about energy &#128212;</h4>
-                              <p>Energy use is one of the main theme of our generation, having knowledge about it is important.</p>
-                          </div>
-                      </div>
+                        <div className="row">
+                            <div className="col">
+                                <h1 className={"mb-3 pb-3 pb-md-5 app-title color-primary"}>Energy Book</h1>
+                                <h4>This book will teach you the basis about energy <span role={"img"}
+                                                                                          aria-label={"book"}>&#128212;</span>
+                                </h4>
+                                <p>Energy use is one of the main theme of our generation, having knowledge about it is
+                                    important.</p>
+                            </div>
+                        </div>
                     </div>
                     <div className="container my-3 my-md-5 pt-3 pt-md-5">
                         <div className="row">
                             <div className="d-flex col-12 col-md-4 display-flex flex-column justify-content-between">
-                                <div><p className={"mb-0 mb-md-2 mt-3 mt-md-0"}>Explore and play around energy data.</p></div>
-                                <div><strong className={"clickable"} onClick={() => setAppMode('playground')}>Discover playground mode</strong></div>
+                                <div><p className={"mb-0 mb-md-2 mt-3 mt-md-0"}>Explore and play around energy data.</p>
+                                </div>
+                                <div><strong className={"clickable"} onClick={() => setAppMode('playground')}>Discover
+                                    playground mode</strong></div>
                             </div>
                             <div className="d-flex col-12 col-md-4 display-flex flex-column justify-content-between">
-                                <div><p className={"mb-0 mb-md-2 mt-4 mt-md-0"}>Compare energy sources together.</p></div>
+                                <div><p className={"mb-0 mb-md-2 mt-4 mt-md-0"}>Compare energy sources together.</p>
+                                </div>
                                 <div><strong className={"clickable"} onClick={() => {
                                     setLoading(true)
                                     delayedCloseLoader()
@@ -103,25 +109,31 @@ function App() {
                                 }}>Discover versus mode</strong></div>
                             </div>
                             <div className="d-flex col-12 col-md-4 display-flex flex-column justify-content-between">
-                                <div><p className={"mb-0 mb-md-2 mt-3 mt-md-0"}>Learn things step by step from the start.</p></div>
-                                <div><strong className={"clickable"} onClick={() => setAppMode('narrative')}>Discover narrative mode</strong></div>
+                                <div><p className={"mb-0 mb-md-2 mt-3 mt-md-0"}>Learn things step by step from the
+                                    start.</p></div>
+                                <div><strong className={"clickable"} onClick={() => setAppMode('narrative')}>Discover
+                                    narrative mode</strong></div>
                             </div>
                         </div>
                     </div>
                 </>
-            }
-            <footer className="footer p-0">
-                <div className="row align-items-center">
-                    <div className="col-auto m-auto p-0">
-                        <p className={'mb-0 text-center clickable link'} onClick={() => setAppMode('sources')}>Sources</p>
-                        <p className={'mb-0'}>Made with love and concern by <strong><a target="_blank" rel="noopener noreferrer" href="https://github.com/alexandre-mace">@alexandre-mace</a></strong></p>
+                }
+                <footer className="footer p-0">
+                    <div className="row align-items-center">
+                        <div className="col-auto m-auto p-0">
+                            <p className={'mb-0 text-center clickable link'}
+                               onClick={() => setAppMode('sources')}>Sources</p>
+                            <p className={'mb-0'}>Made with love and concern by <strong><a target="_blank"
+                                                                                           rel="noopener noreferrer"
+                                                                                           href="https://github.com/alexandre-mace">@alexandre-mace</a></strong>
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            </>
+            }
         </>
-        }
-    </>
-  );
+    );
 }
 
 export default App;

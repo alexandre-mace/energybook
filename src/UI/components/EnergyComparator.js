@@ -8,17 +8,17 @@ import therGasImg from '../images/gas.png';
 import therOilImg from '../images/oil.png';
 import hydroImg from '../images/hydro.png';
 import ColorControlledDoughnut from "./charts-types/ColorControlledDoughnut";
-import powerData from "../../Domain/EnergySource/PowerData";
+import energySystems from "../../Domain/data/energySystems";
 import PictoGenerator from "./utils/PictoGenerator";
-import calculatePower from "../../Domain/EnergySource/calculatePower";
-import calculateEnergySourcePower from "../../Domain/EnergySource/calculateEnergySourcePower";
-import calculateSurface from "../../Domain/EnergySource/calculateSurface";
+import calculatePower from "../../Domain/computing/calculatePower";
+import calculateEnergySourcePower from "../../Domain/computing/calculateEnergySourcePower";
+import calculateSurface from "../../Domain/computing/calculateSurface";
 import formatNumber from "../../Infrastructure/Formatter/formatNumber";
-import calculateEmissions from "../../Domain/EnergySource/calculateEmissions";
-import calculateCost from "../../Domain/EnergySource/calculateCost";
-import calculateMaterials from "../../Domain/EnergySource/calculateMaterials";
+import calculateEmissions from "../../Domain/computing/calculateEmissions";
+import calculateCost from "../../Domain/computing/calculateCost";
+import calculateMaterials from "../../Domain/computing/calculateMaterials";
 import getEnergySupplySource from "../../Infrastructure/Adapter/getEnergySupplySource";
-import chargeEnergySystem from "../../Domain/EnergySource/chargeEnergySystem";
+import chargeEnergySystem from "../../Domain/computing/chargeEnergySystem";
 import AutoComplete from "./utils/AutoComplete";
 
 export const powerRatioDivider = 100000;
@@ -35,16 +35,8 @@ const EnergyComparator = () => {
     const [energySupplySourceIndex, setEnergySupplySourceIndex] = React.useState('Custom')
     const [energySupplySourceDatasets, setEnergySupplySourceDatasets] = React.useState([])
     const [energySupplySourceCountries, setEnergySupplySourceCountries] = React.useState([])
-    const [energySupplySourceYear, setEnergySupplySourceYear] = React.useState(2018)
+    const [energySupplySourceYear] = React.useState(2018)
     const [indexHasJustChanged, setIndexHasJustChanged] = React.useState(false)
-
-    React.useEffect(() => {
-        getEnergySupplySource(
-            setEnergySupplySourceDatasets,
-            setEnergySupplySourceCountries,
-            energySupplySourceIndex,
-        )
-    }, [])
 
     React.useEffect(() => {
         getEnergySupplySource(
@@ -68,7 +60,7 @@ const EnergyComparator = () => {
                 setHydro
             )
         }
-    }, [energySupplySourceDatasets, energySupplySourceIndex])
+    }, [energySupplySourceDatasets, energySupplySourceIndex, energySupplySourceYear])
 
     React.useEffect(() => {
         setIndexHasJustChanged(true);
@@ -81,7 +73,7 @@ const EnergyComparator = () => {
         if (energySupplySourceIndex !== 'Custom' && !indexHasJustChanged) {
             setEnergySupplySourceIndex('Custom')
         }
-    }, [eol, sol, nuc, therCoal, therOil, therOil, hydro])
+    }, [eol, sol, nuc, therCoal, therOil, hydro, energySupplySourceIndex, indexHasJustChanged])
 
     return (
         <>
@@ -107,37 +99,37 @@ const EnergyComparator = () => {
                         <ColorControlledDoughnut datasets={[
                             {
                                 name: 'Wind turbine',
-                                value: calculateEnergySourcePower(eol, powerData.eol.averagePower, powerData.eol.averageChargeFactor),
+                                value: calculateEnergySourcePower(eol, energySystems.eol.averagePower, energySystems.eol.averageChargeFactor),
                                 color: 'lightgray'
                             },
                             {
                                 name: 'Solar panel',
-                                value: calculateEnergySourcePower(sol, powerData.sol.averagePower, powerData.sol.averageChargeFactor),
+                                value: calculateEnergySourcePower(sol, energySystems.sol.averagePower, energySystems.sol.averageChargeFactor),
                                 color: 'blue'
                             },
                             {
                                 name: 'Nuclear power plant',
-                                value: calculateEnergySourcePower(nuc, powerData.nuc.averagePower, powerData.nuc.averageChargeFactor),
+                                value: calculateEnergySourcePower(nuc, energySystems.nuc.averagePower, energySystems.nuc.averageChargeFactor),
                                 color: 'lightgreen'
                             },
                             {
                                 name: 'Coal thermal power station',
-                                value: calculateEnergySourcePower(therCoal, powerData.therCoal.averagePower, powerData.therCoal.averageChargeFactor),
+                                value: calculateEnergySourcePower(therCoal, energySystems.therCoal.averagePower, energySystems.therCoal.averageChargeFactor),
                                 color: 'black'
                             },
                             {
                                 name: 'Oil thermal power station',
-                                value: calculateEnergySourcePower(therOil, powerData.therOil.averagePower, powerData.therOil.averageChargeFactor),
+                                value: calculateEnergySourcePower(therOil, energySystems.therOil.averagePower, energySystems.therOil.averageChargeFactor),
                                 color: 'purple'
                             },
                             {
                                 name: 'Gas thermal power station',
-                                value: calculateEnergySourcePower(therGas, powerData.therGas.averagePower, powerData.therGas.averageChargeFactor),
+                                value: calculateEnergySourcePower(therGas, energySystems.therGas.averagePower, energySystems.therGas.averageChargeFactor),
                                 color: 'darkgray'
                             },
                             {
                                 name: 'Hydroelectric power station',
-                                value: calculateEnergySourcePower(hydro, powerData.hydro.averagePower, powerData.hydro.averageChargeFactor),
+                                value: calculateEnergySourcePower(hydro, energySystems.hydro.averagePower, energySystems.hydro.averageChargeFactor),
                                 color: 'lightblue'
                             },
                         ]}/>

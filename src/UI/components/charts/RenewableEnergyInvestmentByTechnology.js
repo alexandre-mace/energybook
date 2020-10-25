@@ -4,7 +4,7 @@ import getRenewableEnergyInvestmentByTechnology
     from "../../../Infrastructure/Adapter/getRenewableEnergyInvestmentByTechnology";
 
 const RenewableEnergyInvestmentByTechology = () => {
-    const [renewableEnergyInvestmentByTechnologyIndex, setRenewableEnergyInvestmentByTechnologyIndex] = React.useState('World')
+    const [renewableEnergyInvestmentByTechnologyIndex] = React.useState('World')
     const [renewableEnergyInvestmentByTechnologyIndexDatasets, setRenewableEnergyInvestmentByTechnologyDatasets] = React.useState([])
     const [renewableEnergyInvestmentByTechnologyIndexCountries, setRenewableEnergyInvestmentByTechnologyCountries] = React.useState([])
 
@@ -14,7 +14,7 @@ const RenewableEnergyInvestmentByTechology = () => {
             setRenewableEnergyInvestmentByTechnologyCountries,
             renewableEnergyInvestmentByTechnologyIndex
         )
-    }, [])
+    }, [renewableEnergyInvestmentByTechnologyIndex])
 
     return (
         <>

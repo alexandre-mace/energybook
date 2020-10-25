@@ -1,7 +1,5 @@
 import AutoComplete from "../utils/AutoComplete";
 import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
 import Doughnut from "../charts-types/Doughnut";
 import getKeyByValue from "../../../Infrastructure/Transformer/getKeyByValue";
 import MultipleLines from "../charts-types/MultipleLines";
@@ -16,16 +14,12 @@ const EnergyConsumptionBySource = ({
                                        onlyNonRenewables = false,
                                        year = 2018
                                    }) => {
-    const { height, width } = useWindowDimensions();
+    const { width } = useWindowDimensions();
 
     const [energySupplySourceIndex, setEnergySupplySourceIndex] = React.useState('World')
     const [energySupplySourceDatasets, setEnergySupplySourceDatasets] = React.useState([])
     const [energySupplySourceCountries, setEnergySupplySourceCountries] = React.useState([])
     const [energySupplySourceYear, setEnergySupplySourceYear] = React.useState(2018)
-    const [showRenewableCategories, setShowRenewableCategories] = React.useState(false)
-    const [energySupplySourceDoughnutMode, setEnergySupplySourceDoughnutMode] = React.useState(false)
-    const [energySupplySourceOnlyRenewables, setEnergySupplySourceOnlyRenewables] = React.useState(false)
-    const [energySupplySourceOnlyNonRenewables, setEnergySupplySourceOnlyNonRenewables] = React.useState(false)
 
     React.useEffect(() => {
         getEnergySupplySource(
@@ -36,18 +30,7 @@ const EnergyConsumptionBySource = ({
             onlyRenewables,
             onlyNonRenewables
         )
-    }, [])
-
-    React.useEffect(() => {
-        getEnergySupplySource(
-            setEnergySupplySourceDatasets,
-            setEnergySupplySourceCountries,
-            energySupplySourceIndex,
-            onlyCategories,
-            onlyRenewables,
-            onlyNonRenewables
-        )
-    }, [energySupplySourceIndex, energySupplySourceYear])
+    }, [energySupplySourceIndex, energySupplySourceYear, onlyCategories, onlyNonRenewables, onlyRenewables])
 
     return (
         <>

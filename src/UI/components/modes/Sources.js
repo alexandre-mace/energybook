@@ -6,7 +6,7 @@ function Sources() {
             <div className="container pt-3 mb-3">
                 <div className="row">
                     <div className="col">
-                        <h4>Welcome to the sources section 🔬</h4>
+                        <h4>Welcome to the sources section <span role={"img"} aria-label={"microscope"}>🔬</span></h4>
                         <p>Here are all external information i used.</p>
                     </div>
                 </div>

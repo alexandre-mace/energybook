@@ -1,4 +1,4 @@
-import totalElectricityConsumptionData from "../../Dataset/total_electricity_consumption.csv";
+import totalElectricityConsumptionData from "../../Domain/data/datasets/total_electricity_consumption.csv";
 import getEnerdataCsv from "../Repository/Enerdata/getEnerdataCsv";
 
 const getElectricityConsumption = (setter, indexesSetter, index) => {

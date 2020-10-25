@@ -4,9 +4,8 @@ import getEnergyConsumptionBySector from "../../../Infrastructure/Adapter/getEne
 import useWindowDimensions from "../utils/useWindowDimension";
 
 const EnergyConsumptionBySector = () => {
-    const { height, width } = useWindowDimensions();
+    const {width} = useWindowDimensions();
 
-    const [totalFinalConsumptionBySectorYear, setTotalFinalConsumptionBySectorYear] = React.useState(2018)
     const [totalFinalConsumptionBySectorDatasets, setTotalFinalConsumptionBySectorDatasets] = React.useState([])
 
     React.useEffect(() => {
@@ -58,7 +57,7 @@ const EnergyConsumptionBySector = () => {
                                         }]
                                     },
                                     legend: {
-                                        position: width > 760 ? 'right': 'top',
+                                        position: width > 760 ? 'right' : 'top',
                                         reverse: true
                                     }
                                 }}
