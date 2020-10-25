@@ -24,7 +24,7 @@ const CapitaEnergyUseVsPoverty = () => {
         <>
             <div className="container mt-3 mt-md-5">
                 <div className="row">
-                    <div className="col d-flex justify-content-center">
+                    <div className="col d-flex justify-content-center flex-wrap">
                             <span className={"mr-3"}>
                                 Here is the energy use per capita compared to the share of population in extreme <strong>poverty</strong>
                             </span>

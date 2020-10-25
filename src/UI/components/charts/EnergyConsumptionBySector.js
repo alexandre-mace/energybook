@@ -17,7 +17,7 @@ const EnergyConsumptionBySector = () => {
         <>
             <div className="container mt-3 mt-md-5">
                 <div className="row">
-                    <div className="col d-flex justify-content-center">
+                    <div className="col d-flex justify-content-center flex-wrap">
                             <span className={"mr-3"}>
                                 Here is the total final energy consumption of the World by <strong>sector</strong>
                             </span>

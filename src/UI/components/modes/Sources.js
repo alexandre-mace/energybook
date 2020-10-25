@@ -53,6 +53,7 @@ function Sources() {
                         <p><a href="https://fr.wikipedia.org/wiki/Barrage_de_Grand%27Maison">https://fr.wikipedia.org/wiki/Barrage_de_Grand%27Maison</a></p>
                         <p><a href="https://fr.wikipedia.org/wiki/Barrage_de_Sainte-Croix">https://fr.wikipedia.org/wiki/Barrage_de_Sainte-Croix</a></p>
                         <p><a href="https://fr.wikipedia.org/wiki/%C3%89olienne">https://fr.wikipedia.org/wiki/%C3%89olienne</a></p>
+                        <p><a href="https://www.ademe.fr/terres-rares-energies-renouvelables-stockage-denergies">https://www.ademe.fr/terres-rares-energies-renouvelables-stockage-denergies</a></p>
                     </div>
                 </div>
             </div>
