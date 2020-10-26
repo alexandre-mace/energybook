@@ -1,6 +1,6 @@
 import Papa from "papaparse";
 
-async function getOwidBubbleCsv(file, setter, countrySetter, index, year) {
+async function getOwidBubbleCsv(file, setter, year) {
     const response = await fetch(file)
     const reader = response.body.getReader()
     const result = await reader.read() // raw array

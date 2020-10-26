@@ -73,7 +73,8 @@ const EnergyComparator = () => {
         if (energySupplySourceIndex !== 'Custom' && !indexHasJustChanged) {
             setEnergySupplySourceIndex('Custom')
         }
-    }, [eol, sol, nuc, therCoal, therOil, hydro, energySupplySourceIndex, indexHasJustChanged])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [eol, sol, nuc, therCoal, therOil, hydro])
 
     return (
         <>
@@ -140,7 +141,7 @@ const EnergyComparator = () => {
                 <div className="row">
                     <div className="col">
                         <AutoComplete
-                            options={energySupplySourceCountries}
+                            options={['Custom'].concat(energySupplySourceCountries)}
                             setIndex={setEnergySupplySourceIndex}
                             index={energySupplySourceIndex}
                         /> {energySupplySourceYear} consumption energy presets

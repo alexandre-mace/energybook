@@ -6,17 +6,13 @@ import useWindowDimensions from "../utils/useWindowDimension";
 const RenewableEnergyInvestment = () => {
     const { width } = useWindowDimensions();
 
-    const [renewableEnergyInvestmentIndex] = React.useState('World')
     const [renewableEnergyInvestmentDatasets, setRenewableEnergyInvestmentDatasets] = React.useState([])
-    const [renewableEnergyInvestmentCountries, setRenewableEnergyInvestmentCountries] = React.useState([])
 
     React.useEffect(() => {
         getRenewableEnergyInvestment(
-            setRenewableEnergyInvestmentDatasets,
-            setRenewableEnergyInvestmentCountries,
-            renewableEnergyInvestmentIndex
+            setRenewableEnergyInvestmentDatasets
         )
-    }, [renewableEnergyInvestmentIndex])
+    }, [])
 
     return (
         <>

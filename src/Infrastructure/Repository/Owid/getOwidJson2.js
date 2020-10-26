@@ -1,10 +1,7 @@
 async function getOwidJson2(
     file,
-    setter,
-    countrySetter,
-    index
+    setter
 ) {
-    countrySetter(Object.values(file.entityKey).map(entity => entity.name))
     let data = Object.values(file.variables).map((variable) => {
         let datasets = [];
         for (let i = 0; i < variable.entities.length; i++) {
