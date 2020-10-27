@@ -22,8 +22,7 @@ async function getEnerdataCsv(file, setter, indexesSetter, indexes) {
             ,
             values: rows.filter(data => indexes.includes(data.zone))
                 .map(data => Object.values(data))
-                .map(data => data.filter(value => value !== 'World')
-                    .map(value => isNumeric(value) ? parseFloat(value) : value)).map(data => ({
+                .map(data => data.map(value => value.replace(',', '.')).map(value => isNumeric(value) ? parseFloat(value) : value)).map(data => ({
                     name: data.pop(),
                     values: data
                 }))
