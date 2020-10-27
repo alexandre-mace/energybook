@@ -26,7 +26,7 @@ const RenewableEnergyInvestmentByGdp = () => {
                     </div>
                 </div>
             </div>
-            <div className="container my-3 my-md-5 pb-5">
+            <div className="container my-3 my-md-5 pb-4 pb-md-5">
                 <div className="row">
                     <div className="col">
                         <div className="white-wrapper doughnut-wrapper">
