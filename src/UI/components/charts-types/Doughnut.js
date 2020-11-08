@@ -19,17 +19,26 @@ const Doughnut = ({datasets, options = {}}) => {
                 maintainAspectRatio: true,
                 plugins: {
                     datalabels: false,
-                    labels: {
-                        render: 'label',
-                        fontSize: width > 760 ? '14' : '8',
-                        fontStyle: 'bold',
-                        fontColor: '#000',
-                        fontFamily: '"Lucida Console", Monaco, monospace'
-                    }
+                    labels: [
+                        {
+                            render: 'label',
+                            fontSize: width > 760 ? '14' : '8',
+                            fontStyle: 'bold',
+                            fontColor: '#000',
+                            fontFamily: '"Lucida Console", Monaco, monospace'
+                         },
+                        {
+                            render: 'percentage',
+                            fontSize: width > 760 ? '14' : '8',
+                            position: 'outside',
+                            fontColor: '#000',
+                            fontFamily: '"Lucida Console", Monaco, monospace'
+                        },
+                    ]
                 },
                 legend: {
                     display: width > 760
-                }
+                },
             }}
             data={{
                 labels: datasets.map(dataset => dataset.name),

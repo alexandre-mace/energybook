@@ -6,9 +6,11 @@ import PlayableEnergyConsumptionBySource from "./PlayableEnergyConsumptionBySour
 import EnergyConsumptionBySector from "./EnergyConsumptionBySector";
 import ElectricityConsumption from "./ElectricityConsumption";
 import EnergyConsumption from "./EnergyConsumption";
+import FinalEnergyConsumptionBySource from "./FinalEnergyConsumptionBySource";
 
 const PlayableEnergyConsumption = () => {
     const [bySource, setBySource] = React.useState(true)
+    const [byFinalSource, setByFinalSource] = React.useState(false)
     const [bySector, setBySector] = React.useState(false)
     const [electricity, setElectricity] = React.useState(false)
     const [defaultConsumption, setDefaultConsumption] = React.useState(false)
@@ -25,6 +27,7 @@ const PlayableEnergyConsumption = () => {
                                         checked={bySource}
                                         onChange={() => {
                                             setBySource(!(bySource))
+                                            setByFinalSource(false)
                                             setBySector(false)
                                             setElectricity(false)
                                             setDefaultConsumption(false)
@@ -38,9 +41,27 @@ const PlayableEnergyConsumption = () => {
                             <FormControlLabel
                                 control={
                                     <Switch
+                                        checked={byFinalSource}
+                                        onChange={() => {
+                                            setByFinalSource(!(byFinalSource))
+                                            setBySource(false)
+                                            setBySector(false)
+                                            setElectricity(false)
+                                            setDefaultConsumption(false)
+                                        }}
+                                        name="bySource"
+                                        color="primary"
+                                    />
+                                }
+                                label="Consumption by final source"
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Switch
                                         checked={bySector}
                                         onChange={() => {
                                             setBySector(!(bySector))
+                                            setByFinalSource(false)
                                             setBySource(false)
                                             setElectricity(false)
                                             setDefaultConsumption(false)
@@ -57,6 +78,7 @@ const PlayableEnergyConsumption = () => {
                                         checked={defaultConsumption}
                                         onChange={() => {
                                             setDefaultConsumption(!(defaultConsumption))
+                                            setByFinalSource(false)
                                             setBySector(false)
                                             setBySource(false)
                                             setElectricity(false)
@@ -73,6 +95,7 @@ const PlayableEnergyConsumption = () => {
                                         checked={electricity}
                                         onChange={() => {
                                             setElectricity(!(electricity))
+                                            setByFinalSource(false)
                                             setBySource(false)
                                             setBySector(false)
                                             setDefaultConsumption(false)
@@ -90,6 +113,9 @@ const PlayableEnergyConsumption = () => {
             <div className={'min-chart-wrapper-height'}>
                 {bySource &&
                 <PlayableEnergyConsumptionBySource/>
+                }
+                {byFinalSource &&
+                 <FinalEnergyConsumptionBySource mode={"doughnut"}/>
                 }
                 {bySector &&
                 <EnergyConsumptionBySector/>

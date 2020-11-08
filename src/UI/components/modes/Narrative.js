@@ -12,6 +12,7 @@ import CapitaEnergyUseVsPoverty from "../charts/CapitaEnergyUseVsPoverty";
 import EnergyConsumptionBySector from "../charts/EnergyConsumptionBySector";
 import {CircleIndicator} from "../utils/ScrollIndicator";
 import ScrollBackToTop from "../utils/BackToTop";
+import FinalEnergyConsumptionBySource from "../charts/FinalEnergyConsumptionBySource";
 
 function Narrative() {
     const [loading, setLoading] = React.useState(true)
@@ -185,6 +186,28 @@ function Narrative() {
                     </div>
                 </div>
                 <EnergyConsumptionBySector/>
+
+                <div className="container my-3 my-md-5">
+                    <div className="row">
+                        <div className="col">
+                            <p>Earlier on, i said <strong>do not forget about thermic</strong> and here is why.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <FinalEnergyConsumptionBySource mode={"lines"}/>
+
+                <div className="container my-3 my-md-5">
+                    <div className="row">
+                        <div className="col">
+                            <p>As you can see, what drives the renewables part is only about electricity production, but we are surrounded by objects and products that comes from thermic.</p>
+                            <p>The main point of our discussions only represent about <strong>20% of the problem</strong>.</p>
+                            <p>Below is the doughnut representation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <FinalEnergyConsumptionBySource mode={"doughnut"}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">

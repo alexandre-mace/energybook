@@ -1,61 +1,44 @@
-import AutoComplete from "../utils/AutoComplete";
-import FormGroup from "@material-ui/core/FormGroup";
-import Doughnut from "../charts-types/Doughnut";
-import getKeyByValue from "../../../Infrastructure/Transformer/getKeyByValue";
 import MultipleLines from "../charts-types/MultipleLines";
 import React from "react";
-import getEnergySupplySource from "../../../Infrastructure/Adapter/getEnergySupplySource";
 import useWindowDimensions from "../utils/useWindowDimension";
+import getFinalEnergyConsumptionBySource from "../../../Infrastructure/Adapter/getFinalEnergyConsumptionBySource";
+import FormGroup from "@material-ui/core/FormGroup";
+import AutoComplete from "../utils/AutoComplete";
+import Doughnut from "../charts-types/Doughnut";
+import getKeyByValue from "../../../Infrastructure/Transformer/getKeyByValue";
 
 const EnergyConsumptionBySource = ({
                                        mode = 'lines',
-                                       onlyCategories = false,
-                                       onlyRenewables = false,
-                                       onlyNonRenewables = false,
                                        year = 2018
                                    }) => {
     const {width} = useWindowDimensions();
 
-    const [energySupplySourceIndex, setEnergySupplySourceIndex] = React.useState('World')
-    const [energySupplySourceDatasets, setEnergySupplySourceDatasets] = React.useState([])
-    const [energySupplySourceCountries, setEnergySupplySourceCountries] = React.useState([])
-    const [energySupplySourceYear, setEnergySupplySourceYear] = React.useState(2018)
+    const [totalFinalConsumptionBySourceDatasets, setTotalFinalConsumptionBySourceDatasets] = React.useState([])
+    const [totalFinalConsumptionBySourceYear, setTotalFinalConsumptionBySourceYear] = React.useState(year)
 
     React.useEffect(() => {
-        getEnergySupplySource(
-            setEnergySupplySourceDatasets,
-            setEnergySupplySourceCountries,
-            energySupplySourceIndex,
-            onlyCategories,
-            onlyRenewables,
-            onlyNonRenewables
-        )
-    }, [energySupplySourceIndex, energySupplySourceYear, onlyCategories, onlyNonRenewables, onlyRenewables])
+        getFinalEnergyConsumptionBySource(setTotalFinalConsumptionBySourceDatasets)
+    }, [])
 
     return (
         <>
             <div className="container mt-3 mt-md-5">
                 <div className="row">
                     <div className="col d-flex justify-content-center flex-wrap">
-                        <span className={"mr-3"}>
-                            Here is the primary {onlyNonRenewables ? 'non renewables' : ''}{onlyRenewables ? 'renewables' : ''} energy <strong>consumption by source</strong> of the
-                        </span>
-                        <AutoComplete
-                            options={energySupplySourceCountries}
-                            setIndex={setEnergySupplySourceIndex}
-                            index={energySupplySourceIndex}
-                        />
+                            <span className={"mr-3"}>
+                                Here is the total final energy consumption of the World by <strong>source</strong>
+                            </span>
                     </div>
                 </div>
             </div>
             <div className="container my-3 my-md-5 pb-4 pb-md-5">
                 <div className="row">
-                    {mode !== 'doughnut' &&
+                    {mode === 'lines' &&
                     <div className="col">
                         <div className="white-wrapper">
                             <MultipleLines
-                                name='Renewables share'
-                                datasets={energySupplySourceDatasets}
+                                name='total final consumption by source'
+                                datasets={totalFinalConsumptionBySourceDatasets}
                                 options={{
                                     maintainAspectRatio: false,
                                     plugins: {
@@ -65,10 +48,9 @@ const EnergyConsumptionBySource = ({
                                     scales: {
                                         yAxes: [{
                                             stacked: true,
-                                            ticks: {},
                                             scaleLabel: {
                                                 display: true,
-                                                labelString: 'TWh',
+                                                labelString: 'ktoe',
                                                 fontColor: 'black',
                                                 fontSize: '14'
                                             }
@@ -92,26 +74,23 @@ const EnergyConsumptionBySource = ({
                         </div>
                     </div>
                     }
-                    {mode === 'doughnut' &&
+                    {(mode === 'doughnut' && totalFinalConsumptionBySourceDatasets.values.length > 0) &&
                     <div className="col">
                         <div className="white-wrapper">
                             <FormGroup row>
-                                {(mode === 'doughnut' && energySupplySourceDatasets[0]) &&
                                 <AutoComplete
-                                    options={energySupplySourceDatasets[0].keys}
-                                    setIndex={setEnergySupplySourceYear}
-                                    index={energySupplySourceYear}
+                                    options={totalFinalConsumptionBySourceDatasets.keys}
+                                    setIndex={setTotalFinalConsumptionBySourceYear}
+                                    index={totalFinalConsumptionBySourceYear}
                                 />
-                                }
                             </FormGroup>
                             <div className="doughnut-wrapper">
                                 <Doughnut
-                                    name='Renewables share'
-                                    datasets={energySupplySourceDatasets.map(dataset => {
-                                        const index = getKeyByValue(dataset.keys, energySupplySourceYear)
+                                    name='Total final consumption by source by percentage'
+                                    datasets={totalFinalConsumptionBySourceDatasets.values.map(dataset => {
+                                        const index = getKeyByValue(totalFinalConsumptionBySourceDatasets.keys.map(value => parseInt(value)), parseInt(totalFinalConsumptionBySourceYear))
                                         return {
                                             name: dataset.name,
-                                            key: dataset.keys[index],
                                             value: dataset.values[index]
                                         }
                                     })}
@@ -127,7 +106,7 @@ const EnergyConsumptionBySource = ({
                                                 ticks: {}
                                             }]
                                         },
-                                        legend: {}
+                                        legend: {},
                                     }}
                                 >
                                 </Doughnut>
