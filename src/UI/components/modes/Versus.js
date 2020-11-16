@@ -5,7 +5,7 @@ import EnergyComparator from "../EnergyComparator";
 const Versus = () => {
     return (
         <>
-            <div className="container pt-3 mb-3 mb-md-5">
+            <div className="container pt-1 mb-3 mb-md-3">
                 <div className="row">
                     <div className="col">
                         <h4>Welcome to the versus section <span role="img" aria-label="fight">&#129354;</span></h4>
@@ -15,7 +15,7 @@ const Versus = () => {
                     </div>
                 </div>
             </div>
-            <div className="playground container pt-3">
+            <div className="playground container pt-2">
                 <div className="row">
                     <div className="col-6">
                         <EnergyComparator/>
@@ -24,7 +24,7 @@ const Versus = () => {
                         <EnergyComparator/>
                     </div>
                 </div>
-                <div className="row my-4 my-md-5 pt-3 pt-md-5">
+                <div className="row my-4 my-md-5 pt-3">
                     <div className="col">
                         <p>Here is the math about energy (eol
                             * {energySystems.eol.averagePower} * {energySystems.eol.averageChargeFactor}) +

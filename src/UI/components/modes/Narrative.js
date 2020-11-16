@@ -35,7 +35,7 @@ function Narrative() {
             <div className={loading ? 'hidden' : ''}>
                 <CircleIndicator/>
                 <ScrollBackToTop/>
-                <div className="container pt-3 mb-3 mb-md-5">
+                <div className="container pt-1 mb-3 mb-md-3">
                     <div className="row">
                         <div className="col">
                             <h4>Welcome to the narrative section <span role={"img"} aria-label={"book"}>📖</span></h4>

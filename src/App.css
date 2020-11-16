@@ -261,8 +261,8 @@ footer {
   padding: 20px;
   background-color: white;
   border-radius: 20px;
-  box-shadow: 0 30px 50px 0 rgba(172, 172, 172, 0.3);
-  -webkit-box-shadow: 0 30px 50px 0 rgba(163, 163, 163, 0.3);
+  box-shadow: 0 4px 4px rgba(0,0,0,0.24);
+  -webkit-box-shadow: 0 4px 4px rgba(0,0,0,0.24);
 }
 @media (min-width: 1200px) {
   .white-wrapper {
@@ -300,7 +300,7 @@ body {
   color: black !important;
 }
 .sliders * {
-  font-size: 0.8rem !important;
+  font-size: 1rem !important;
 }
 .energy-pictos {
   margin-top: -50px;
@@ -356,6 +356,9 @@ h1 {
 h4 {
   font-size: calc(1rem + 1.3vw) !important;
 }
+.mobile-animations {
+    display: none;
+}
 @media (min-width: 1200px) {
   h4 {
     font-size: 1.8rem !important;
@@ -365,8 +368,41 @@ h4 {
   font-size: 1.2rem;
 }
 @media (max-width: 600px) {
+    .desktop-animations {
+        display: none;
+    }
+    .mobile-animations {
+        display: block;
+    }
+    .animations svg {
+        max-height: 80px;
+    }
     .versus-computings strong {
         display: block;
         font-size: 1rem !important;
+    }
+}
+@media (max-height: 750px) {
+    @media (pointer: coarse) {
+        .MuiSlider-root {
+            padding: 0 !important;
+        }
+    }
+    .min-chart-wrapper-height {
+        min-height: 500px;
+    }
+    html {
+        font-size: 12px;
+    }
+    .MuiTabs-root, .MuiTab-root {
+        max-height: 40px !important;
+        min-height: auto !important;
+    }
+    .min-chart-height {
+        min-height: 540px;
+    }
+    canvas {
+        max-height: 450px !important;
+        min-height: 400px !important;
     }
 }

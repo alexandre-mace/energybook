@@ -28,7 +28,7 @@ const Playground = () => {
                 <Loader/>
             }
             <div className={loading ? 'hidden' : ''}>
-                <div className="container mb-3 mb-md-5 pt-3">
+                <div className="container mb-3 mb-md-5 pt-1">
                     <div className="row">
                         <div className="col">
                             <h4>Welcome to the playground section <span role={"img"} aria-label={"play"}>&#127918;</span></h4>
@@ -36,7 +36,7 @@ const Playground = () => {
                         </div>
                     </div>
                 </div>
-                <div className="container pt-4 pt-md-5">
+                <div className="container">
                     <div className="row">
                         <div className="col-auto m-auto">
                             <Paper square>

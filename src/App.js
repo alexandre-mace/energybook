@@ -5,6 +5,11 @@ import Versus from "./UI/components/modes/Versus";
 import Narrative from "./UI/components/modes/Narrative";
 import Loader from "./UI/components/utils/Loader";
 import Sources from "./UI/components/modes/Sources";
+import LottieControl from "./UI/components/animations/Eye";
+import * as eyeAnimationData from "./UI/components/animations/Eye.json";
+import * as graphPieAnimationData from "./UI/components/animations/Graph_Pie.json";
+import * as lightningAnimationData from "./UI/components/animations/Lightning.json";
+import * as globeAnimationData from "./UI/components/animations/Globe.json";
 
 function App() {
     const [loading, setLoading] = React.useState(true)
@@ -27,7 +32,7 @@ function App() {
             }
             {!loading &&
             <>
-                <div className="container menu mb-3 mb-md-5 pt-3 pt-md-5 pb-3 pb-md-5">
+                <div className="container menu mb-3 mb-md-4 pt-3 pt-md-5 pb-3 pb-md-5">
                     <div className="row justify-content-center header position-relative">
                         <div className="col-auto d-none d-md-flex menu-home">
                         <span className={"clickable"} onClick={() => {
@@ -82,7 +87,25 @@ function App() {
                     <div className="container my-3 my-md-5 pt-0 pt-md-5">
                         <div className="row">
                             <div className="col">
-                                <h1 className={"mb-3 pb-3 pb-md-5 app-title color-primary"}>Energy Book</h1>
+                                <div className="col p-0 d-flex">
+                                    <h1 className={"mb-3 pb-3 pb-md-5 app-title color-primary"}>Energy Book</h1>
+                                    <div className={"desktop-animations"}>
+                                        <div className="m-5" style={{position: "relative", height: 1, transform: 'translate(50%, -50px)'}}>
+                                            <div style={{position: "absolute", top: 2, left: 50}}>
+                                                <LottieControl animationData={eyeAnimationData} width={200} height={200}/>
+                                            </div>
+                                            <div style={{position: "absolute", top: 70, left: 60}}>
+                                                <LottieControl animationData={lightningAnimationData} width={50} height={50}/>
+                                            </div>
+                                            <div style={{position: "absolute", top: 2, left: 130}}>
+                                                <LottieControl animationData={globeAnimationData} width={70} height={70}/>
+                                            </div>
+                                            <div style={{position: "absolute", top: 100, left: 150}}>
+                                                <LottieControl animationData={graphPieAnimationData} width={100} height={100}/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <h4>This book will teach you the basis about energy <span role={"img"}
                                                                                           aria-label={"book"}>&#128212;</span>
                                 </h4>
@@ -113,6 +136,22 @@ function App() {
                                     start.</p></div>
                                 <div><strong className={"clickable"} onClick={() => setAppMode('narrative')}>Discover
                                     narrative mode</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"mobile-animations"}>
+                        <div style={{position: "relative"}}>
+                            <div style={{position: "absolute", top: 2, left: '50%', transform: 'translateX(-50%)'}}>
+                                <LottieControl animationData={eyeAnimationData} width={150} height={150}/>
+                            </div>
+                            <div style={{position: "absolute", top: 70,  left: '50%', transform: 'translateX(calc(-50% - 50px))'}}>
+                                <LottieControl animationData={lightningAnimationData} width={35} height={35}/>
+                            </div>
+                            <div style={{position: "absolute", top: 30,  left: '50%', transform: 'translateX(calc(-50% -30px))'}}>
+                                <LottieControl animationData={globeAnimationData} width={45} height={45}/>
+                            </div>
+                            <div style={{position: "absolute", top: 80, left: '50%', transform: 'translateX(calc(-50% -30px))'}}>
+                                <LottieControl animationData={graphPieAnimationData} width={65} height={65}/>
                             </div>
                         </div>
                     </div>
