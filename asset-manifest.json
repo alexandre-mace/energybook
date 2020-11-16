@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.a1bd05b6.chunk.css",
-    "main.js": "/static/js/main.cdd6c21c.chunk.js",
-    "main.js.map": "/static/js/main.cdd6c21c.chunk.js.map",
+    "main.css": "/static/css/main.f9a12165.chunk.css",
+    "main.js": "/static/js/main.30557fd3.chunk.js",
+    "main.js.map": "/static/js/main.30557fd3.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d09e718c.js",
     "runtime-main.js.map": "/static/js/runtime-main.d09e718c.js.map",
-    "static/js/2.744949f4.chunk.js": "/static/js/2.744949f4.chunk.js",
-    "static/js/2.744949f4.chunk.js.map": "/static/js/2.744949f4.chunk.js.map",
+    "static/js/2.725958c5.chunk.js": "/static/js/2.725958c5.chunk.js",
+    "static/js/2.725958c5.chunk.js.map": "/static/js/2.725958c5.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.9ad99390dc517305e4c6ea19f7c794ef.js": "/precache-manifest.9ad99390dc517305e4c6ea19f7c794ef.js",
+    "precache-manifest.6e061abd8205122f02f1cbc2224c5e81.js": "/precache-manifest.6e061abd8205122f02f1cbc2224c5e81.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.a1bd05b6.chunk.css.map": "/static/css/main.a1bd05b6.chunk.css.map",
-    "static/js/2.744949f4.chunk.js.LICENSE.txt": "/static/js/2.744949f4.chunk.js.LICENSE.txt",
+    "static/css/main.f9a12165.chunk.css.map": "/static/css/main.f9a12165.chunk.css.map",
+    "static/js/2.725958c5.chunk.js.LICENSE.txt": "/static/js/2.725958c5.chunk.js.LICENSE.txt",
     "static/media/coal.png": "/static/media/coal.ce5bc250.png",
     "static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.csv": "/static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.95d591bf.csv",
     "static/media/hydro.png": "/static/media/hydro.e50b6d47.png",
@@ -26,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.d09e718c.js",
-    "static/js/2.744949f4.chunk.js",
-    "static/css/main.a1bd05b6.chunk.css",
-    "static/js/main.cdd6c21c.chunk.js"
+    "static/js/2.725958c5.chunk.js",
+    "static/css/main.f9a12165.chunk.css",
+    "static/js/main.30557fd3.chunk.js"
   ]
 }
