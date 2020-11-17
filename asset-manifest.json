@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.38445d07.chunk.css",
-    "main.js": "/static/js/main.1bf91e48.chunk.js",
-    "main.js.map": "/static/js/main.1bf91e48.chunk.js.map",
+    "main.js": "/static/js/main.338dfe36.chunk.js",
+    "main.js.map": "/static/js/main.338dfe36.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d09e718c.js",
     "runtime-main.js.map": "/static/js/runtime-main.d09e718c.js.map",
-    "static/js/2.a7a57473.chunk.js": "/static/js/2.a7a57473.chunk.js",
-    "static/js/2.a7a57473.chunk.js.map": "/static/js/2.a7a57473.chunk.js.map",
+    "static/js/2.22b9b53b.chunk.js": "/static/js/2.22b9b53b.chunk.js",
+    "static/js/2.22b9b53b.chunk.js.map": "/static/js/2.22b9b53b.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.e9050dfea34e8e589e730b00e435f54e.js": "/precache-manifest.e9050dfea34e8e589e730b00e435f54e.js",
+    "precache-manifest.6b314bd99680ce1303817fe7c667f902.js": "/precache-manifest.6b314bd99680ce1303817fe7c667f902.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.38445d07.chunk.css.map": "/static/css/main.38445d07.chunk.css.map",
-    "static/js/2.a7a57473.chunk.js.LICENSE.txt": "/static/js/2.a7a57473.chunk.js.LICENSE.txt",
+    "static/js/2.22b9b53b.chunk.js.LICENSE.txt": "/static/js/2.22b9b53b.chunk.js.LICENSE.txt",
     "static/media/coal.png": "/static/media/coal.ce5bc250.png",
     "static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.csv": "/static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.95d591bf.csv",
     "static/media/hydro.png": "/static/media/hydro.e50b6d47.png",
@@ -26,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.d09e718c.js",
-    "static/js/2.a7a57473.chunk.js",
+    "static/js/2.22b9b53b.chunk.js",
     "static/css/main.38445d07.chunk.css",
-    "static/js/main.1bf91e48.chunk.js"
+    "static/js/main.338dfe36.chunk.js"
   ]
 }
