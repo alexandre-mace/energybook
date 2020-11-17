@@ -2,15 +2,15 @@ import React from 'react';
 import {Doughnut as ChartDoughnut} from 'react-chartjs-2';
 import 'chartjs-plugin-labels';
 import useWindowDimensions from "../utils/useWindowDimension";
-
-function getRandomColor() {
-    var o = Math.round, r = Math.random, s = 255;
-    return o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s);
-}
-
+import distinctColors from "distinct-colors";
+import getRandomColor from "../utils/getRandomColor";
 
 const Doughnut = ({datasets, options = {}}) => {
     const { width } = useWindowDimensions();
+
+    let palette = distinctColors({
+        count: datasets.length
+    })
 
     return (
         <ChartDoughnut
@@ -44,7 +44,7 @@ const Doughnut = ({datasets, options = {}}) => {
                 labels: datasets.map(dataset => dataset.name),
                 datasets: [{
                     data: datasets.map(dataset => dataset.value),
-                    backgroundColor: datasets.map(() => `rgba(${getRandomColor()},0.6)`)
+                    backgroundColor: datasets.map((dataset, index) => `rgba(${getRandomColor(palette, index, dataset.name)},0.6)`)
                 }]
             }}/>
     )

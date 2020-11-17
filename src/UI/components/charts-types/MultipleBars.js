@@ -1,13 +1,20 @@
 import React from 'react';
 import Bar from 'react-chartjs-2';
 import 'chartjs-plugin-labels';
-
-function getRandomColor() {
-    var o = Math.round, r = Math.random, s = 255;
-    return o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s);
-}
+import distinctColors from "distinct-colors";
+import getRandomColor from "../utils/getRandomColor";
 
 const MultipleBars = ({datasets, options = {}}) => {
+    let palette = distinctColors({
+        count: 0
+    })
+
+    if (datasets.datasets) {
+        palette = distinctColors({
+            count: datasets.datasets.length
+        })
+    }
+
     return (
         <>
         {datasets.datasets &&
@@ -16,14 +23,14 @@ const MultipleBars = ({datasets, options = {}}) => {
                 options={options}
                 data={{
                     labels: datasets.keys,
-                    datasets: datasets.datasets.map(dataset => {
+                    datasets: datasets.datasets.map((dataset, index) => {
                         const label = dataset.name
 
                         return {
                             label: label,
                             stack: 2,
                             data: dataset.values,
-                            backgroundColor: `rgba(${getRandomColor()},0.6)`
+                            backgroundColor: `rgba(${getRandomColor(palette, index, label)},0.6)`
                         }})
                 }} />
         }

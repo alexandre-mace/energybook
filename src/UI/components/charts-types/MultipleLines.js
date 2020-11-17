@@ -1,25 +1,24 @@
 import React from 'react';
 import {Line as ChartLine} from 'react-chartjs-2';
-
-function getRandomColor() {
-    var o = Math.round, r = Math.random, s = 255;
-    return o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s);
-}
-
+import distinctColors from 'distinct-colors'
+import getRandomColor from "../utils/getRandomColor";
 
 const MultipleLines = ({datasets, options = {}, fill = true}) => {
     if (typeof datasets !== 'undefined') {
 
     const datasetsValues = (Array.isArray(datasets)) ? datasets : datasets.values
     const labels = (Array.isArray(datasets)) ? datasets[0] ? datasets[0].keys : [] : datasets.keys
+    let palette = distinctColors({
+        count: datasetsValues.length
+    }).reverse()
 
     return (
     <ChartLine
         options={options}
         data={{
             labels: labels,
-            datasets: datasetsValues.map(dataset => {
-                const color = getRandomColor()
+            datasets: datasetsValues.map((dataset, index) => {
+                const color = getRandomColor(palette, index, dataset.name)
                 return {
                     label: dataset.name,
                     fill: fill,
@@ -40,7 +39,7 @@ const MultipleLines = ({datasets, options = {}, fill = true}) => {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 50,
-                    data: dataset.values
+                    data: dataset.values.map(value => Math.round(value))
                 }
             })
         }}/>

@@ -41,7 +41,7 @@ const PlayableEnergyConsumptionBySource = () => {
 
     return (
         <>
-            <div className="container mt-3 mt-md-3">
+            <div className="container mt-3 mt-md-5">
                 <div className="row">
                     <div className="col d-flex justify-content-center flex-wrap">
                             <span className={"mr-3"}>
@@ -177,15 +177,24 @@ const PlayableEnergyConsumptionBySource = () => {
                             <MultipleLines
                                 name='Renewables share'
                                 datasets={energySupplySourceDatasets}
+                                fill={false}
                                 options={{
                                     maintainAspectRatio: false,
                                     plugins: {
-                                        labels: false,
+                                        labels: [
+                                            {
+                                                render: 'label',
+                                                fontSize: width > 760 ? '14' : '8',
+                                                fontStyle: 'bold',
+                                                fontColor: '#000',
+                                                fontFamily: 'Helvetica, sans-serif'
+                                            },
+                                        ],
                                         datalabels: false
                                     },
                                     scales: {
                                         yAxes: [{
-                                            stacked: true,
+                                            stacked: false,
                                             ticks: {},
                                             scaleLabel: {
                                                 display: true,
