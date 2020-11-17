@@ -10,6 +10,7 @@ import * as eyeAnimationData from "./UI/components/animations/Eye.json";
 import * as graphPieAnimationData from "./UI/components/animations/Graph_Pie.json";
 import * as lightningAnimationData from "./UI/components/animations/Lightning.json";
 import * as globeAnimationData from "./UI/components/animations/Globe.json";
+import ArrowRightAltRoundedIcon from '@material-ui/icons/ArrowRightAltRounded';
 
 function App() {
     const [loading, setLoading] = React.useState(true)
@@ -119,7 +120,7 @@ function App() {
                             <div className="d-flex col-12 col-md-4 display-flex flex-column justify-content-between">
                                 <div><p className={"mb-0 mb-md-2 mt-3 mt-md-0"}>Explore and play around energy data.</p>
                                 </div>
-                                <div><strong className={"clickable"} onClick={() => setAppMode('playground')}>> Discover
+                                <div><strong className={"clickable"} onClick={() => setAppMode('playground')}><ArrowRightAltRoundedIcon/> Discover
                                     playground mode</strong></div>
                             </div>
                             <div className="d-flex col-12 col-md-4 display-flex flex-column justify-content-between">
@@ -129,12 +130,12 @@ function App() {
                                     setLoading(true)
                                     delayedCloseLoader()
                                     setAppMode('versus')
-                                }}>> Discover versus mode</strong></div>
+                                }}><ArrowRightAltRoundedIcon/> Discover versus mode</strong></div>
                             </div>
                             <div className="d-flex col-12 col-md-4 display-flex flex-column justify-content-between">
                                 <div><p className={"mb-0 mb-md-2 mt-3 mt-md-0"}>Learn things step by step from the
                                     start.</p></div>
-                                <div><strong className={"clickable"} onClick={() => setAppMode('narrative')}>> Discover
+                                <div><strong className={"clickable"} onClick={() => setAppMode('narrative')}><ArrowRightAltRoundedIcon/> Discover
                                     narrative mode</strong></div>
                             </div>
                         </div>
