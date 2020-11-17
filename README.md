@@ -1,1 +1,1 @@
-https://alexandre-mace.github.io/energybook/
+https://energybook.fr
