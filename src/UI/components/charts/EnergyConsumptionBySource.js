@@ -38,7 +38,7 @@ const EnergyConsumptionBySource = ({
                 <div className="row">
                     <div className="col d-flex justify-content-center flex-wrap">
                         <span className={"mr-3"}>
-                            Here is the primary {onlyNonRenewables ? 'non renewables ' : ''}{onlyRenewables ? 'renewables ' : ''} energy <strong>consumption by source</strong> of the
+                            Here is the <strong>primary {onlyNonRenewables ? 'non renewables ' : ''}{onlyRenewables ? 'renewables ' : ''} energy consumption by source</strong> of the
                         </span>
                         <AutoComplete
                             options={energySupplySourceCountries}
@@ -60,11 +60,25 @@ const EnergyConsumptionBySource = ({
                                     maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
-                                        datalabels: false
+                                        datalabels: {
+                                            font: {
+                                                weight: 'bold'
+                                            },
+                                            formatter: function(value, context) {
+                                                if (context.dataIndex === context.dataset.data.length - 7 && value > 3000) {
+                                                    return context.dataset.label
+                                                }
+                                                return null;
+                                            },
+                                            color: function(context) {
+                                                return context.dataset.borderColor
+                                            },
+                                            align: 'top'
+                                        }
                                     },
                                     scales: {
                                         yAxes: [{
-                                            stacked: true,
+                                            stacked: false,
                                             ticks: {},
                                             scaleLabel: {
                                                 display: true,
@@ -87,8 +101,13 @@ const EnergyConsumptionBySource = ({
                                         reverse: true
                                     }
                                 }}
+                                fill={false}
                             >
                             </MultipleLines>
+                            <div className="mt-3">
+                                <strong>Primary energy consumption</strong><br/>
+                                Primary energy consumption measures the total energy demand of a country. It covers consumption of the energy sector itself, losses during transformation (for example, from oil or gas into electricity) and distribution of energy, and the final consumption by end users. It excludes energy carriers used for non-energy purposes (such as petroleum not used not for combustion but for producing plastics).
+                            </div>
                         </div>
                     </div>
                     }

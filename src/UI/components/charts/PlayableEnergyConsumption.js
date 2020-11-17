@@ -118,7 +118,7 @@ const PlayableEnergyConsumption = () => {
                 <PlayableEnergyConsumptionBySource/>
                 }
                 {byFinalSource &&
-                 <FinalEnergyConsumptionBySource mode={"doughnut"}/>
+                 <FinalEnergyConsumptionBySource mode={"doughnut"} playable={true}/>
                 }
                 {bySector &&
                 <EnergyConsumptionBySector/>

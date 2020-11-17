@@ -38,7 +38,7 @@ const MultipleLines = ({datasets, options = {}, fill = true}) => {
                     pointHoverBorderColor: `rgba(${color},1)`,
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
-                    pointHitRadius: 50,
+                    pointHitRadius: 25,
                     data: dataset.values.map(value => Math.round(value))
                 }
             })

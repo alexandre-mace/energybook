@@ -6,15 +6,20 @@ import FormGroup from "@material-ui/core/FormGroup";
 import AutoComplete from "../utils/AutoComplete";
 import Doughnut from "../charts-types/Doughnut";
 import getKeyByValue from "../../../Infrastructure/Transformer/getKeyByValue";
+import {FormLabel} from "@material-ui/core";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
 
 const EnergyConsumptionBySource = ({
-                                       mode = 'lines',
-                                       year = 2018
+                                       modeOption = 'lines',
+                                       year = 2018,
+                                       playable = false
                                    }) => {
     const {width} = useWindowDimensions();
 
     const [totalFinalConsumptionBySourceDatasets, setTotalFinalConsumptionBySourceDatasets] = React.useState([])
     const [totalFinalConsumptionBySourceYear, setTotalFinalConsumptionBySourceYear] = React.useState(year)
+    const [mode, setMode] = React.useState(modeOption)
 
     React.useEffect(() => {
         getFinalEnergyConsumptionBySource(setTotalFinalConsumptionBySourceDatasets)
@@ -26,7 +31,7 @@ const EnergyConsumptionBySource = ({
                 <div className="row">
                     <div className="col d-flex justify-content-center flex-wrap">
                             <span className={"mr-3"}>
-                                Here is the total final energy consumption of the World by <strong>source</strong>
+                                Here is the total <strong>final energy consumption of the World by source</strong>
                             </span>
                     </div>
                 </div>
@@ -36,6 +41,22 @@ const EnergyConsumptionBySource = ({
                     {mode === 'lines' &&
                     <div className="col">
                         <div className="white-wrapper">
+                            {playable &&
+                            <FormGroup row className={"mb-2"}>
+                                <FormLabel component="legend">Modes</FormLabel>
+                                <FormControlLabel
+                                    control={
+                                        <Switch
+                                            checked={mode === 'doughnut'}
+                                            onChange={() => setMode(mode === 'doughnut' ? 'lines' : 'doughnut')}
+                                            name="energySupplySourceDoughnutMode"
+                                            color="primary"
+                                        />
+                                    }
+                                    label="Doughnut mode"
+                                />
+                            </FormGroup>
+                            }
                             <MultipleLines
                                 name='total final consumption by source'
                                 datasets={totalFinalConsumptionBySourceDatasets}
@@ -43,11 +64,25 @@ const EnergyConsumptionBySource = ({
                                     maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
-                                        datalabels: false
+                                        datalabels: {
+                                            font: {
+                                                weight: 'bold'
+                                            },
+                                            formatter: function(value, context) {
+                                                if (context.dataIndex === context.dataset.data.length - 2 && value > 200000) {
+                                                    return context.dataset.label
+                                                }
+                                                return null;
+                                            },
+                                            color: function(context) {
+                                                return context.dataset.borderColor
+                                            },
+                                            align: 'top'
+                                        }
                                     },
                                     scales: {
                                         yAxes: [{
-                                            stacked: true,
+                                            stacked: false,
                                             scaleLabel: {
                                                 display: true,
                                                 labelString: 'ktoe (Kilotonne of Oil Equivalent)',
@@ -67,16 +102,37 @@ const EnergyConsumptionBySource = ({
                                     legend: {
                                         position: width > 760 ? 'right' : 'top',
                                         reverse: true
-                                    }
+                                    },
                                 }}
+                                fill={false}
                             >
                             </MultipleLines>
+                            <div className="mt-3">
+                                <strong>Final energy consumption</strong><br/>
+                                Final energy consumption is the total energy consumed by end users, such as households, industry and agriculture. It is the energy which reaches the final consumer's door and excludes that which is used by the energy sector itself.
+                            </div>
                         </div>
                     </div>
                     }
                     {(mode === 'doughnut' && totalFinalConsumptionBySourceDatasets.values.length > 0) &&
                     <div className="col">
                         <div className="white-wrapper">
+                            {playable &&
+                            <FormGroup row className={"mb-2"}>
+                                <FormLabel component="legend">Modes</FormLabel>
+                                <FormControlLabel
+                                    control={
+                                        <Switch
+                                            checked={mode === 'doughnut'}
+                                            onChange={() => setMode(mode === 'doughnut' ? 'lines' : 'doughnut')}
+                                            name="energySupplySourceDoughnutMode"
+                                            color="primary"
+                                        />
+                                    }
+                                    label="Doughnut mode"
+                                />
+                            </FormGroup>
+                            }
                             <FormGroup row>
                                 <AutoComplete
                                     options={totalFinalConsumptionBySourceDatasets.keys}
@@ -110,6 +166,10 @@ const EnergyConsumptionBySource = ({
                                     }}
                                 >
                                 </Doughnut>
+                            </div>
+                            <div className="mt-3">
+                                <strong>Final energy consumption</strong><br/>
+                                Final energy consumption is the total energy consumed by end users, such as households, industry and agriculture. It is the energy which reaches the final consumer's door and excludes that which is used by the energy sector itself.
                             </div>
                         </div>
                     </div>

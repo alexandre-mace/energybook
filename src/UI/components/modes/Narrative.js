@@ -53,7 +53,7 @@ function Narrative() {
                             <p>Thanks to energy we can produce the amazing thing that
                                 is <strong>electricity</strong> <span role={"img"} aria-label={"thunder"}>&#9889;</span>.
                             </p>
-                            <p>The power of the vast majority of tools used in our world (but dont forget about
+                            <p>The power of the many used tools in our world (but dont forget about
                                 thermic).</p>
                         </div>
                     </div>

@@ -45,8 +45,8 @@ const PlayableEnergyConsumptionBySource = () => {
                 <div className="row">
                     <div className="col d-flex justify-content-center flex-wrap">
                             <span className={"mr-3"}>
-                                Here is the {energySupplySourceOnlyNonRenewables ? 'non renewables ' : ''}{energySupplySourceOnlyRenewables ? 'renewables ' : ''}
-                                <strong>energy consumption by source</strong> of the
+                                Here is the <strong>primary {energySupplySourceOnlyNonRenewables ? 'non renewables ' : ''}{energySupplySourceOnlyRenewables ? 'renewables ' : ''}
+                                energy consumption by source</strong> of the
                             </span>
                         <AutoComplete
                             options={energySupplySourceCountries}
@@ -226,7 +226,12 @@ const PlayableEnergyConsumptionBySource = () => {
                             >
                             </MultipleLines>
                             }
+                            <div className="mt-3">
+                                <strong>Primary energy consumption</strong><br/>
+                                Primary energy consumption measures the total energy demand of a country. It covers consumption of the energy sector itself, losses during transformation (for example, from oil or gas into electricity) and distribution of energy, and the final consumption by end users. It excludes energy carriers used for non-energy purposes (such as petroleum not used not for combustion but for producing plastics).
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
