@@ -309,8 +309,12 @@ body {
   margin-top: -20px;
   opacity: 0.1;
 }
+html {
+    overflow-x: hidden;
+}
 body {
-  font-size: 1rem !important;
+    overflow-x: hidden;
+    font-size: 1rem !important;
 }
 .MuiTabs-flexContainer {
     flex-wrap: wrap;
@@ -390,6 +394,11 @@ h4 {
     }
 }
 @media (max-height: 750px) {
+    @media (min-width: 768px) {
+        .mt-md-5, .my-md-5 {
+            margin-top: 2rem !important;
+        }
+    }
     @media (pointer: coarse) {
         .MuiSlider-root {
             padding: 0 !important;
