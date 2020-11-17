@@ -25,14 +25,14 @@ const Doughnut = ({datasets, options = {}}) => {
                             fontSize: width > 760 ? '14' : '8',
                             fontStyle: 'bold',
                             fontColor: '#000',
-                            fontFamily: '"Lucida Console", Monaco, monospace'
+                            fontFamily: 'Helvetica, sans-serif'
                          },
                         {
                             render: 'percentage',
                             fontSize: width > 760 ? '14' : '8',
                             position: 'outside',
                             fontColor: '#000',
-                            fontFamily: '"Lucida Console", Monaco, monospace'
+                            fontFamily: 'Helvetica, sans-serif'
                         },
                     ]
                 },

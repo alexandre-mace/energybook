@@ -28,7 +28,7 @@ const EnergyConsumptionBySector = () => {
                     <div className="col">
                         <div className="white-wrapper">
                             <MultipleLines
-                                name='total final consumption by sector'
+                                name='total final energy consumption by sector'
                                 datasets={totalFinalConsumptionBySectorDatasets}
                                 options={{
                                     maintainAspectRatio: false,
@@ -42,7 +42,7 @@ const EnergyConsumptionBySector = () => {
                                             ticks: {},
                                             scaleLabel: {
                                                 display: true,
-                                                labelString: 'ktoe',
+                                                labelString: 'ktoe (Kilotonne of Oil Equivalent)',
                                                 fontColor: 'black',
                                                 fontSize: '14'
                                             }

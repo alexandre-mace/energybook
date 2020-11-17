@@ -50,7 +50,7 @@ const EnergyConsumptionBySource = ({
                                             stacked: true,
                                             scaleLabel: {
                                                 display: true,
-                                                labelString: 'ktoe',
+                                                labelString: 'ktoe (Kilotonne of Oil Equivalent)',
                                                 fontColor: 'black',
                                                 fontSize: '14'
                                             }

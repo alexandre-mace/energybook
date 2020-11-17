@@ -145,10 +145,10 @@ footer {
 }
 @media (min-width: 1200px) {
     .scroll-indicator {
-        width: 80px;
-        height: 80px;
-        top: 50px;
-        left: 50px;
+        width: 70px;
+        height: 70px;
+        top: 40px;
+        left: 20px;
     }
 }
 .scroll-indicator svg path {
@@ -261,8 +261,11 @@ footer {
   padding: 20px;
   background-color: white;
   border-radius: 20px;
-  box-shadow: 0 4px 4px rgba(0,0,0,0.24);
-  -webkit-box-shadow: 0 4px 4px rgba(0,0,0,0.24);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0 8px 12px rgba(0, 0, 0, 0.24);
+}
+.MuiAutocomplete-root[role=combobox] .MuiInputBase-root {
+    padding-right: 5px !important;
 }
 @media (min-width: 1200px) {
   .white-wrapper {
@@ -303,7 +306,7 @@ body {
   font-size: 1rem !important;
 }
 .energy-pictos {
-  margin-top: -50px;
+  margin-top: -20px;
   opacity: 0.1;
 }
 body {
@@ -355,13 +358,17 @@ h1 {
 }
 h4 {
   font-size: calc(1rem + 1.3vw) !important;
+  font-weight: 800;
+}
+.sources {
+    text-decoration: underline;
 }
 .mobile-animations {
     display: none;
 }
 @media (min-width: 1200px) {
   h4 {
-    font-size: 1.8rem !important;
+    font-size: 2.3rem !important;
   }
 }
 .header {

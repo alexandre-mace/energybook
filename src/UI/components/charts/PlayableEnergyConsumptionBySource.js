@@ -8,6 +8,7 @@ import MultipleLines from "../charts-types/MultipleLines";
 import React from "react";
 import getEnergySupplySource from "../../../Infrastructure/Adapter/getEnergySupplySource";
 import useWindowDimensions from "../utils/useWindowDimension";
+import {FormLabel} from "@material-ui/core";
 
 const PlayableEnergyConsumptionBySource = () => {
     const {width} = useWindowDimensions();
@@ -44,7 +45,7 @@ const PlayableEnergyConsumptionBySource = () => {
                 <div className="row">
                     <div className="col d-flex justify-content-center flex-wrap">
                             <span className={"mr-3"}>
-                                Here is the {energySupplySourceOnlyNonRenewables ? 'non renewables' : ''}{energySupplySourceOnlyRenewables ? 'renewables' : ''}
+                                Here is the {energySupplySourceOnlyNonRenewables ? 'non renewables ' : ''}{energySupplySourceOnlyRenewables ? 'renewables ' : ''}
                                 <strong>energy consumption by source</strong> of the
                             </span>
                         <AutoComplete
@@ -59,7 +60,8 @@ const PlayableEnergyConsumptionBySource = () => {
                 <div className="row">
                     <div className="col min-chart-height">
                         <div className="white-wrapper">
-                            <FormGroup row>
+                            <FormGroup row className={"mb-2"}>
+                                <FormLabel component="legend">Grouped by</FormLabel>
                                 <FormControlLabel
                                     control={
                                         <Switch
@@ -73,7 +75,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                             color="primary"
                                         />
                                     }
-                                    label="Only renewable / non renewables"
+                                    label="renewable / non renewables"
                                 />
                                 <FormControlLabel
                                     control={
@@ -88,7 +90,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                             color="primary"
                                         />
                                     }
-                                    label="Only renewables"
+                                    label="only renewables"
                                 />
                                 <FormControlLabel
                                     control={
@@ -103,8 +105,9 @@ const PlayableEnergyConsumptionBySource = () => {
                                             color="primary"
                                         />
                                     }
-                                    label="Only non renewables"
+                                    label="only non renewables"
                                 />
+                                <FormLabel component="legend">Modes</FormLabel>
                                 <FormControlLabel
                                     control={
                                         <Switch
@@ -149,7 +152,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                                 ticks: {},
                                                 scaleLabel: {
                                                     display: true,
-                                                    labelString: 'TWh',
+                                                    labelString: 'TWh (Terawatt-hour)',
                                                     fontColor: 'black',
                                                     fontSize: '14'
                                                 }
@@ -186,7 +189,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                             ticks: {},
                                             scaleLabel: {
                                                 display: true,
-                                                labelString: 'TWh',
+                                                labelString: 'TWh (Terawatt-hour)',
                                                 fontColor: 'black',
                                                 fontSize: '14'
                                             }

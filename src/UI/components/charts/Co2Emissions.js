@@ -18,7 +18,7 @@ const Co2Emissions = () => {
                 <div className="row">
                     <div className="col d-flex justify-content-center flex-wrap">
                             <span className={"mr-3"}>
-                                Here is the co2 <strong>emissions</strong> of the
+                                Here is the CO₂ <strong>emissions</strong> of the
                             </span>
                         <MultitpleAutoComplete
                             options={totalCo2EmmisionsCountries}

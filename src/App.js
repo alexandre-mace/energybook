@@ -5,7 +5,7 @@ import Versus from "./UI/components/modes/Versus";
 import Narrative from "./UI/components/modes/Narrative";
 import Loader from "./UI/components/utils/Loader";
 import Sources from "./UI/components/modes/Sources";
-import LottieControl from "./UI/components/animations/Eye";
+import LottieControl from "./UI/components/animations/LottieControl";
 import * as eyeAnimationData from "./UI/components/animations/Eye.json";
 import * as graphPieAnimationData from "./UI/components/animations/Graph_Pie.json";
 import * as lightningAnimationData from "./UI/components/animations/Lightning.json";
@@ -88,17 +88,17 @@ function App() {
                         <div className="row">
                             <div className="col">
                                 <div className="col p-0 d-flex">
-                                    <h1 className={"mb-3 pb-3 pb-md-5 app-title color-primary"}>Energy Book</h1>
+                                    <h1 className={"mb-3 pb-3 pb-md-4 app-title color-primary"}>Energy book</h1>
                                     <div className={"desktop-animations"}>
                                         <div className="m-5" style={{position: "relative", height: 1, transform: 'translate(50%, -50px)'}}>
+                                            <div style={{position: "absolute", top: 10, left: 130}}>
+                                                <LottieControl animationData={globeAnimationData} width={70} height={70}/>
+                                            </div>
                                             <div style={{position: "absolute", top: 2, left: 50}}>
                                                 <LottieControl animationData={eyeAnimationData} width={200} height={200}/>
                                             </div>
                                             <div style={{position: "absolute", top: 70, left: 60}}>
                                                 <LottieControl animationData={lightningAnimationData} width={50} height={50}/>
-                                            </div>
-                                            <div style={{position: "absolute", top: 2, left: 130}}>
-                                                <LottieControl animationData={globeAnimationData} width={70} height={70}/>
                                             </div>
                                             <div style={{position: "absolute", top: 100, left: 150}}>
                                                 <LottieControl animationData={graphPieAnimationData} width={100} height={100}/>
@@ -109,7 +109,7 @@ function App() {
                                 <h4>This book will teach you the basis about energy <span role={"img"}
                                                                                           aria-label={"book"}>&#128212;</span>
                                 </h4>
-                                <p>Energy use is one of the main theme of our generation, having knowledge about it is
+                                <p>Energy use is one of the main theme of our time, having knowledge about it is
                                     important.</p>
                             </div>
                         </div>
@@ -119,7 +119,7 @@ function App() {
                             <div className="d-flex col-12 col-md-4 display-flex flex-column justify-content-between">
                                 <div><p className={"mb-0 mb-md-2 mt-3 mt-md-0"}>Explore and play around energy data.</p>
                                 </div>
-                                <div><strong className={"clickable"} onClick={() => setAppMode('playground')}>Discover
+                                <div><strong className={"clickable"} onClick={() => setAppMode('playground')}>> Discover
                                     playground mode</strong></div>
                             </div>
                             <div className="d-flex col-12 col-md-4 display-flex flex-column justify-content-between">
@@ -129,26 +129,26 @@ function App() {
                                     setLoading(true)
                                     delayedCloseLoader()
                                     setAppMode('versus')
-                                }}>Discover versus mode</strong></div>
+                                }}>> Discover versus mode</strong></div>
                             </div>
                             <div className="d-flex col-12 col-md-4 display-flex flex-column justify-content-between">
                                 <div><p className={"mb-0 mb-md-2 mt-3 mt-md-0"}>Learn things step by step from the
                                     start.</p></div>
-                                <div><strong className={"clickable"} onClick={() => setAppMode('narrative')}>Discover
+                                <div><strong className={"clickable"} onClick={() => setAppMode('narrative')}>> Discover
                                     narrative mode</strong></div>
                             </div>
                         </div>
                     </div>
                     <div className={"mobile-animations"}>
                         <div style={{position: "relative"}}>
+                            <div style={{position: "absolute", top: 30,  left: '50%', transform: 'translateX(calc(-50% -30px))'}}>
+                                <LottieControl animationData={globeAnimationData} width={45} height={45}/>
+                            </div>
                             <div style={{position: "absolute", top: 2, left: '50%', transform: 'translateX(-50%)'}}>
                                 <LottieControl animationData={eyeAnimationData} width={150} height={150}/>
                             </div>
                             <div style={{position: "absolute", top: 70,  left: '50%', transform: 'translateX(calc(-50% - 50px))'}}>
                                 <LottieControl animationData={lightningAnimationData} width={35} height={35}/>
-                            </div>
-                            <div style={{position: "absolute", top: 30,  left: '50%', transform: 'translateX(calc(-50% -30px))'}}>
-                                <LottieControl animationData={globeAnimationData} width={45} height={45}/>
                             </div>
                             <div style={{position: "absolute", top: 80, left: '50%', transform: 'translateX(calc(-50% -30px))'}}>
                                 <LottieControl animationData={graphPieAnimationData} width={65} height={65}/>
@@ -157,10 +157,10 @@ function App() {
                     </div>
                 </>
                 }
-                <footer className="footer p-0">
+                <footer className="footer p-0 pb-3">
                     <div className="row align-items-center">
-                        <div className="col-auto m-auto p-0">
-                            <p className={'mb-0 text-center clickable link'}
+                        <div className="col-auto m-auto p-0 text-center">
+                            <p className={'mb-0 text-center d-inline-block clickable link sources'}
                                onClick={() => setAppMode('sources')}>Sources</p>
                             <p className={'mb-0'}>Made with love and concern by <strong><a target="_blank"
                                                                                            rel="noopener noreferrer"

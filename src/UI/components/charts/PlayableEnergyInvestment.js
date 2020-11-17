@@ -28,7 +28,7 @@ const PlayableEnergyInvestment = () => {
                                         color="primary"
                                     />
                                 }
-                                label="Investment by technology"
+                                label="by technology"
                             />
                             <FormControlLabel
                                 control={
@@ -42,7 +42,7 @@ const PlayableEnergyInvestment = () => {
                                         color="primary"
                                     />
                                 }
-                                label="Investment by GDP"
+                                label="by GDP"
                             />
                         </FormGroup>
                     </div>

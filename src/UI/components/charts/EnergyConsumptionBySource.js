@@ -38,7 +38,7 @@ const EnergyConsumptionBySource = ({
                 <div className="row">
                     <div className="col d-flex justify-content-center flex-wrap">
                         <span className={"mr-3"}>
-                            Here is the primary {onlyNonRenewables ? 'non renewables' : ''}{onlyRenewables ? 'renewables' : ''} energy <strong>consumption by source</strong> of the
+                            Here is the primary {onlyNonRenewables ? 'non renewables ' : ''}{onlyRenewables ? 'renewables ' : ''} energy <strong>consumption by source</strong> of the
                         </span>
                         <AutoComplete
                             options={energySupplySourceCountries}
@@ -68,7 +68,7 @@ const EnergyConsumptionBySource = ({
                                             ticks: {},
                                             scaleLabel: {
                                                 display: true,
-                                                labelString: 'TWh',
+                                                labelString: 'TWh (Terawatt-hour)',
                                                 fontColor: 'black',
                                                 fontSize: '14'
                                             }

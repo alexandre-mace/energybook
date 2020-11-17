@@ -94,8 +94,8 @@ const EnergyComparator = () => {
                     <div className="col text-center doughnut-wrapper versus-computings">
                         <div className={"mb-3"}>Energy MWh <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculatePower(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <div className={"mb-3"}>Surface km² <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateSurface(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
-                        <div className={"mb-3"}>CO2 Emissions kg/h  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateEmissions(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
-                        <div className={"mb-3"}>Construction Materials T <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateMaterials(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
+                        <div className={"mb-3"}>CO₂ Emissions kg/h  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateEmissions(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
+                        <div className={"mb-3"}>Construction Materials t <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateMaterials(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <div className={"mb-3"}>Use cost €/h  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateCost(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <ColorControlledDoughnut datasets={[
                             {

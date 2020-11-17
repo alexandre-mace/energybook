@@ -14,7 +14,7 @@ const ColorControlledDoughnut = ({datasets, options = {}}) => (
                     fontSize: 12,
                     fontStyle: 'bold',
                     fontColor: '#fff',
-                    fontFamily: '"Lucida Console", Monaco, monospace'
+                    fontFamily: 'Helvetica, sans-serif'
                 }
             },
             legend: {

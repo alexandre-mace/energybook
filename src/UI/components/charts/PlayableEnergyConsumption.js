@@ -36,7 +36,7 @@ const PlayableEnergyConsumption = () => {
                                         color="primary"
                                     />
                                 }
-                                label="Consumption by Source"
+                                label="Energy by source"
                             />
                             <FormControlLabel
                                 control={
@@ -53,7 +53,7 @@ const PlayableEnergyConsumption = () => {
                                         color="primary"
                                     />
                                 }
-                                label="Consumption by final source"
+                                label="Energy by final source"
                             />
                             <FormControlLabel
                                 control={
@@ -70,7 +70,7 @@ const PlayableEnergyConsumption = () => {
                                         color="primary"
                                     />
                                 }
-                                label="Consumption by sector"
+                                label="Energy by sector"
                             />
                             <FormControlLabel
                                 control={
@@ -87,7 +87,7 @@ const PlayableEnergyConsumption = () => {
                                         color="primary"
                                     />
                                 }
-                                label="Default consumption"
+                                label="Energy"
                             />
                             <FormControlLabel
                                 control={
@@ -104,7 +104,7 @@ const PlayableEnergyConsumption = () => {
                                         color="primary"
                                     />
                                 }
-                                label="Electricity consumption"
+                                label="Electricity"
                             />
                         </FormGroup>
                     </div>

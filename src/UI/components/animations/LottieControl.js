@@ -13,7 +13,6 @@ export default class LottieControl extends React.Component {
             display: 'block',
             margin: '10px auto'
         };
-        console.log(this.props.animationData)
 
         const defaultOptions = {
             loop: true,

@@ -52,7 +52,7 @@ const ElectricityConsumption = () => {
                                             },
                                             scaleLabel: {
                                                 display: true,
-                                                labelString: 'TWh',
+                                                labelString: 'TWh (Terawatt-hour)',
                                                 fontColor: 'black',
                                                 fontSize: '14'
                                             }
