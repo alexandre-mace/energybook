@@ -72,6 +72,7 @@ const EnergyConsumption = () => {
                                 }}
                             >
                             </MultipleLines>
+                            <div className="chart-legend">Energy consumption</div>
                         </div>
                     </div>
                 </div>

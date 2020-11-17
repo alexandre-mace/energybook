@@ -77,6 +77,7 @@ const EnergyConsumptionBySector = () => {
                                 fill={false}
                             >
                             </MultipleLines>
+                            <div className="chart-legend">Final energy consumption by sector</div>
                         </div>
                     </div>
                 </div>

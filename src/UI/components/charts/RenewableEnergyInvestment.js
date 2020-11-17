@@ -65,6 +65,7 @@ const RenewableEnergyInvestment = () => {
                                 }}
                             >
                             </MultipleLines>
+                            <div className="chart-legend">Renewable energy investment</div>
                         </div>
                     </div>
                 </div>

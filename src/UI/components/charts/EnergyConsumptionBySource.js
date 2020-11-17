@@ -150,6 +150,7 @@ const EnergyConsumptionBySource = ({
                                     }}
                                 >
                                 </Doughnut>
+                                <div className="chart-legend">Primary energy consumption by source</div>
                             </div>
                         </div>
                     </div>

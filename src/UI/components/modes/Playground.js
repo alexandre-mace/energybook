@@ -51,7 +51,7 @@ const Playground = () => {
                                 >
                                     <Tab label="Consumption" />
                                     <Tab label="CO₂ Emissions" />
-                                    <Tab label="Investment" />
+                                    <Tab label="Investment $" />
                                     <Tab label="Capita energy use VS poverty" />
                                 </Tabs>
                             </Paper>

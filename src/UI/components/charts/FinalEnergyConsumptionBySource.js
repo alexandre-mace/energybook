@@ -107,6 +107,7 @@ const EnergyConsumptionBySource = ({
                                 fill={false}
                             >
                             </MultipleLines>
+                            <div className="chart-legend">Final energy consumption by source</div>
                             <div className="mt-3">
                                 <strong>Final energy consumption</strong><br/>
                                 Final energy consumption is the total energy consumed by end users, such as households, industry and agriculture. It is the energy which reaches the final consumer's door and excludes that which is used by the energy sector itself.
@@ -166,6 +167,7 @@ const EnergyConsumptionBySource = ({
                                     }}
                                 >
                                 </Doughnut>
+                                <div className="chart-legend">Final energy consumption by source</div>
                             </div>
                             <div className="mt-3">
                                 <strong>Final energy consumption</strong><br/>

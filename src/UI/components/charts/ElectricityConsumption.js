@@ -72,6 +72,7 @@ const ElectricityConsumption = () => {
                                 }}
                                 color='255, 255, 3'>
                             </MultipleLines>
+                            <div className="chart-legend">Electricity consumption</div>
                         </div>
                     </div>
                 </div>

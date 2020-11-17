@@ -59,6 +59,7 @@ const RenewableEnergyInvestmentByTechology = () => {
                                 }}
                             >
                             </MultipleBars>
+                            <div className="chart-legend">Renewable energy investment by technology</div>
                         </div>
                     </div>
                 </div>

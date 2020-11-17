@@ -10,6 +10,10 @@ const sortCountries = (countries) => {
             data.splice(i, 1);
             data.unshift(item);
         }
+        if (item === "Custom") {
+            data.splice(i, 1);
+            data.push(item)
+        }
     });
 
     return data

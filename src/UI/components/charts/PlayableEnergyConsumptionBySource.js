@@ -75,8 +75,9 @@ const PlayableEnergyConsumptionBySource = () => {
                                             color="primary"
                                         />
                                     }
-                                    label="renewable / non renewables"
+                                    label="Renewable / non renewables"
                                 />
+                                <FormLabel component="legend">Filters</FormLabel>
                                 <FormControlLabel
                                     control={
                                         <Switch
@@ -90,7 +91,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                             color="primary"
                                         />
                                     }
-                                    label="only renewables"
+                                    label="Renewables"
                                 />
                                 <FormControlLabel
                                     control={
@@ -105,7 +106,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                             color="primary"
                                         />
                                     }
-                                    label="only non renewables"
+                                    label="Non renewables"
                                 />
                                 <FormLabel component="legend">Modes</FormLabel>
                                 <FormControlLabel
@@ -170,65 +171,73 @@ const PlayableEnergyConsumptionBySource = () => {
                                     }}
                                 >
                                 </Doughnut>
+                                <div className="chart-legend">Primary energy consumption by source</div>
                             </div>
 
                             }
                             {!energySupplySourceDoughnutMode &&
-                            <MultipleLines
-                                name='Renewables share'
-                                datasets={energySupplySourceDatasets}
-                                fill={false}
-                                options={{
-                                    maintainAspectRatio: false,
-                                    plugins: {
-                                        labels: false,
-                                        datalabels: {
-                                            font: {
-                                                weight: 'bold'
-                                            },
-                                            formatter: function(value, context) {
-                                                if (context.dataIndex === context.dataset.data.length - 7 && value > 3000) {
-                                                    return context.dataset.label
+                            <>
+                                <MultipleLines
+                                    name='Renewables share'
+                                    datasets={energySupplySourceDatasets}
+                                    fill={false}
+                                    options={{
+                                        maintainAspectRatio: false,
+                                        plugins: {
+                                            labels: false,
+                                            datalabels: {
+                                                font: {
+                                                    weight: 'bold'
+                                                },
+                                                formatter: function (value, context) {
+                                                    if (context.dataIndex === context.dataset.data.length - 7 && value > 3000) {
+                                                        return context.dataset.label
+                                                    }
+                                                    return null;
+                                                },
+                                                color: function (context) {
+                                                    return context.dataset.borderColor
+                                                },
+                                                align: 'top'
+                                            }
+                                        },
+                                        scales: {
+                                            yAxes: [{
+                                                stacked: false,
+                                                ticks: {},
+                                                scaleLabel: {
+                                                    display: true,
+                                                    labelString: 'TWh (Terawatt-hour)',
+                                                    fontColor: 'black',
+                                                    fontSize: '14'
                                                 }
-                                                return null;
-                                            },
-                                            color: function(context) {
-                                                return context.dataset.borderColor
-                                            },
-                                            align: 'top'
+                                            }],
+                                            xAxes: [{
+                                                scaleLabel: {
+                                                    display: true,
+                                                    labelString: 'Years',
+                                                    fontColor: 'black',
+                                                    fontSize: '14'
+                                                }
+                                            }]
+                                        },
+                                        legend: {
+                                            position: width > 760 ? 'right' : 'top',
+                                            reverse: true
                                         }
-                                    },
-                                    scales: {
-                                        yAxes: [{
-                                            stacked: false,
-                                            ticks: {},
-                                            scaleLabel: {
-                                                display: true,
-                                                labelString: 'TWh (Terawatt-hour)',
-                                                fontColor: 'black',
-                                                fontSize: '14'
-                                            }
-                                        }],
-                                        xAxes: [{
-                                            scaleLabel: {
-                                                display: true,
-                                                labelString: 'Years',
-                                                fontColor: 'black',
-                                                fontSize: '14'
-                                            }
-                                        }]
-                                    },
-                                    legend: {
-                                        position: width > 760 ? 'right' : 'top',
-                                        reverse: true
-                                    }
-                                }}
-                            >
-                            </MultipleLines>
+                                    }}
+                                >
+                                </MultipleLines>
+                                <div className="chart-legend">Primary energy consumption by source</div>
+                            </>
                             }
                             <div className="mt-3">
                                 <strong>Primary energy consumption</strong><br/>
-                                Primary energy consumption measures the total energy demand of a country. It covers consumption of the energy sector itself, losses during transformation (for example, from oil or gas into electricity) and distribution of energy, and the final consumption by end users. It excludes energy carriers used for non-energy purposes (such as petroleum not used not for combustion but for producing plastics).
+                                Primary energy consumption measures the total energy demand of a country. It covers
+                                consumption of the energy sector itself, losses during transformation (for example, from
+                                oil or gas into electricity) and distribution of energy, and the final consumption by
+                                end users. It excludes energy carriers used for non-energy purposes (such as petroleum
+                                not used not for combustion but for producing plastics).
                             </div>
                         </div>
 

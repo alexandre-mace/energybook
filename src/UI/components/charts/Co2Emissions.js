@@ -69,6 +69,7 @@ const Co2Emissions = () => {
                                 color={'255,0,0'}
                             >
                             </MultipleLines>
+                            <div className="chart-legend">CO₂ emissions</div>
                         </div>
                     </div>
                 </div>

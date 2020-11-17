@@ -84,6 +84,7 @@ const CapitaEnergyUseVsPoverty = () => {
                                 }}
                             >
                             </Bubble>
+                            <div className="chart-legend">Energy use per capita compared to the share of population in extreme poverty</div>
                         </div>
                     </div>
                 </div>

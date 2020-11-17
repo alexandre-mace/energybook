@@ -76,7 +76,9 @@ const RenewableShare = () => {
                                 }}
                                 color={'0,255,0'}
                             >
-                            </MultipleLines></div>
+                            </MultipleLines>
+                            <div className="chart-legend">Renewables share</div>
+                        </div>
                     </div>
                 </div>
             </div>

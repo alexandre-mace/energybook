@@ -71,6 +71,7 @@ const RenewableEnergyInvestmentByGdp = () => {
                                 }}
                             >
                             </Doughnut>
+                            <div className="chart-legend">Renewable energy investment by percentage of GDP</div>
                         </div>
                     </div>
                 </div>

@@ -378,6 +378,12 @@ h4 {
 .header {
   font-size: 1.2rem;
 }
+.chart-legend {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: center;
+}
 @media (max-width: 600px) {
     .desktop-animations {
         display: none;
@@ -391,6 +397,16 @@ h4 {
     .versus-computings strong {
         display: block;
         font-size: 1rem !important;
+    }
+}
+@media (max-height: 600px) {
+    .mobile-animations {
+        transform: translateY(-20px);
+    }
+}
+@media (max-height: 570px) {
+    .mobile-animations {
+        transform: translateY(-35px);
     }
 }
 @media (max-height: 750px) {
