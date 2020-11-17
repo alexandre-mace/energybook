@@ -5,6 +5,7 @@ import React from "react";
 import RenewableEnergyInvestment from "./RenewableEnergyInvestment";
 import RenewableEnergyInvestmentByTechology from "./RenewableEnergyInvestmentByTechnology";
 import RenewableEnergyInvestmentByGdp from "./RenewableEnergyInvestmentByGdp";
+import {FormLabel} from "@material-ui/core";
 
 const PlayableEnergyInvestment = () => {
     const [byTechnology, setByTechnology] = React.useState(false)
@@ -16,6 +17,7 @@ const PlayableEnergyInvestment = () => {
                 <div className="row">
                     <div className="col">
                         <FormGroup row>
+                            <FormLabel component="legend">Filter by</FormLabel>
                             <FormControlLabel
                                 control={
                                     <Switch
@@ -28,7 +30,7 @@ const PlayableEnergyInvestment = () => {
                                         color="primary"
                                     />
                                 }
-                                label="by technology"
+                                label="Technology"
                             />
                             <FormControlLabel
                                 control={
@@ -42,7 +44,7 @@ const PlayableEnergyInvestment = () => {
                                         color="primary"
                                     />
                                 }
-                                label="by GDP"
+                                label="GDP"
                             />
                         </FormGroup>
                     </div>

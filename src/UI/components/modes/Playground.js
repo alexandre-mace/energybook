@@ -50,7 +50,7 @@ const Playground = () => {
                                     aria-label="tabs"
                                 >
                                     <Tab label="Consumption" />
-                                    <Tab label="Co2 Emissions" />
+                                    <Tab label="CO₂ Emissions" />
                                     <Tab label="Investment" />
                                     <Tab label="Capita energy use VS poverty" />
                                 </Tabs>

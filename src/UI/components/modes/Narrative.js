@@ -68,7 +68,7 @@ function Narrative() {
                             <p>But there is a big issue currently highly coupled with energy consumption, <strong>CO₂
                                 emissions</strong>. 🏭</p>
                             <p>Carbon dioxide (CO₂) is the primary greenhouse gas emitted through human activities. CO₂ emissions are carbon dioxide that planes, cars, factories, etc. produce, thought to be harmful to planet Earth.</p>
-                            <p>Carbon dioxide (CO₂) is released into Earth’s atmosphere mostly by the burning of carbon-containing fuels and the decay of wood and other plant matter. Under all conditions found naturally on Earth, CO2 is an invisible, odorless gas. It is removed from the atmosphere mostly by plants, which extract carbon from CO2 to build their tissues, and by the oceans, in which CO2 dissolves.</p>
+                            <p>Carbon dioxide (CO₂) is released into Earth’s atmosphere mostly by the burning of carbon-containing fuels and the decay of wood and other plant matter. Under all conditions found naturally on Earth, CO₂ is an invisible, odorless gas. It is removed from the atmosphere mostly by plants, which extract carbon from CO2 to build their tissues, and by the oceans, in which CO2 dissolves.</p>
                         </div>
                     </div>
                 </div>

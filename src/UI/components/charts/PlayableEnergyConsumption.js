@@ -7,6 +7,7 @@ import EnergyConsumptionBySector from "./EnergyConsumptionBySector";
 import ElectricityConsumption from "./ElectricityConsumption";
 import EnergyConsumption from "./EnergyConsumption";
 import FinalEnergyConsumptionBySource from "./FinalEnergyConsumptionBySource";
+import {FormLabel} from "@material-ui/core";
 
 const PlayableEnergyConsumption = () => {
     const [bySource, setBySource] = React.useState(true)
@@ -21,6 +22,7 @@ const PlayableEnergyConsumption = () => {
                 <div className="row">
                     <div className="col">
                         <FormGroup row>
+                            <FormLabel component="legend">Energy</FormLabel>
                             <FormControlLabel
                                 control={
                                     <Switch
@@ -36,7 +38,7 @@ const PlayableEnergyConsumption = () => {
                                         color="primary"
                                     />
                                 }
-                                label="Energy by source"
+                                label="by primary source"
                             />
                             <FormControlLabel
                                 control={
@@ -53,7 +55,7 @@ const PlayableEnergyConsumption = () => {
                                         color="primary"
                                     />
                                 }
-                                label="Energy by final source"
+                                label="by final source"
                             />
                             <FormControlLabel
                                 control={
@@ -70,7 +72,7 @@ const PlayableEnergyConsumption = () => {
                                         color="primary"
                                     />
                                 }
-                                label="Energy by sector"
+                                label="by sector"
                             />
                             <FormControlLabel
                                 control={
@@ -87,8 +89,9 @@ const PlayableEnergyConsumption = () => {
                                         color="primary"
                                     />
                                 }
-                                label="Energy"
+                                label="default"
                             />
+                            <FormLabel component="legend">Electricity</FormLabel>
                             <FormControlLabel
                                 control={
                                     <Switch
@@ -104,7 +107,7 @@ const PlayableEnergyConsumption = () => {
                                         color="primary"
                                     />
                                 }
-                                label="Electricity"
+                                label="default"
                             />
                         </FormGroup>
                     </div>

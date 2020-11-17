@@ -41,7 +41,7 @@ const PlayableEnergyConsumptionBySource = () => {
 
     return (
         <>
-            <div className="container mt-3 mt-md-5">
+            <div className="container mt-3 mt-md-3">
                 <div className="row">
                     <div className="col d-flex justify-content-center flex-wrap">
                             <span className={"mr-3"}>

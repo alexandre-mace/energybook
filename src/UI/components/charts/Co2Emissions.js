@@ -48,7 +48,7 @@ const Co2Emissions = () => {
                                             },
                                             scaleLabel: {
                                                 display: true,
-                                                labelString: 'MtCO2',
+                                                labelString: 'MtCO₂',
                                                 fontColor: 'black',
                                                 fontSize: '14'
                                             }

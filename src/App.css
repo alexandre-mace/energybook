@@ -395,15 +395,17 @@ h4 {
             padding: 0 !important;
         }
     }
+    @media (min-width: 800px) {
+        .MuiTabs-root, .MuiTab-root {
+            max-height: 40px !important;
+            min-height: auto !important;
+        }
+    }
     .min-chart-wrapper-height {
         min-height: 500px;
     }
     html {
         font-size: 12px;
-    }
-    .MuiTabs-root, .MuiTab-root {
-        max-height: 40px !important;
-        min-height: auto !important;
     }
     .min-chart-height {
         min-height: 540px;
