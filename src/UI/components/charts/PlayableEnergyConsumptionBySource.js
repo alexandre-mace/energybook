@@ -181,16 +181,22 @@ const PlayableEnergyConsumptionBySource = () => {
                                 options={{
                                     maintainAspectRatio: false,
                                     plugins: {
-                                        labels: [
-                                            {
-                                                render: 'label',
-                                                fontSize: width > 760 ? '14' : '8',
-                                                fontStyle: 'bold',
-                                                fontColor: '#000',
-                                                fontFamily: 'Helvetica, sans-serif'
+                                        labels: false,
+                                        datalabels: {
+                                            font: {
+                                                weight: 'bold'
                                             },
-                                        ],
-                                        datalabels: false
+                                            formatter: function(value, context) {
+                                                if (context.dataIndex === context.dataset.data.length - 7 && value > 3000) {
+                                                    return context.dataset.label
+                                                }
+                                                return null;
+                                            },
+                                            color: function(context) {
+                                                return context.dataset.borderColor
+                                            },
+                                            align: 'top'
+                                        }
                                     },
                                     scales: {
                                         yAxes: [{

@@ -34,11 +34,24 @@ const EnergyConsumptionBySector = () => {
                                     maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
-                                        datalabels: false
+                                        datalabels: {
+                                            font: {
+                                                weight: 'bold'
+                                            },
+                                            formatter: function(value, context) {
+                                                if (context.dataIndex === context.dataset.data.length - 3 && value > 160000) {
+                                                    return context.dataset.label
+                                                }
+                                                return null;
+                                            },
+                                            color: function(context) {
+                                                return context.dataset.borderColor
+                                            },
+                                            align: 'top'
+                                        }
                                     },
                                     scales: {
                                         yAxes: [{
-                                            stacked: true,
                                             ticks: {},
                                             scaleLabel: {
                                                 display: true,
@@ -59,8 +72,9 @@ const EnergyConsumptionBySector = () => {
                                     legend: {
                                         position: width > 760 ? 'right' : 'top',
                                         reverse: true
-                                    }
+                                    },
                                 }}
+                                fill={false}
                             >
                             </MultipleLines>
                         </div>
