@@ -43,7 +43,7 @@ const ElectricityConsumption = () => {
                                 fill={false}
                                 datasets={totalElectricityConsumption}
                                 options={{
-                                    maintainAspectRatio: false,
+                                    maintainAspectRatio: width > 760,
                                     plugins: {
                                         labels: false,
                                         datalabels: false

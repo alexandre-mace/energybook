@@ -39,7 +39,7 @@ const Co2Emissions = () => {
                                 datasets={totalCo2Emmisions}
                                 fill={false}
                                 options={{
-                                    maintainAspectRatio: false,
+                                    maintainAspectRatio: width > 760,
                                     plugins: {
                                         labels: false,
                                         datalabels: false

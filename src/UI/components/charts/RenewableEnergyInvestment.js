@@ -33,7 +33,7 @@ const RenewableEnergyInvestment = () => {
                                 name='Renewables share'
                                 datasets={renewableEnergyInvestmentDatasets}
                                 options={{
-                                    maintainAspectRatio: false,
+                                    maintainAspectRatio: width > 760,
                                     plugins: {
                                         labels: false,
                                         datalabels: false

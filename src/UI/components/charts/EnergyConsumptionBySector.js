@@ -31,7 +31,7 @@ const EnergyConsumptionBySector = () => {
                                 name='total final energy consumption by sector'
                                 datasets={totalFinalConsumptionBySectorDatasets}
                                 options={{
-                                    maintainAspectRatio: false,
+                                    maintainAspectRatio: width > 760,
                                     plugins: {
                                         labels: false,
                                         datalabels: {
