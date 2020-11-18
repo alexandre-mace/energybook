@@ -155,7 +155,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                                     display: true,
                                                     labelString: 'TWh (Terawatt-hour)',
                                                     fontColor: 'black',
-                                                    fontSize: width > 760 ? '14' : '8'
+                                                    fontSize: width > 760 ? '14' : '10'
                                                 }
                                             }],
                                             xAxes: [{
@@ -163,7 +163,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                                     display: true,
                                                     labelString: 'Years',
                                                     fontColor: 'black',
-                                                    fontSize: width > 760 ? '14' : '8'
+                                                    fontSize: width > 760 ? '14' : '10'
                                                 }
                                             }]
                                         },
@@ -191,7 +191,8 @@ const PlayableEnergyConsumptionBySource = () => {
                                             labels: false,
                                             datalabels: {
                                                 font: {
-                                                    weight: 'bold'
+                                                    weight: 'bold',
+                                                     size: width > 760 ? '14' : '10'
                                                 },
                                                 formatter: function (value, context) {
                                                     if (context.dataIndex === context.dataset.data.length - 7 && value > 3000) {
@@ -213,7 +214,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                                     display: true,
                                                     labelString: 'TWh (Terawatt-hour)',
                                                     fontColor: 'black',
-                                                    fontSize: width > 760 ? '14' : '8'
+                                                    fontSize: width > 760 ? '14' : '10'
                                                 }
                                             }],
                                             xAxes: [{
@@ -221,7 +222,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                                     display: true,
                                                     labelString: 'Years',
                                                     fontColor: 'black',
-                                                    fontSize: width > 760 ? '14' : '8'
+                                                    fontSize: width > 760 ? '14' : '10'
                                                 }
                                             }]
                                         },

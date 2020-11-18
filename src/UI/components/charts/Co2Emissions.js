@@ -53,7 +53,7 @@ const Co2Emissions = () => {
                                                 display: true,
                                                 labelString: 'MtCO₂',
                                                 fontColor: 'black',
-                                                fontSize: width > 760 ? '14' : '8'
+                                                fontSize: width > 760 ? '14' : '10'
                                             }
                                         }],
                                         xAxes: [{
@@ -61,7 +61,7 @@ const Co2Emissions = () => {
                                                 display: true,
                                                 labelString: 'Years',
                                                 fontColor: 'black',
-                                                fontSize: width > 760 ? '14' : '8'
+                                                fontSize: width > 760 ? '14' : '10'
                                             }
                                         }]
                                     },

@@ -51,7 +51,7 @@ const RenewableEnergyInvestmentByTechology = () => {
                                                 display: true,
                                                 labelString: 'billion $',
                                                 fontColor: 'black',
-                                                fontSize: width > 760 ? '14' : '8'
+                                                fontSize: width > 760 ? '14' : '10'
                                             }
                                         }],
                                         xAxes: [{
@@ -60,7 +60,7 @@ const RenewableEnergyInvestmentByTechology = () => {
                                                 display: true,
                                                 labelString: 'Years',
                                                 fontColor: 'black',
-                                                fontSize: width > 760 ? '14' : '8'
+                                                fontSize: width > 760 ? '14' : '10'
                                             }
                                         }]
                                     }

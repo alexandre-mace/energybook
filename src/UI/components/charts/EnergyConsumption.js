@@ -57,7 +57,7 @@ const EnergyConsumption = () => {
                                                 display: true,
                                                 labelString: 'Mtoe',
                                                 fontColor: 'black',
-                                                fontSize: width > 760 ? '14' : '8'
+                                                fontSize: width > 760 ? '14' : '10'
                                             }
                                         }],
                                         xAxes: [{
@@ -65,7 +65,7 @@ const EnergyConsumption = () => {
                                                 display: true,
                                                 labelString: 'Years',
                                                 fontColor: 'black',
-                                                fontSize: width > 760 ? '14' : '8'
+                                                fontSize: width > 760 ? '14' : '10'
                                             }
                                         }]
                                     },

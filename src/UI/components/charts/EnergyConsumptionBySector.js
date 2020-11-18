@@ -36,7 +36,8 @@ const EnergyConsumptionBySector = () => {
                                         labels: false,
                                         datalabels: {
                                             font: {
-                                                weight: 'bold'
+                                                weight: 'bold',
+                                                 size: width > 760 ? '14' : '10'
                                             },
                                             formatter: function(value, context) {
                                                 if (context.dataIndex === context.dataset.data.length - 3 && value > 160000) {
@@ -57,7 +58,7 @@ const EnergyConsumptionBySector = () => {
                                                 display: true,
                                                 labelString: 'ktoe (Kilotonne of Oil Equivalent)',
                                                 fontColor: 'black',
-                                                fontSize: width > 760 ? '14' : '8'
+                                                fontSize: width > 760 ? '14' : '10'
                                             }
                                         }],
                                         xAxes: [{
@@ -65,7 +66,7 @@ const EnergyConsumptionBySector = () => {
                                                 display: true,
                                                 labelString: 'Years',
                                                 fontColor: 'black',
-                                                fontSize: width > 760 ? '14' : '8'
+                                                fontSize: width > 760 ? '14' : '10'
                                             }
                                         }]
                                     },

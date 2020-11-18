@@ -54,7 +54,8 @@ const CapitaEnergyUseVsPoverty = () => {
                                                 return (value.x > 6000 || (value.x < 3000 && value.y > 6) || (value.x > 1500 && value.x < 6000 && value.y < 6 && context.dataset.label.length <= 6)) ? context.dataset.backgroundColor : '';
                                             },
                                             font: {
-                                                weight: 'bold'
+                                                weight: 'bold',
+                                                 size: width > 760 ? '14' : '10'
                                             },
                                             formatter: function (value, context) {
                                                 return context.dataset.label;
@@ -69,7 +70,7 @@ const CapitaEnergyUseVsPoverty = () => {
                                                 display: true,
                                                 labelString: 'Poverty - $1.90 a day (% of population)',
                                                 fontColor: 'black',
-                                                fontSize: width > 760 ? '14' : '8'
+                                                fontSize: width > 760 ? '14' : '10'
                                             }
                                         }],
                                         xAxes: [{
@@ -77,7 +78,7 @@ const CapitaEnergyUseVsPoverty = () => {
                                                 display: true,
                                                 labelString: 'Energy use (kg of oil equivalent per capita)',
                                                 fontColor: 'black',
-                                                fontSize: width > 760 ? '14' : '8'
+                                                fontSize: width > 760 ? '14' : '10'
                                             }
                                         }]
                                     },

@@ -52,7 +52,7 @@ const RenewableEnergyInvestmentByGdp = () => {
                                                 display: true,
                                                 labelString: '% of GDP',
                                                 fontColor: 'black',
-                                                fontSize: width > 760 ? '14' : '8'
+                                                fontSize: width > 760 ? '14' : '10'
                                             }
                                         }],
                                         xAxes: [{
@@ -60,7 +60,7 @@ const RenewableEnergyInvestmentByGdp = () => {
                                                 display: true,
                                                 labelString: 'Years',
                                                 fontColor: 'black',
-                                                fontSize: width > 760 ? '14' : '8'
+                                                fontSize: width > 760 ? '14' : '10'
                                             }
                                         }]
                                     },
