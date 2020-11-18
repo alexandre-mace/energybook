@@ -1,8 +1,36 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import energySystems from "../../../Domain/data/energySystems";
 import EnergyComparator from "../EnergyComparator";
+import insertGetParameter from "../utils/insertGetParameter";
+import copyToClipboard from "../utils/copyToClipboard";
+import stringToHex from "../utils/stringToHex";
 
-const Versus = () => {
+const Versus = ({ parameters }) => {
+    const comparator1 = useRef();
+    const comparator2 = useRef();
+
+    const [shared, setShared] = React.useState(false)
+
+    const share = () => {
+        let urlGetParameters = '';
+        for (const [key, value] of Object.entries(comparator1.current.getComparatorParams())) {
+           urlGetParameters += insertGetParameter(key + '1', value)
+        }
+        for (const [key, value] of Object.entries(comparator2.current.getComparatorParams())) {
+            urlGetParameters += insertGetParameter(key + '2', value)
+        }
+
+        copyToClipboard(window.location.origin + '?' + urlGetParameters.replace('&', ''))
+        setShared(true)
+        delayedUnshare();
+    }
+
+    const delayedUnshare = () => {
+        setTimeout(() => {
+            setShared(false)
+        }, 2000);
+    }
+
     return (
         <>
             <div className="container pt-1 mb-3 mb-md-3">
@@ -15,13 +43,20 @@ const Versus = () => {
                     </div>
                 </div>
             </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col text-center">
+                        <button onClick={() => share()}>{shared ? 'Copied' : 'Copy configuration link'}</button>
+                    </div>
+                </div>
+            </div>
             <div className="playground container pt-2">
                 <div className="row">
                     <div className="col-6">
-                        <EnergyComparator/>
+                        <EnergyComparator id={1} ref={comparator1} parameters={parameters ? parameters : null}/>
                     </div>
                     <div className="col-6">
-                        <EnergyComparator/>
+                        <EnergyComparator id={2} ref={comparator2} parameters={parameters ? parameters : null}/>
                     </div>
                 </div>
                 <div className="row my-4 my-md-5 pt-3">

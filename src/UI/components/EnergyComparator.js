@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useImperativeHandle} from 'react';
 import ComparatorSlider from "./ComparatorSlider";
 import windTurbineImg from '../images/wind-turbine.png';
 import solarPanelImg from '../images/solar-panel.png';
@@ -23,7 +23,7 @@ import AutoComplete from "./utils/AutoComplete";
 
 export const powerRatioDivider = 100000;
 
-const EnergyComparator = () => {
+const EnergyComparator = React.forwardRef((props, ref) => {
     const [eol, setEol] = React.useState(0)
     const [nuc, setNuc] = React.useState(0)
     const [sol, setSol] = React.useState(0)
@@ -37,6 +37,33 @@ const EnergyComparator = () => {
     const [energySupplySourceCountries, setEnergySupplySourceCountries] = React.useState([])
     const [energySupplySourceYear] = React.useState(2018)
     const [indexHasJustChanged, setIndexHasJustChanged] = React.useState(false)
+
+    useImperativeHandle(ref, () => (
+            {getComparatorParams: () => {return {
+                    'eol': eol,
+                    'nuc': nuc,
+                    'sol': sol,
+                    'therCoal': therCoal,
+                    'therOil': therOil,
+                    'therGas': therGas,
+                    'hydro': hydro,
+                    'index': energySupplySourceIndex
+                }}}),
+        [eol, nuc, sol, therCoal, therOil, therGas, hydro]
+    );
+
+    React.useEffect(() => {
+        if (props.parameters !== null) {
+            setEol(props.parameters['eol' + props.id] ? parseInt(props.parameters['eol' + props.id]) : 0)
+            setNuc(props.parameters['nuc' + props.id] ? parseInt(props.parameters['nuc' + props.id]) : 0)
+            setSol(props.parameters['sol' + props.id] ? parseInt(props.parameters['sol' + props.id]) : 0)
+            setTherCoal(props.parameters['therCoal' + props.id] ? parseInt(props.parameters['therCoal' + props.id]) : 0)
+            setTherOil(props.parameters['therOil' + props.id] ? parseInt(props.parameters['therOil' + props.id]) : 0)
+            setTherGas(props.parameters['therGas' + props.id] ? parseInt(props.parameters['therGas' + props.id]) : 0)
+            setHydro(props.parameters['hydro' + props.id] ? parseInt(props.parameters['hydro' + props.id]) : 0)
+            setEnergySupplySourceIndex(props.parameters['index' + props.id] ? props.parameters['index' + props.id] : 'Custom')
+        }
+    }, [])
 
     React.useEffect(() => {
         getEnergySupplySource(
@@ -188,5 +215,5 @@ const EnergyComparator = () => {
             </div>
         </>
     )
-}
+})
 export default EnergyComparator;

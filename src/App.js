@@ -11,13 +11,21 @@ import * as graphPieAnimationData from "./UI/components/animations/Graph_Pie.jso
 import * as lightningAnimationData from "./UI/components/animations/Lightning.json";
 import * as globeAnimationData from "./UI/components/animations/Globe.json";
 import ArrowRightAltRoundedIcon from '@material-ui/icons/ArrowRightAltRounded';
+import getAllGetParameters from "./UI/components/utils/getAllGetParameters";
 
 function App() {
     const [loading, setLoading] = React.useState(true)
     const [appMode, setAppMode] = React.useState('home')
+    const [appParameters, setAppParameters] = React.useState(null)
 
     React.useEffect(() => {
         delayedCloseLoader();
+        if (Object.entries(getAllGetParameters(window.location.href)).length > 1) {
+            setAppParameters(getAllGetParameters(window.location.href));
+            setAppMode('versus')
+        }
+        window.history.pushState(null, null, window.location.origin)
+
     }, [])
 
     const delayedCloseLoader = () => {
@@ -75,7 +83,7 @@ function App() {
                 <Playground/>
                 }
                 {appMode === 'versus' &&
-                <Versus/>
+                <Versus parameters={appParameters}/>
                 }
                 {appMode === 'narrative' &&
                 <Narrative/>
