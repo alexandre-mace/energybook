@@ -79,6 +79,9 @@ const CapitaEnergyUseVsPoverty = () => {
                                                 labelString: 'Energy use (kg of oil equivalent per capita)',
                                                 fontColor: 'black',
                                                 fontSize: width > 760 ? '14' : '10'
+                                            },
+                                            gridLines : {
+                                                display : false
                                             }
                                         }]
                                     },

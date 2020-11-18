@@ -62,8 +62,11 @@ const Co2Emissions = () => {
                                                 labelString: 'Years',
                                                 fontColor: 'black',
                                                 fontSize: width > 760 ? '14' : '10'
+                                            },
+                                            gridLines : {
+                                                display : false
                                             }
-                                        }]
+                                        }],
                                     },
                                     legend: {
                                         display: false

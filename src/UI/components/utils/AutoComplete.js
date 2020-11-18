@@ -12,7 +12,7 @@ const sortCountries = (countries) => {
         }
         if (item === "Custom") {
             data.splice(i, 1);
-            data.push(item)
+            data.unshift(item);
         }
     });
 

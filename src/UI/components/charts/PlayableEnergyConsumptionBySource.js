@@ -215,7 +215,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                                     labelString: 'TWh (Terawatt-hour)',
                                                     fontColor: 'black',
                                                     fontSize: width > 760 ? '14' : '10'
-                                                }
+                                                },
                                             }],
                                             xAxes: [{
                                                 scaleLabel: {
@@ -223,6 +223,9 @@ const PlayableEnergyConsumptionBySource = () => {
                                                     labelString: 'Years',
                                                     fontColor: 'black',
                                                     fontSize: width > 760 ? '14' : '10'
+                                                },
+                                                gridLines : {
+                                                    display : false
                                                 }
                                             }]
                                         },

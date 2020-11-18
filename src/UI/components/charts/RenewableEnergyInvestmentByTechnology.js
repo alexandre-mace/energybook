@@ -61,6 +61,9 @@ const RenewableEnergyInvestmentByTechology = () => {
                                                 labelString: 'Years',
                                                 fontColor: 'black',
                                                 fontSize: width > 760 ? '14' : '10'
+                                            },
+                                            gridLines : {
+                                                display : false
                                             }
                                         }]
                                     }

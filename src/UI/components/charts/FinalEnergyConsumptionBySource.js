@@ -89,7 +89,7 @@ const EnergyConsumptionBySource = ({
                                                 labelString: 'ktoe (Kilotonne of Oil Equivalent)',
                                                 fontColor: 'black',
                                                 fontSize: width > 760 ? '14' : '10'
-                                            }
+                                            },
                                         }],
                                         xAxes: [{
                                             scaleLabel: {
@@ -97,6 +97,9 @@ const EnergyConsumptionBySource = ({
                                                 labelString: 'Years',
                                                 fontColor: 'black',
                                                 fontSize: width > 760 ? '14' : '10'
+                                            },
+                                            gridLines : {
+                                                display : false
                                             }
                                         }]
                                     },

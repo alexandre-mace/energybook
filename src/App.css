@@ -259,7 +259,7 @@ footer {
 
 .white-wrapper {
   padding: 20px;
-  background-color: white;
+  background-color: #fbfbfb;
   border-radius: 20px;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.24);
   -webkit-box-shadow: 0 8px 12px rgba(0, 0, 0, 0.24);
@@ -452,7 +452,7 @@ h4 {
         font-size: 12px;
     }
     .min-chart-height {
-        min-height: 540px;
+        min-height: 700px;
     }
     canvas {
         max-height: 450px !important;
