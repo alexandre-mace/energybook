@@ -2,8 +2,11 @@ import MultipleBars from "../charts-types/MultipleBars";
 import React from "react";
 import getRenewableEnergyInvestmentByTechnology
     from "../../../Infrastructure/Adapter/getRenewableEnergyInvestmentByTechnology";
+import useWindowDimensions from "../utils/useWindowDimension";
 
 const RenewableEnergyInvestmentByTechology = () => {
+    const { width } = useWindowDimensions();
+
     const [renewableEnergyInvestmentByTechnologyIndexDatasets, setRenewableEnergyInvestmentByTechnologyDatasets] = React.useState([])
 
     React.useEffect(() => {
@@ -35,7 +38,12 @@ const RenewableEnergyInvestmentByTechology = () => {
                                         labels: false,
                                         datalabels: false
                                     },
-                                    legend: {},
+                                    legend: {
+                                        labels: {
+                                            boxWidth: width > 760 ? 40 : 12,
+                                            fontSize: width > 760 ? 12 : 10
+                                        }
+                                    },
                                     scales: {
                                         yAxes: [{
                                             stacked: true,
@@ -43,7 +51,7 @@ const RenewableEnergyInvestmentByTechology = () => {
                                                 display: true,
                                                 labelString: 'billion $',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }],
                                         xAxes: [{
@@ -52,7 +60,7 @@ const RenewableEnergyInvestmentByTechology = () => {
                                                 display: true,
                                                 labelString: 'Years',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }]
                                     }

@@ -2,8 +2,11 @@ import React from "react";
 import getEnergyConsumption from "../../../Infrastructure/Adapter/getEnergyConsumption";
 import MultipleLines from "../charts-types/MultipleLines";
 import MultitpleAutoComplete from "../utils/MultipleAutoComplete";
+import useWindowDimensions from "../utils/useWindowDimension";
 
 const EnergyConsumption = () => {
+    const {width} = useWindowDimensions();
+
     const [totalEnergyConsumptionIndexes, setTotalEnergyConsumptionIndexes] = React.useState(['World'])
     const [totalEnergyConsumption, setTotalEnergyConsumption] = React.useState({keys: [], values: []})
     const [totalEnergyConsumptionCountries, setTotalEnergyConsumptionCountries] = React.useState([])
@@ -54,7 +57,7 @@ const EnergyConsumption = () => {
                                                 display: true,
                                                 labelString: 'Mtoe',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }],
                                         xAxes: [{
@@ -62,7 +65,7 @@ const EnergyConsumption = () => {
                                                 display: true,
                                                 labelString: 'Years',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }]
                                     },

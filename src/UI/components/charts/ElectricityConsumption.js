@@ -2,8 +2,11 @@ import React from "react";
 import getElectricityConsumption from "../../../Infrastructure/Adapter/getElectricityConsumption";
 import MultipleLines from "../charts-types/MultipleLines";
 import MultitpleAutoComplete from "../utils/MultipleAutoComplete";
+import useWindowDimensions from "../utils/useWindowDimension";
 
 const ElectricityConsumption = () => {
+    const {width} = useWindowDimensions();
+
     const [totalElectricityConsumptionIndexes, setTotalElectricityConsumptionIndexes] = React.useState(['World'])
     const [totalElectricityConsumption, setTotalElectricityConsumption] = React.useState({keys: [], values: []})
     const [totalElectricityConsumptionCountries, setTotalElectricityConsumptionCountries] = React.useState([])
@@ -54,7 +57,7 @@ const ElectricityConsumption = () => {
                                                 display: true,
                                                 labelString: 'TWh (Terawatt-hour)',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }],
                                         xAxes: [{
@@ -62,7 +65,7 @@ const ElectricityConsumption = () => {
                                                 display: true,
                                                 labelString: 'Years',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }]
                                     },

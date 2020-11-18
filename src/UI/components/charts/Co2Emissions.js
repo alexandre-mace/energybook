@@ -2,8 +2,11 @@ import React from "react";
 import getCo2Emissions from "../../../Infrastructure/Adapter/getCo2Emissions";
 import MultitpleAutoComplete from "../utils/MultipleAutoComplete";
 import MultipleLines from "../charts-types/MultipleLines";
+import useWindowDimensions from "../utils/useWindowDimension";
 
 const Co2Emissions = () => {
+    const {width} = useWindowDimensions();
+
     const [totalCo2EmmisionsIndexes, setTotalCo2EmmisionsIndexes] = React.useState(['World'])
     const [totalCo2Emmisions, setTotalCo2Emmisions] = React.useState({keys: [], values: []})
     const [totalCo2EmmisionsCountries, setTotalCo2EmmisionsCountries] = React.useState([])
@@ -50,7 +53,7 @@ const Co2Emissions = () => {
                                                 display: true,
                                                 labelString: 'MtCO₂',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }],
                                         xAxes: [{
@@ -58,7 +61,7 @@ const Co2Emissions = () => {
                                                 display: true,
                                                 labelString: 'Years',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }]
                                     },

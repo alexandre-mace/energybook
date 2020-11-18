@@ -1,11 +1,12 @@
-import AutoComplete from "../utils/AutoComplete";
-import Line from "../charts-types/Line";
 import React from "react";
 import getRenewablesShare from "../../../Infrastructure/Adapter/getRenewablesShare";
 import MultitpleAutoComplete from "../utils/MultipleAutoComplete";
 import MultipleLines from "../charts-types/MultipleLines";
+import useWindowDimensions from "../utils/useWindowDimension";
 
 const RenewableShare = () => {
+    const { width } = useWindowDimensions();
+
     const [renewablesShareIndexes, setRenewablesShareIndexes] = React.useState('World')
     const [renewablesShare, setRenewablesShare] = React.useState({keys: [], values: []})
     const [renewablesShareCountries, setRenewablesShareCountries] = React.useState([])
@@ -58,7 +59,7 @@ const RenewableShare = () => {
                                                 display: true,
                                                 labelString: '% of share in energy supply',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }],
                                         xAxes: [{
@@ -66,7 +67,7 @@ const RenewableShare = () => {
                                                 display: true,
                                                 labelString: 'Years',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }]
                                     },

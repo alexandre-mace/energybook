@@ -69,7 +69,7 @@ const CapitaEnergyUseVsPoverty = () => {
                                                 display: true,
                                                 labelString: 'Poverty - $1.90 a day (% of population)',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }],
                                         xAxes: [{
@@ -77,7 +77,7 @@ const CapitaEnergyUseVsPoverty = () => {
                                                 display: true,
                                                 labelString: 'Energy use (kg of oil equivalent per capita)',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }]
                                     },

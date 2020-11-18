@@ -84,7 +84,7 @@ const EnergyConsumptionBySource = ({
                                                 display: true,
                                                 labelString: 'TWh (Terawatt-hour)',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }],
                                         xAxes: [{
@@ -92,18 +92,23 @@ const EnergyConsumptionBySource = ({
                                                 display: true,
                                                 labelString: 'Years',
                                                 fontColor: 'black',
-                                                fontSize: '14'
+                                                fontSize: width > 760 ? '14' : '8'
                                             }
                                         }]
                                     },
                                     legend: {
                                         position: width > 760 ? 'right' : 'top',
-                                        reverse: true
+                                        reverse: true,
+                                        labels: {
+                                            boxWidth: width > 760 ? 40 : 12,
+                                            fontSize: width > 760 ? 12 : 10
+                                        }
                                     }
                                 }}
                                 fill={false}
                             >
                             </MultipleLines>
+                            <div className="chart-legend">Primary energy consumption by source</div>
                             <div className="mt-3">
                                 <strong>Primary energy consumption</strong><br/>
                                 Primary energy consumption measures the total energy demand of a country. It covers consumption of the energy sector itself, losses during transformation (for example, from oil or gas into electricity) and distribution of energy, and the final consumption by end users. It excludes energy carriers used for non-energy purposes (such as petroleum not used not for combustion but for producing plastics).

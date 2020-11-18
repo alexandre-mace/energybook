@@ -155,7 +155,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                                     display: true,
                                                     labelString: 'TWh (Terawatt-hour)',
                                                     fontColor: 'black',
-                                                    fontSize: '14'
+                                                    fontSize: width > 760 ? '14' : '8'
                                                 }
                                             }],
                                             xAxes: [{
@@ -163,11 +163,15 @@ const PlayableEnergyConsumptionBySource = () => {
                                                     display: true,
                                                     labelString: 'Years',
                                                     fontColor: 'black',
-                                                    fontSize: '14'
+                                                    fontSize: width > 760 ? '14' : '8'
                                                 }
                                             }]
                                         },
-                                        legend: {}
+                                        legend: {
+                                            labels: {
+                                                boxWidth: width > 760 ? 40 : 10,
+                                            }
+                                        }
                                     }}
                                 >
                                 </Doughnut>
@@ -209,7 +213,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                                     display: true,
                                                     labelString: 'TWh (Terawatt-hour)',
                                                     fontColor: 'black',
-                                                    fontSize: '14'
+                                                    fontSize: width > 760 ? '14' : '8'
                                                 }
                                             }],
                                             xAxes: [{
@@ -217,13 +221,17 @@ const PlayableEnergyConsumptionBySource = () => {
                                                     display: true,
                                                     labelString: 'Years',
                                                     fontColor: 'black',
-                                                    fontSize: '14'
+                                                    fontSize: width > 760 ? '14' : '8'
                                                 }
                                             }]
                                         },
                                         legend: {
                                             position: width > 760 ? 'right' : 'top',
-                                            reverse: true
+                                            reverse: true,
+                                            labels: {
+                                                boxWidth: width > 760 ? 40 : 12,
+                                                fontSize: width > 760 ? 12 : 10
+                                            }
                                         }
                                     }}
                                 >
