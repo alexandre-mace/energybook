@@ -45,8 +45,8 @@ const Versus = ({ parameters }) => {
             </div>
             <div className="container">
                 <div className="row">
-                    <div className="col text-center">
-                        <button onClick={() => share()}>{shared ? 'Copied' : 'Copy configuration link'}</button>
+                    <div className="col text-center mb-3">
+                        <button className="share-button" onClick={() => share()}>{shared ? 'Copied' : 'Copy configuration link'}</button>
                     </div>
                 </div>
             </div>

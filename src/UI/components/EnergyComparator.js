@@ -124,7 +124,7 @@ const EnergyComparator = React.forwardRef((props, ref) => {
                         <div className={"mb-3"}>CO₂ Emissions kg/h  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateEmissions(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <div className={"mb-3"}>Construction Materials t <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateMaterials(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
                         <div className={"mb-3"}>Use cost €/h  <strong style={{fontSize: '1.7rem'}}>{formatNumber(calculateCost(eol, nuc, sol, therCoal, therOil, therGas, hydro))}</strong></div>
-                        <ColorControlledDoughnut datasets={[
+                        <div className={"d-none d-md-block"}><ColorControlledDoughnut datasets={[
                             {
                                 name: 'Wind turbine',
                                 value: calculateEnergySourcePower(eol, energySystems.eol.averagePower, energySystems.eol.averageChargeFactor),
@@ -160,11 +160,11 @@ const EnergyComparator = React.forwardRef((props, ref) => {
                                 value: calculateEnergySourcePower(hydro, energySystems.hydro.averagePower, energySystems.hydro.averageChargeFactor),
                                 color: 'lightblue'
                             },
-                        ]}/>
+                        ]}/></div>
                     </div>
                 </div>
             </div>
-            <div className="container">
+            <div className="container mt-4">
                 <div className="row">
                     <div className="col">
                         <AutoComplete
