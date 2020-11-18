@@ -269,9 +269,15 @@ footer {
 }
 @media (min-width: 1200px) {
   .white-wrapper {
-    padding: 50px;
+    padding: 40px;
     border-radius: 50px;
   }
+}
+.mt-md-5, .my-md-5 {
+    margin-top: 1.2rem !important;
+}
+.my-md-5 {
+    margin-bottom: 1.2rem !important;
 }
 .color-primary, strong {
   color: #eb5c5c;
@@ -389,6 +395,9 @@ h4 {
     border: 2px solid black;
 }
 @media (max-width: 600px) {
+    .MuiTab-root {
+        min-height: 38px !important;
+    }
     .energy-pictos {
         opacity: 0.06;
     }
