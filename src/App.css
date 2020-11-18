@@ -394,6 +394,9 @@ h4 {
     background-color: white;
     border: 2px solid black;
 }
+.MuiTabs-root {
+    min-height: 42px !important;
+}
 @media (max-width: 600px) {
     .MuiTab-root {
         min-height: 38px !important;
