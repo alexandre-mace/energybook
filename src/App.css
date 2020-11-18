@@ -339,7 +339,7 @@ canvas {
 }
 @media (min-width: 1200px) {
     canvas {
-        max-height: 700px !important;
+        max-height: 530px !important;
         min-height: 500px !important;
     }
 }
@@ -419,7 +419,7 @@ h4 {
 @media (max-height: 750px) {
     @media (min-width: 768px) {
         .mt-md-5, .my-md-5 {
-            margin-top: 2rem !important;
+            margin-top: 1.5rem !important;
         }
     }
     @media (pointer: coarse) {
