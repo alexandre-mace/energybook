@@ -5,7 +5,7 @@ import MultitpleAutoComplete from "../utils/MultipleAutoComplete";
 import useWindowDimensions from "../utils/useWindowDimension";
 import kFormatThousands from "../utils/kFormatThousands";
 
-const ElectricityConsumption = () => {
+const ElectricityConsumption = ({animation = true}) => {
     const {width} = useWindowDimensions();
 
     const [totalElectricityConsumptionIndexes, setTotalElectricityConsumptionIndexes] = React.useState(['World'])
@@ -44,6 +44,7 @@ const ElectricityConsumption = () => {
                                 fill={false}
                                 datasets={totalElectricityConsumption}
                                 options={{
+                                    animation: animation ? '{duration: 0}' :'',
                                     maintainAspectRatio: width > 760,
                                     plugins: {
                                         labels: false,

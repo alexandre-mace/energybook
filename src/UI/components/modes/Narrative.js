@@ -44,7 +44,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <EnergyConsumption/>
+                <EnergyConsumption animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -59,7 +59,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <ElectricityConsumption/>
+                <ElectricityConsumption animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -73,7 +73,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <Co2Emissions/>
+                <Co2Emissions animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -88,7 +88,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <EnergyConsumptionBySource onlyCategories={true}/>
+                <EnergyConsumptionBySource onlyCategories={true} animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -100,7 +100,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <EnergyConsumptionBySource onlyRenewables={true}/>
+                <EnergyConsumptionBySource onlyRenewables={true} animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -112,7 +112,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <EnergyConsumptionBySource onlyNonRenewables={true}/>
+                <EnergyConsumptionBySource onlyNonRenewables={true} animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -122,7 +122,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <EnergyConsumptionBySource/>
+                <EnergyConsumptionBySource animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -132,7 +132,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <EnergyConsumptionBySource mode={"doughnut"}/>
+                <EnergyConsumptionBySource mode={"doughnut"} animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -143,7 +143,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <RenewableEnergyInvestment/>
+                <RenewableEnergyInvestment animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -154,7 +154,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <RenewableEnergyInvestmentByGdp/>
+                <RenewableEnergyInvestmentByGdp animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -165,7 +165,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <RenewableEnergyInvestmentByTechology/>
+                <RenewableEnergyInvestmentByTechology animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -176,7 +176,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <CapitaEnergyUseVsPoverty/>
+                <CapitaEnergyUseVsPoverty animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -185,7 +185,7 @@ function Narrative() {
                         </div>
                     </div>
                 </div>
-                <EnergyConsumptionBySector/>
+                <EnergyConsumptionBySector animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -195,7 +195,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <FinalEnergyConsumptionBySource mode={"lines"}/>
+                <FinalEnergyConsumptionBySource mode={"lines"} animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -207,7 +207,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <FinalEnergyConsumptionBySource mode={"doughnut"}/>
+                <FinalEnergyConsumptionBySource mode={"doughnut"} animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">

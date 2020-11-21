@@ -4,7 +4,7 @@ import getRenewableEnergyInvestmentByTechnology
     from "../../../Infrastructure/Adapter/getRenewableEnergyInvestmentByTechnology";
 import useWindowDimensions from "../utils/useWindowDimension";
 
-const RenewableEnergyInvestmentByTechology = () => {
+const RenewableEnergyInvestmentByTechology = ({animation = true}) => {
     const { width } = useWindowDimensions();
 
     const [renewableEnergyInvestmentByTechnologyIndexDatasets, setRenewableEnergyInvestmentByTechnologyDatasets] = React.useState([])
@@ -33,6 +33,7 @@ const RenewableEnergyInvestmentByTechology = () => {
                             <MultipleBars
                                 datasets={renewableEnergyInvestmentByTechnologyIndexDatasets}
                                 options={{
+                                    animation: animation ? '{duration: 0}' :'',
                                     maintainAspectRatio: width > 760,
                                     plugins: {
                                         labels: false,

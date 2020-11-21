@@ -3,7 +3,7 @@ import React from "react";
 import getEnergyUsePerCapitaVsPoverty from "../../../Infrastructure/Adapter/getCapitaEnergyUseVsPoverty";
 import useWindowDimensions from "../utils/useWindowDimension";
 
-const CapitaEnergyUseVsPoverty = () => {
+const CapitaEnergyUseVsPoverty = ({animation = true}) => {
     const {width} = useWindowDimensions();
 
     const [energyUsePerCapitaVsPovertyDatasets, setEnergyUsePerCapitaVsPovertyDatasets] = React.useState([])
@@ -34,6 +34,7 @@ const CapitaEnergyUseVsPoverty = () => {
                             <Bubble
                                 datasets={energyUsePerCapitaVsPovertyDatasets}
                                 options={{
+                                    animation: animation ? '{duration: 0}' :'',
                                     responsive: true,
                                     maintainAspectRatio: true,
                                     legend: {

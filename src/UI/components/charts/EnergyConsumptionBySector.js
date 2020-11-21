@@ -4,7 +4,7 @@ import getEnergyConsumptionBySector from "../../../Infrastructure/Adapter/getEne
 import useWindowDimensions from "../utils/useWindowDimension";
 import kFormatThousands from "../utils/kFormatThousands";
 
-const EnergyConsumptionBySector = () => {
+const EnergyConsumptionBySector = ({animation = true}) => {
     const {width} = useWindowDimensions();
 
     const [totalFinalConsumptionBySectorDatasets, setTotalFinalConsumptionBySectorDatasets] = React.useState([])
@@ -32,6 +32,7 @@ const EnergyConsumptionBySector = () => {
                                 name='total final energy consumption by sector'
                                 datasets={totalFinalConsumptionBySectorDatasets}
                                 options={{
+                                    animation: animation ? '{duration: 0}' :'',
                                     maintainAspectRatio: width > 760,
                                     plugins: {
                                         labels: false,

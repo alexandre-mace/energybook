@@ -11,7 +11,7 @@ import useWindowDimensions from "../utils/useWindowDimension";
 import {FormLabel} from "@material-ui/core";
 import kFormatThousands from "../utils/kFormatThousands";
 
-const PlayableEnergyConsumptionBySource = () => {
+const PlayableEnergyConsumptionBySource = ({animation = true}) => {
     const {width} = useWindowDimensions();
 
     const [energySupplySourceIndex, setEnergySupplySourceIndex] = React.useState('World')
@@ -142,6 +142,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                         }
                                     })}
                                     options={{
+                                        animation: animation ? '{duration: 0}' :'',
                                         maintainAspectRatio: true,
                                         responsive: true,
                                         plugins: {
@@ -187,6 +188,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                     datasets={energySupplySourceDatasets}
                                     fill={false}
                                     options={{
+                                        animation: animation ? '{duration: 0}' :'',
                                         maintainAspectRatio: false,
                                         plugins: {
                                             labels: false,

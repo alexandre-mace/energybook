@@ -5,7 +5,7 @@ import MultipleLines from "../charts-types/MultipleLines";
 import useWindowDimensions from "../utils/useWindowDimension";
 import kFormatThousands from "../utils/kFormatThousands";
 
-const Co2Emissions = () => {
+const Co2Emissions = ({animation = true}) => {
     const {width} = useWindowDimensions();
 
     const [totalCo2EmmisionsIndexes, setTotalCo2EmmisionsIndexes] = React.useState(['World'])
@@ -40,6 +40,7 @@ const Co2Emissions = () => {
                                 datasets={totalCo2Emmisions}
                                 fill={false}
                                 options={{
+                                    animation: animation ? '{duration: 0}' :'',
                                     maintainAspectRatio: width > 760,
                                     plugins: {
                                         labels: false,

@@ -5,7 +5,7 @@ import getRenewableEnergyInvestmentPercentage
 import useWindowDimensions from "../utils/useWindowDimension";
 import kFormatThousands from "../utils/kFormatThousands";
 
-const RenewableEnergyInvestmentByGdp = () => {
+const RenewableEnergyInvestmentByGdp = ({animation = true}) => {
     const { width } = useWindowDimensions();
 
     const [renewableEnergyInvestmentPercentageDatasets, setRenewableEnergyInvestmentPercentageDatasets] = React.useState([])
@@ -41,6 +41,7 @@ const RenewableEnergyInvestmentByGdp = () => {
                                     }
                                 })}
                                 options={{
+                                    animation: animation ? '{duration: 0}' :'',
                                     plugins: {
                                         labels: false,
                                         datalabels: false

@@ -14,7 +14,8 @@ import kFormatThousands from "../utils/kFormatThousands";
 const EnergyConsumptionBySource = ({
                                        modeOption = 'lines',
                                        year = 2018,
-                                       playable = false
+                                       playable = false,
+                                       animation = true
                                    }) => {
     const {width} = useWindowDimensions();
 
@@ -62,6 +63,7 @@ const EnergyConsumptionBySource = ({
                                 name='total final consumption by source'
                                 datasets={totalFinalConsumptionBySourceDatasets}
                                 options={{
+                                    animation: animation ? '{duration: 0}' :'',
                                     maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
@@ -166,6 +168,7 @@ const EnergyConsumptionBySource = ({
                                         }
                                     })}
                                     options={{
+                                        animation: animation ? '{duration: 0}' :'',
                                         maintainAspectRatio: false,
                                         plugins: {
                                             labels: false,

@@ -7,7 +7,7 @@ import RenewableEnergyInvestmentByTechology from "./RenewableEnergyInvestmentByT
 import RenewableEnergyInvestmentByGdp from "./RenewableEnergyInvestmentByGdp";
 import {FormLabel} from "@material-ui/core";
 
-const PlayableEnergyInvestment = () => {
+const PlayableEnergyInvestment = ({animation = true}) => {
     const [byTechnology, setByTechnology] = React.useState(false)
     const [byGdp, setByGdp] = React.useState(false)
 

@@ -4,7 +4,7 @@ import MultitpleAutoComplete from "../utils/MultipleAutoComplete";
 import MultipleLines from "../charts-types/MultipleLines";
 import useWindowDimensions from "../utils/useWindowDimension";
 
-const RenewableShare = () => {
+const RenewableShare = ({animation = true}) => {
     const { width } = useWindowDimensions();
 
     const [renewablesShareIndexes, setRenewablesShareIndexes] = React.useState('World')
@@ -44,6 +44,7 @@ const RenewableShare = () => {
                                 datasets={renewablesShare}
                                 fill={false}
                                 options={{
+                                    animation: animation ? '{duration: 0}' :'',
                                     maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,

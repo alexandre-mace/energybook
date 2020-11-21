@@ -4,7 +4,7 @@ import getRenewableEnergyInvestment from "../../../Infrastructure/Adapter/getRen
 import useWindowDimensions from "../utils/useWindowDimension";
 import kFormatThousands from "../utils/kFormatThousands";
 
-const RenewableEnergyInvestment = () => {
+const RenewableEnergyInvestment = ({animation = true}) => {
     const { width } = useWindowDimensions();
 
     const [renewableEnergyInvestmentDatasets, setRenewableEnergyInvestmentDatasets] = React.useState([])
@@ -34,6 +34,7 @@ const RenewableEnergyInvestment = () => {
                                 name='Renewables share'
                                 datasets={renewableEnergyInvestmentDatasets}
                                 options={{
+                                    animation: animation ? '{duration: 0}' :'',
                                     maintainAspectRatio: width > 760,
                                     plugins: {
                                         labels: false,

@@ -13,7 +13,8 @@ const EnergyConsumptionBySource = ({
                                        onlyCategories = false,
                                        onlyRenewables = false,
                                        onlyNonRenewables = false,
-                                       year = 2018
+                                       year = 2018,
+                                       animation = true
                                    }) => {
     const {width} = useWindowDimensions();
 
@@ -58,6 +59,7 @@ const EnergyConsumptionBySource = ({
                                 name='Renewables share'
                                 datasets={energySupplySourceDatasets}
                                 options={{
+                                    animation: animation ? '{duration: 0}' :'',
                                     maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
@@ -149,6 +151,7 @@ const EnergyConsumptionBySource = ({
                                         }
                                     })}
                                     options={{
+                                        animation: animation ? '{duration: 0}' :'',
                                         maintainAspectRatio: false,
                                         plugins: {
                                             labels: false,

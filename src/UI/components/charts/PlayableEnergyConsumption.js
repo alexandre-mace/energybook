@@ -9,7 +9,7 @@ import EnergyConsumption from "./EnergyConsumption";
 import FinalEnergyConsumptionBySource from "./FinalEnergyConsumptionBySource";
 import {FormLabel} from "@material-ui/core";
 
-const PlayableEnergyConsumption = () => {
+const PlayableEnergyConsumption = ({animation = true}) => {
     const [bySource, setBySource] = React.useState(true)
     const [byFinalSource, setByFinalSource] = React.useState(false)
     const [bySector, setBySector] = React.useState(false)
