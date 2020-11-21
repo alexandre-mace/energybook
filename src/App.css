@@ -265,7 +265,7 @@ footer {
 }
 @media (max-width: 600px) {
     .white-wrapper {
-        padding: 16px;
+        padding: 20px;
     }
 }
 .MuiAutocomplete-root[role=combobox] .MuiInputBase-root {
