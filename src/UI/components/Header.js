@@ -14,7 +14,10 @@ const Header = ({appMode, setAppMode, setLoading, delayedCloseLoader}) => (
             <div className={"col-auto"}>
                         <div className={"clickable"} onClick={() => {
                             setAppMode('playground')
-                            setLoading(true)
+                            setLoading({
+                                state: true,
+                                animation: false
+                            })
                             delayedCloseLoader(0)
                         }}>
                             {appMode === 'playground' && <strong>Playground</strong>}
@@ -24,8 +27,11 @@ const Header = ({appMode, setAppMode, setLoading, delayedCloseLoader}) => (
             <div className={"col-auto"}>
                 <span className={"clickable"} onClick={() => {
                     setAppMode('versus')
-                    setLoading(true)
-                    delayedCloseLoader(0)
+                    setLoading({
+                        state: true,
+                        animation: false
+                    })
+                    delayedCloseLoader(150)
                 }}>
                     {appMode === 'versus' && <strong>Versus</strong>}
                     {appMode !== 'versus' && <strong className={"black"}>Versus</strong>}
@@ -34,7 +40,10 @@ const Header = ({appMode, setAppMode, setLoading, delayedCloseLoader}) => (
             <div className="col-auto">
                 <div className={"clickable"} onClick={() => {
                     setAppMode('narrative')
-                    setLoading(true)
+                    setLoading({
+                        state: true,
+                        animation: false
+                    })
                     delayedCloseLoader(0)
                 }}>
                     {appMode === 'narrative' && <strong>Narrative</strong>}

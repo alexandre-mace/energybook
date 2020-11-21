@@ -165,7 +165,7 @@ footer {
 .box-loader {
   background-color: #b3bbfa;
   position: absolute;
-  z-index: 100;
+  z-index: 1000;
   top: 0;
   left: 0;
   height: 100vh;

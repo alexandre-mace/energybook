@@ -3,7 +3,6 @@ import energySystems from "../../../Domain/data/energySystems";
 import EnergyComparator from "../EnergyComparator";
 import insertGetParameter from "../utils/insertGetParameter";
 import copyToClipboard from "../utils/copyToClipboard";
-import stringToHex from "../utils/stringToHex";
 
 const Versus = ({ parameters }) => {
     const comparator1 = useRef();

@@ -9,6 +9,7 @@ import getKeyByValue from "../../../Infrastructure/Transformer/getKeyByValue";
 import {FormLabel} from "@material-ui/core";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+import kFormatThousands from "../utils/kFormatThousands";
 
 const EnergyConsumptionBySource = ({
                                        modeOption = 'lines',
@@ -83,6 +84,11 @@ const EnergyConsumptionBySource = ({
                                     },
                                     scales: {
                                         yAxes: [{
+                                            ticks: {
+                                                userCallback: function(value, index, values) {
+                                                    return kFormatThousands(value)
+                                                }
+                                            },
                                             stacked: false,
                                             scaleLabel: {
                                                 display: true,

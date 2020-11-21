@@ -15,7 +15,7 @@ const Playground = () => {
     const delayedCloseLoader = () => {
         setTimeout(() => {
             setLoading(false)
-        }, 1300);
+        }, 800);
     }
 
     React.useEffect(() => {

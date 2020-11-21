@@ -13,7 +13,10 @@ import FullMobileAnimation from "./UI/components/animations/FullMobileAnimation"
 import Footer from "./UI/components/Footer";
 
 function App() {
-    const [loading, setLoading] = React.useState(true)
+    const [loading, setLoading] = React.useState({
+        state: true,
+        animation: true
+    })
     const [appMode, setAppMode] = React.useState('home')
     const [appParameters, setAppParameters] = React.useState(null)
 
@@ -27,16 +30,19 @@ function App() {
 
     }, [])
 
-    const delayedCloseLoader = (time = 1300) => {
+    const delayedCloseLoader = (time = 800) => {
         setTimeout(() => {
-            setLoading(false)
+            setLoading({
+                state: false,
+                animation: true
+            })
         }, time);
     }
 
     return (
         <>
-            {loading && <Loader/>}
-            {!loading &&
+            {loading.state && <Loader animation={loading.animation} />}
+            {!loading.state &&
             <>
                 <Header
                     appMode={appMode}
@@ -44,7 +50,7 @@ function App() {
                     setLoading={setLoading}
                     delayedCloseLoader={delayedCloseLoader}
                 />
-                {appMode === 'playground' && <Playground/>}
+                {appMode === 'playground' && <Playground />}
                 {appMode === 'versus' && <Versus parameters={appParameters}/>}
                 {appMode === 'narrative' && <Narrative/>}
                 {appMode === 'sources' && <Sources/>}
