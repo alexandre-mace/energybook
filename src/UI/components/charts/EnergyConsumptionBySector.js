@@ -32,6 +32,20 @@ const EnergyConsumptionBySector = ({animation = true}) => {
                                 name='total final energy consumption by sector'
                                 datasets={totalFinalConsumptionBySectorDatasets}
                                 options={{
+                                    tooltips: {
+                                        usePointStyle: true,
+                                        mode: 'index',
+                                        intersect: false,
+                                        backgroundColor: '#fbfbfb',
+                                        titleFontColor: '#666',
+                                        bodyFontColor: '#666',
+                                        borderColor: 'lightgrey',
+                                        borderWidth: 1
+                                    },
+                                    hover: {
+                                        mode: 'index',
+                                        intersect: false
+                                    },
                                     ...(!animation && {animation: '{duration: 0}'}),
                                     ...(!animation && {hover: '{animationDuration: 0}'}),
 
@@ -70,7 +84,7 @@ maintainAspectRatio: width > 760,
                                             },
                                             gridLines: {
                                                 drawBorder: false,
-                                            },
+                                },
                                         }],
                                         xAxes: [{
                                             scaleLabel: {

@@ -46,7 +46,20 @@ const RenewableShare = ({animation = true}) => {
                                 options={{
                                     ...(!animation && {animation: '{duration: 0}'}),
                                     ...(!animation && {hover: '{animationDuration: 0}'}),
-
+                                    tooltips: {
+                                        usePointStyle: true,
+                                        mode: 'index',
+                                        intersect: false,
+                                        backgroundColor: '#fbfbfb',
+                                        titleFontColor: '#666',
+                                        bodyFontColor: '#666',
+                                        borderColor: 'lightgrey',
+                                        borderWidth: 1
+                                    },
+                                    hover: {
+                                        mode: 'index',
+                                        intersect: false
+                                    },
 maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
