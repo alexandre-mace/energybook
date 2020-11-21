@@ -27,10 +27,10 @@ function App() {
 
     }, [])
 
-    const delayedCloseLoader = () => {
+    const delayedCloseLoader = (time = 1300) => {
         setTimeout(() => {
             setLoading(false)
-        }, 1300);
+        }, time);
     }
 
     return (

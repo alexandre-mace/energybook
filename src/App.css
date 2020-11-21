@@ -280,6 +280,9 @@ footer {
 .mt-md-5, .my-md-5 {
     margin-top: 1.2rem !important;
 }
+.header {
+    z-index: 100;
+}
 .my-md-5 {
     margin-bottom: 1.2rem !important;
 }
@@ -392,7 +395,7 @@ h4 {
 }
 .header .clickable {
     min-height: 30px;
-    display: block;
+    display: inline-block;
 }
 .chart-legend {
     font-size: 0.8rem;
