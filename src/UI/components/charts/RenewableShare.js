@@ -44,8 +44,10 @@ const RenewableShare = ({animation = true}) => {
                                 datasets={renewablesShare}
                                 fill={false}
                                 options={{
-                                    animation: animation ? '{duration: 0}' :'',
-                                    maintainAspectRatio: false,
+                                    ...(!animation && {animation: '{duration: 0}'}),
+                                    ...(!animation && {hover: '{animationDuration: 0}'}),
+
+maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
                                         datalabels: false

@@ -44,8 +44,9 @@ const EnergyConsumption = ({animation = true}) => {
                                 fill={false}
                                 datasets={totalEnergyConsumption}
                                 options={{
-                                    animation: animation ? '{duration: 0}' :'',
-                                    maintainAspectRatio: width > 760,
+                                    ...(!animation && {animation: '{duration: 0}'}),
+                                    ...(!animation && {hover: '{animationDuration: 0}'}),
+maintainAspectRatio: width > 760,
                                     plugins: {
                                         labels: false,
                                         datalabels: false

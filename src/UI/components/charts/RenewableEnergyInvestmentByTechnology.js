@@ -33,8 +33,10 @@ const RenewableEnergyInvestmentByTechology = ({animation = true}) => {
                             <MultipleBars
                                 datasets={renewableEnergyInvestmentByTechnologyIndexDatasets}
                                 options={{
-                                    animation: animation ? '{duration: 0}' :'',
-                                    maintainAspectRatio: width > 760,
+                                    ...(!animation && {animation: '{duration: 0}'}),
+                                    ...(!animation && {hover: '{animationDuration: 0}'}),
+
+maintainAspectRatio: width > 760,
                                     plugins: {
                                         labels: false,
                                         datalabels: false

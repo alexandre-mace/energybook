@@ -59,8 +59,10 @@ const EnergyConsumptionBySource = ({
                                 name='Renewables share'
                                 datasets={energySupplySourceDatasets}
                                 options={{
-                                    animation: animation ? '{duration: 0}' :'',
-                                    maintainAspectRatio: false,
+                                    ...(!animation && {animation: '{duration: 0}'}),
+                                    ...(!animation && {hover: '{animationDuration: 0}'}),
+
+maintainAspectRatio: false,
                                     plugins: {
                                         labels: false,
                                         datalabels: {
@@ -151,8 +153,10 @@ const EnergyConsumptionBySource = ({
                                         }
                                     })}
                                     options={{
-                                        animation: animation ? '{duration: 0}' :'',
-                                        maintainAspectRatio: false,
+                                        ...(!animation && {animation: '{duration: 0}'}),
+                                    ...(!animation && {hover: '{animationDuration: 0}'}),
+
+maintainAspectRatio: false,
                                         plugins: {
                                             labels: false,
                                             datalabels: false

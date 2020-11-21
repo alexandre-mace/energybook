@@ -142,8 +142,8 @@ const PlayableEnergyConsumptionBySource = ({animation = true}) => {
                                         }
                                     })}
                                     options={{
-                                        animation: animation ? '{duration: 0}' :'',
-                                        maintainAspectRatio: true,
+                                        animation: animation ? 'auto' :'{duration: 0}',
+maintainAspectRatio: true,
                                         responsive: true,
                                         plugins: {
                                             labels: false,
@@ -188,8 +188,10 @@ const PlayableEnergyConsumptionBySource = ({animation = true}) => {
                                     datasets={energySupplySourceDatasets}
                                     fill={false}
                                     options={{
-                                        animation: animation ? '{duration: 0}' :'',
-                                        maintainAspectRatio: false,
+                                        ...(!animation && {animation: '{duration: 0}'}),
+                                    ...(!animation && {hover: '{animationDuration: 0}'}),
+
+maintainAspectRatio: false,
                                         plugins: {
                                             labels: false,
                                             datalabels: {

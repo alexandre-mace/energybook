@@ -5,7 +5,9 @@ import React from "react";
 const sortCountries = (countries) => {
     let data = countries.sort((a, b) => a.localeCompare(b))
 
+    data = data.filter(data => data !== "")
     data.forEach(function(item,i){
+
         if(item === "World"){
             data.splice(i, 1);
             data.unshift(item);
