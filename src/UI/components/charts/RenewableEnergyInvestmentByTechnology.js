@@ -33,9 +33,9 @@ const RenewableEnergyInvestmentByTechology = ({animation = true}) => {
                             <MultipleBars
                                 datasets={renewableEnergyInvestmentByTechnologyIndexDatasets}
                                 options={{
-                                    ...(!animation && {animation: '{duration: 0}'}),
-                                    ...(!animation && {hover: '{animationDuration: 0}'}),
-                                    tooltips: {
+                                    ...(!animation && {animation: {duration: 0}}),
+                                    ...(!animation && {hover: {animationDuration: 0}}),
+                                    ...(!animation && {responsiveAnimationDuration: 0}),                                    tooltips: {
                                         usePointStyle: true,
                                         mode: 'index',
                                         intersect: false,

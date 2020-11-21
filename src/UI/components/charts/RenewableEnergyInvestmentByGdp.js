@@ -41,10 +41,10 @@ const RenewableEnergyInvestmentByGdp = ({animation = true}) => {
                                     }
                                 })}
                                 options={{
-                                    ...(!animation && {animation: '{duration: 0}'}),
-                                    ...(!animation && {hover: '{animationDuration: 0}'}),
-
-plugins: {
+                                    ...(!animation && {animation: {duration: 0}}),
+                                    ...(!animation && {hover: {animationDuration: 0}}),
+                                    ...(!animation && {responsiveAnimationDuration: 0}),
+                                    plugins: {
                                         labels: false,
                                         datalabels: false
                                     },

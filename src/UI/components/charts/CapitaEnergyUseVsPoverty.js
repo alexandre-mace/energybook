@@ -34,10 +34,10 @@ const CapitaEnergyUseVsPoverty = ({animation = true}) => {
                             <Bubble
                                 datasets={energyUsePerCapitaVsPovertyDatasets}
                                 options={{
-                                    ...(!animation && {animation: '{duration: 0}'}),
-                                    ...(!animation && {hover: '{animationDuration: 0}'}),
-
-responsive: true,
+                                    ...(!animation && {animation: {duration: 0}}),
+                                    ...(!animation && {hover: {animationDuration: 0}}),
+                                    ...(!animation && {responsiveAnimationDuration: 0}),
+                                    responsive: true,
                                     maintainAspectRatio: true,
                                     legend: {
                                         display: width > 760

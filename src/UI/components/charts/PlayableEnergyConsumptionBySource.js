@@ -11,7 +11,7 @@ import useWindowDimensions from "../utils/useWindowDimension";
 import {FormLabel} from "@material-ui/core";
 import kFormatThousands from "../utils/kFormatThousands";
 
-const PlayableEnergyConsumptionBySource = ({animation = true}) => {
+const PlayableEnergyConsumptionBySource = ({animation = false}) => {
     const {width} = useWindowDimensions();
 
     const [energySupplySourceIndex, setEnergySupplySourceIndex] = React.useState('World')
@@ -142,8 +142,10 @@ const PlayableEnergyConsumptionBySource = ({animation = true}) => {
                                         }
                                     })}
                                     options={{
-                                        animation: animation ? 'auto' :'{duration: 0}',
-maintainAspectRatio: true,
+                                        ...(!animation && {animation: {duration: 0}}),
+                                        ...(!animation && {hover: {animationDuration: 0}}),
+                                        ...(!animation && {responsiveAnimationDuration: 0}),
+                                        maintainAspectRatio: true,
                                         responsive: true,
                                         plugins: {
                                             labels: false,
@@ -188,8 +190,9 @@ maintainAspectRatio: true,
                                     datasets={energySupplySourceDatasets}
                                     fill={false}
                                     options={{
-                                        ...(!animation && {animation: '{duration: 0}'}),
-                                    ...(!animation && {hover: '{animationDuration: 0}'}),
+                                        ...(!animation && {animation: {duration: 0}}),
+                                        ...(!animation && {hover: {animationDuration: 0}}),
+                                        ...(!animation && {responsiveAnimationDuration: 0}),
                                         tooltips: {
                                             usePointStyle: true,
                                             mode: 'index',
@@ -204,7 +207,7 @@ maintainAspectRatio: true,
                                             mode: 'index',
                                             intersect: false
                                         },
-maintainAspectRatio: false,
+                                        maintainAspectRatio: false,
                                         plugins: {
                                             labels: false,
                                             datalabels: {

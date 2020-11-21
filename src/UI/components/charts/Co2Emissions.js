@@ -40,8 +40,9 @@ const Co2Emissions = ({animation = true}) => {
                                 datasets={totalCo2Emmisions}
                                 fill={false}
                                 options={{
-                                    ...(!animation && {animation: '{duration: 0}'}),
-                                    ...(!animation && {hover: '{animationDuration: 0}'}),
+                                    ...(!animation && {animation: {duration: 0}}),
+                                    ...(!animation && {hover: {animationDuration: 0}}),
+                                    ...(!animation && {responsiveAnimationDuration: 0}),
                                     tooltips: {
                                         usePointStyle: true,
                                         mode: 'index',

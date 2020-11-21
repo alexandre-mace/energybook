@@ -46,10 +46,10 @@ const EnergyConsumptionBySector = ({animation = true}) => {
                                         mode: 'index',
                                         intersect: false
                                     },
-                                    ...(!animation && {animation: '{duration: 0}'}),
-                                    ...(!animation && {hover: '{animationDuration: 0}'}),
-
-maintainAspectRatio: width > 760,
+                                    ...(!animation && {animation: {duration: 0}}),
+                                    ...(!animation && {hover: {animationDuration: 0}}),
+                                    ...(!animation && {responsiveAnimationDuration: 0}),
+                                    maintainAspectRatio: width > 760,
                                     plugins: {
                                         labels: false,
                                         datalabels: {
