@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Header = ({appMode, setAppMode, setLoading, delayedCloseLoader}) => (
-    <div className="container menu mb-3 mt-2 mt-sm-0 mb-md-4 pt-3 pt-md-5 pb-3 pb-md-5">
+    <div className="container menu mb-3 mt-3 mt-sm-0 mb-md-4 pt-3 pt-md-5 pb-2 pb-md-5">
         <div className="row justify-content-between justify-content-sm-center header position-relative">
             <div className="col-auto d-none d-md-flex menu-home">
                         <span className={"clickable"} onClick={() => {
