@@ -39,7 +39,7 @@ const EnergyConsumptionBySource = ({
             <div className="container my-3 my-md-5 pb-4 pb-md-5">
                 <div className="row">
                     {mode === 'lines' &&
-                    <div className="col">
+                    <div className="col px-0 px-sm-auto">
                         <div className="white-wrapper">
                             {playable &&
                             <FormGroup row className={"mb-2"}>
@@ -87,7 +87,7 @@ const EnergyConsumptionBySource = ({
                                             scaleLabel: {
                                                 display: true,
                                                 labelString: 'ktoe (Kilotonne of Oil Equivalent)',
-                                                fontColor: 'black',
+                                                fontColor: '#666666',
                                                 fontSize: width > 760 ? '14' : '10'
                                             },
                                         }],
@@ -95,7 +95,7 @@ const EnergyConsumptionBySource = ({
                                             scaleLabel: {
                                                 display: true,
                                                 labelString: 'Years',
-                                                fontColor: 'black',
+                                                fontColor: '#666666',
                                                 fontSize: width > 760 ? '14' : '10'
                                             },
                                             gridLines : {
@@ -124,7 +124,7 @@ const EnergyConsumptionBySource = ({
                     </div>
                     }
                     {(mode === 'doughnut' && totalFinalConsumptionBySourceDatasets.values.length > 0) &&
-                    <div className="col">
+                    <div className="col px-0 px-sm-auto">
                         <div className="white-wrapper">
                             {playable &&
                             <FormGroup row className={"mb-2"}>

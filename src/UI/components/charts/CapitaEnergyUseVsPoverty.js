@@ -29,7 +29,7 @@ const CapitaEnergyUseVsPoverty = () => {
             </div>
             <div className="container my-3 my-md-5 pb-4 pb-md-5">
                 <div className="row">
-                    <div className="col">
+                    <div className="col px-0 px-sm-auto">
                         <div className="white-wrapper bubble-wrapper">
                             <Bubble
                                 datasets={energyUsePerCapitaVsPovertyDatasets}
@@ -69,15 +69,18 @@ const CapitaEnergyUseVsPoverty = () => {
                                             scaleLabel: {
                                                 display: true,
                                                 labelString: 'Poverty - $1.90 a day (% of population)',
-                                                fontColor: 'black',
+                                                fontColor: '#666666',
                                                 fontSize: width > 760 ? '14' : '10'
-                                            }
+                                            },
+                                            gridLines: {
+                                                drawBorder: false,
+                                            },
                                         }],
                                         xAxes: [{
                                             scaleLabel: {
                                                 display: true,
                                                 labelString: 'Energy use (kg of oil equivalent per capita)',
-                                                fontColor: 'black',
+                                                fontColor: '#666666',
                                                 fontSize: width > 760 ? '14' : '10'
                                             },
                                             gridLines : {

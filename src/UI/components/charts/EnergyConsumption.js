@@ -3,6 +3,7 @@ import getEnergyConsumption from "../../../Infrastructure/Adapter/getEnergyConsu
 import MultipleLines from "../charts-types/MultipleLines";
 import MultitpleAutoComplete from "../utils/MultipleAutoComplete";
 import useWindowDimensions from "../utils/useWindowDimension";
+import kFormatThousands from "../utils/kFormatThousands";
 
 const EnergyConsumption = () => {
     const {width} = useWindowDimensions();
@@ -36,7 +37,7 @@ const EnergyConsumption = () => {
             </div>
             <div className="container my-3 my-md-5 pb-4 pb-md-5">
                 <div className="row">
-                    <div className="col">
+                    <div className="col px-0 px-sm-auto">
                         <div className="white-wrapper">
                             <MultipleLines
                                 name='Total energy consumption'
@@ -51,20 +52,26 @@ const EnergyConsumption = () => {
                                     scales: {
                                         yAxes: [{
                                             ticks: {
-                                                beginAtZero: true
+                                                beginAtZero: true,
+                                                userCallback: function(value, index, values) {
+                                                    return kFormatThousands(value)
+                                                }
                                             },
                                             scaleLabel: {
                                                 display: true,
                                                 labelString: 'Mtoe',
-                                                fontColor: 'black',
+                                                fontColor: '#666666',
                                                 fontSize: width > 760 ? '14' : '10'
-                                            }
+                                            },
+                                            gridLines: {
+                                                drawBorder: false,
+                                            },
                                         }],
                                         xAxes: [{
                                             scaleLabel: {
                                                 display: true,
                                                 labelString: 'Years',
-                                                fontColor: 'black',
+                                                fontColor: '#666666',
                                                 fontSize: width > 760 ? '14' : '10'
                                             },
                                             gridLines : {

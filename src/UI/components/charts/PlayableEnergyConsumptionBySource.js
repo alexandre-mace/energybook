@@ -9,6 +9,7 @@ import React from "react";
 import getEnergySupplySource from "../../../Infrastructure/Adapter/getEnergySupplySource";
 import useWindowDimensions from "../utils/useWindowDimension";
 import {FormLabel} from "@material-ui/core";
+import kFormatThousands from "../utils/kFormatThousands";
 
 const PlayableEnergyConsumptionBySource = () => {
     const {width} = useWindowDimensions();
@@ -58,7 +59,7 @@ const PlayableEnergyConsumptionBySource = () => {
             </div>
             <div className="container my-3 my-md-5 pb-4 pb-md-5">
                 <div className="row">
-                    <div className="col min-chart-height">
+                    <div className="col px-0 px-sm-auto min-chart-height">
                         <div className="white-wrapper">
                             <FormGroup row className={"mb-2"}>
                                 <FormLabel component="legend">Grouped by</FormLabel>
@@ -154,7 +155,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                                 scaleLabel: {
                                                     display: true,
                                                     labelString: 'TWh (Terawatt-hour)',
-                                                    fontColor: 'black',
+                                                    fontColor: '#666666',
                                                     fontSize: width > 760 ? '14' : '10'
                                                 }
                                             }],
@@ -162,7 +163,7 @@ const PlayableEnergyConsumptionBySource = () => {
                                                 scaleLabel: {
                                                     display: true,
                                                     labelString: 'Years',
-                                                    fontColor: 'black',
+                                                    fontColor: '#666666',
                                                     fontSize: width > 760 ? '14' : '10'
                                                 }
                                             }]
@@ -209,23 +210,30 @@ const PlayableEnergyConsumptionBySource = () => {
                                         scales: {
                                             yAxes: [{
                                                 stacked: false,
-                                                ticks: {},
+                                                ticks: {
+                                                    userCallback: function(value, index, values) {
+                                                        return kFormatThousands(value)
+                                                    }
+                                                },
                                                 scaleLabel: {
                                                     display: true,
                                                     labelString: 'TWh (Terawatt-hour)',
-                                                    fontColor: 'black',
+                                                    fontColor: '#666666',
                                                     fontSize: width > 760 ? '14' : '10'
+                                                },
+                                                gridLines: {
+                                                    drawBorder: false,
                                                 },
                                             }],
                                             xAxes: [{
                                                 scaleLabel: {
                                                     display: true,
                                                     labelString: 'Years',
-                                                    fontColor: 'black',
+                                                    fontColor: '#666666',
                                                     fontSize: width > 760 ? '14' : '10'
                                                 },
                                                 gridLines : {
-                                                    display : false
+                                                    display : false,
                                                 }
                                             }]
                                         },

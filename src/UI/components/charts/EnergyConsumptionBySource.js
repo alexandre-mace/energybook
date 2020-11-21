@@ -6,6 +6,7 @@ import MultipleLines from "../charts-types/MultipleLines";
 import React from "react";
 import getEnergySupplySource from "../../../Infrastructure/Adapter/getEnergySupplySource";
 import useWindowDimensions from "../utils/useWindowDimension";
+import kFormatThousands from "../utils/kFormatThousands";
 
 const EnergyConsumptionBySource = ({
                                        mode = 'lines',
@@ -51,7 +52,7 @@ const EnergyConsumptionBySource = ({
             <div className="container my-3 my-md-5 pb-4 pb-md-5">
                 <div className="row">
                     {mode !== 'doughnut' &&
-                    <div className="col">
+                    <div className="col px-0 px-sm-auto">
                         <div className="white-wrapper">
                             <MultipleLines
                                 name='Renewables share'
@@ -80,11 +81,15 @@ const EnergyConsumptionBySource = ({
                                     scales: {
                                         yAxes: [{
                                             stacked: false,
-                                            ticks: {},
+                                            ticks: {
+                                                userCallback: function(value, index, values) {
+                                                    return kFormatThousands(value)
+                                                }
+                                            },
                                             scaleLabel: {
                                                 display: true,
                                                 labelString: 'TWh (Terawatt-hour)',
-                                                fontColor: 'black',
+                                                fontColor: '#666666',
                                                 fontSize: width > 760 ? '14' : '10'
                                             }
                                         }],
@@ -92,7 +97,7 @@ const EnergyConsumptionBySource = ({
                                             scaleLabel: {
                                                 display: true,
                                                 labelString: 'Years',
-                                                fontColor: 'black',
+                                                fontColor: '#666666',
                                                 fontSize: width > 760 ? '14' : '10'
                                             },
                                             gridLines : {
@@ -121,7 +126,7 @@ const EnergyConsumptionBySource = ({
                     </div>
                     }
                     {mode === 'doughnut' &&
-                    <div className="col">
+                    <div className="col px-0 px-sm-auto">
                         <div className="white-wrapper">
                             <FormGroup row>
                                 {(mode === 'doughnut' && energySupplySourceDatasets[0]) &&

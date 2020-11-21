@@ -3,6 +3,7 @@ import React from "react";
 import getRenewableEnergyInvestmentPercentage
     from "../../../Infrastructure/Adapter/getRenewableEnergyInvestmentPercentage";
 import useWindowDimensions from "../utils/useWindowDimension";
+import kFormatThousands from "../utils/kFormatThousands";
 
 const RenewableEnergyInvestmentByGdp = () => {
     const { width } = useWindowDimensions();
@@ -28,7 +29,7 @@ const RenewableEnergyInvestmentByGdp = () => {
             </div>
             <div className="container my-3 my-md-5 pb-4 pb-md-5">
                 <div className="row">
-                    <div className="col">
+                    <div className="col px-0 px-sm-auto">
                         <div className="white-wrapper doughnut-wrapper">
                             <Doughnut
                                 name='Renewables share'
@@ -47,24 +48,31 @@ const RenewableEnergyInvestmentByGdp = () => {
                                     scales: {
                                         yAxes: [{
                                             stacked: true,
-                                            ticks: {},
+                                            ticks: {
+                                                userCallback: function(value, index, values) {
+                                                    return kFormatThousands(value)
+                                                }
+                                            },
                                             scaleLabel: {
                                                 display: true,
                                                 labelString: '% of GDP',
-                                                fontColor: 'black',
+                                                fontColor: '#666666',
                                                 fontSize: width > 760 ? '14' : '10'
-                                            }
+                                            },
+                                            gridLines: {
+                                                drawBorder: false,
+                                            },
                                         }],
                                         xAxes: [{
                                             scaleLabel: {
                                                 display: true,
                                                 labelString: 'Years',
-                                                fontColor: 'black',
+                                                fontColor: '#666666',
                                                 fontSize: width > 760 ? '14' : '10'
                                             },
                                             gridLines : {
                                                 display : false
-                                            }
+                                            },
                                         }]
                                     },
                                     legend: {
