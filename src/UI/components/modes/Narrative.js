@@ -32,7 +32,7 @@ function Narrative() {
             {loading &&
             <Loader/>
             }
-            <div className={loading ? 'hidden' : ''}>
+            <div>
                 <CircleIndicator/>
                 <ScrollBackToTop/>
                 <div className="container pt-1 mb-3 mb-md-3">
