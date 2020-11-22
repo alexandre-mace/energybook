@@ -20,7 +20,7 @@ function Narrative() {
     const delayedCloseLoader = () => {
         setTimeout(() => {
             setLoading(false)
-        }, 1000);
+        }, 1400);
     }
 
     React.useEffect(() => {
