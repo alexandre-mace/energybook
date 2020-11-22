@@ -86,8 +86,6 @@ footer {
     color: #eb5c5c;
 }
 .hidden {
-    opacity: 0;
-    overflow: hidden;
 }
 .scrollTop {
     position: fixed;
