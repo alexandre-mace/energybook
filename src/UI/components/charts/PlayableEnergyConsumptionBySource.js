@@ -11,7 +11,7 @@ import useWindowDimensions from "../utils/useWindowDimension";
 import {FormLabel} from "@material-ui/core";
 import kFormatThousands from "../utils/kFormatThousands";
 
-const PlayableEnergyConsumptionBySource = ({animation = false}) => {
+const PlayableEnergyConsumptionBySource = ({animation = true}) => {
     const {width} = useWindowDimensions();
 
     const [energySupplySourceIndex, setEnergySupplySourceIndex] = React.useState('World')
