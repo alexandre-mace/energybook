@@ -195,7 +195,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <FinalEnergyConsumptionBySource mode={"lines"} animation={false}/>
+                <FinalEnergyConsumptionBySource modeOption={"lines"} animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
@@ -207,7 +207,7 @@ function Narrative() {
                     </div>
                 </div>
 
-                <FinalEnergyConsumptionBySource mode={"doughnut"} animation={false}/>
+                <FinalEnergyConsumptionBySource modeOption={"doughnut"} animation={false}/>
 
                 <div className="container my-3 my-md-5">
                     <div className="row">
