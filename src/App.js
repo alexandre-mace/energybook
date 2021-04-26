@@ -61,7 +61,7 @@ function App() {
                             <div className="col">
                                 <div className="col p-0 d-flex">
                                     <h1 className={"mb-3 pb-3 pb-md-4 app-title color-primary"}>Energy book</h1>
-                                    <FullDesktopAnimation/>
+                                    {/*<FullDesktopAnimation/>*/}
                                 </div>
                                 <h4>This book will teach you the basis about energy <span role={"img"}
                                                                                           aria-label={"book"}>&#128212;</span>
@@ -77,7 +77,7 @@ function App() {
                        delayedCloseLoader={delayedCloseLoader}
                     />
 
-                    <FullMobileAnimation/>
+                    {/*<FullMobileAnimation/>*/}
                 </>
                 }
                 <Footer setAppMode={setAppMode}/>
