@@ -1,33 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.23b6eb57.chunk.css",
-    "main.js": "/static/js/main.5ee79592.chunk.js",
-    "main.js.map": "/static/js/main.5ee79592.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.d09e718c.js",
-    "runtime-main.js.map": "/static/js/runtime-main.d09e718c.js.map",
-    "static/js/2.df862ab0.chunk.js": "/static/js/2.df862ab0.chunk.js",
-    "static/js/2.df862ab0.chunk.js.map": "/static/js/2.df862ab0.chunk.js.map",
+    "main.css": "/static/css/main.73f56d5b.css",
+    "main.js": "/static/js/main.8cc2e0ae.js",
+    "static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.csv": "/static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.5676bdd5aa87e6b3e24b.csv",
+    "static/media/solar-panel.png": "/static/media/solar-panel.be2689d6df64fd6bbfbc.png",
+    "static/media/coal.png": "/static/media/coal.f3d9b1f7e3a5ca2f18c9.png",
+    "static/media/hydro.png": "/static/media/hydro.7c9cdc0291a987a4d276.png",
+    "static/media/nuclear-power-plant.png": "/static/media/nuclear-power-plant.e5a80bbc7176ad064e30.png",
+    "static/media/total_co2_emissions.csv": "/static/media/total_co2_emissions.150e464b26c646bfd881.csv",
+    "static/media/total_electricity_consumption.csv": "/static/media/total_electricity_consumption.122b9ae7a9f96adeff7c.csv",
+    "static/media/total_energy_consumption.csv": "/static/media/total_energy_consumption.54bd5b19c3b3d1fbaa94.csv",
     "index.html": "/index.html",
-    "precache-manifest.417ef68f93828d7ef2d2a1ecfff75c5b.js": "/precache-manifest.417ef68f93828d7ef2d2a1ecfff75c5b.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.23b6eb57.chunk.css.map": "/static/css/main.23b6eb57.chunk.css.map",
-    "static/js/2.df862ab0.chunk.js.LICENSE.txt": "/static/js/2.df862ab0.chunk.js.LICENSE.txt",
-    "static/media/coal.png": "/static/media/coal.ce5bc250.png",
-    "static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.csv": "/static/media/energy-use-per-capita-vs-share-of-population-in-extreme-poverty.95d591bf.csv",
-    "static/media/hydro.png": "/static/media/hydro.e50b6d47.png",
-    "static/media/investment-in-renewable-energy-by-technology.csv": "/static/media/investment-in-renewable-energy-by-technology.72070554.csv",
-    "static/media/nuclear-power-plant.png": "/static/media/nuclear-power-plant.47a2d30d.png",
-    "static/media/solar-panel.png": "/static/media/solar-panel.4c6ee7a5.png",
-    "static/media/total_co2_emissions.csv": "/static/media/total_co2_emissions.ae35b90c.csv",
-    "static/media/total_electricity_consumption.csv": "/static/media/total_electricity_consumption.c23a0dbf.csv",
-    "static/media/total_energy_consumption.csv": "/static/media/total_energy_consumption.910e7983.csv",
-    "static/media/total_final_consumption_by_sector.csv": "/static/media/total_final_consumption_by_sector.e9c0cfab.csv",
-    "static/media/total_final_consumption_by_source.csv": "/static/media/total_final_consumption_by_source.09c8581c.csv"
+    "static/media/total_final_consumption_by_sector.csv": "/static/media/total_final_consumption_by_sector.dc10a04a9b74b9f85e58.csv",
+    "static/media/investment-in-renewable-energy-by-technology.csv": "/static/media/investment-in-renewable-energy-by-technology.8621d8b470539b353137.csv",
+    "static/media/total_final_consumption_by_source.csv": "/static/media/total_final_consumption_by_source.f914e06a1e3e2f34c769.csv",
+    "main.73f56d5b.css.map": "/static/css/main.73f56d5b.css.map",
+    "main.8cc2e0ae.js.map": "/static/js/main.8cc2e0ae.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.d09e718c.js",
-    "static/js/2.df862ab0.chunk.js",
-    "static/css/main.23b6eb57.chunk.css",
-    "static/js/main.5ee79592.chunk.js"
+    "static/css/main.73f56d5b.css",
+    "static/js/main.8cc2e0ae.js"
   ]
 }
